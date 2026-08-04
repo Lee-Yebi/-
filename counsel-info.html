@@ -1,0 +1,104 @@
+// Duksung Counseling Center "Delight" — experimental MVP prototype
+// 사다리타기(고민 유형 → 상담 유형 → 신청 경로) 매핑
+// 사다리타기와 이용후기 필터의 "상담 유형" 이름을 통일해서 두 기능이 같은 카테고리를 공유하도록 함
+const LADDER_MAP = {
+  study: {
+    worry: "학업/성적 고민 (지금 전공이 안 맞는 것 같아요)",
+    type: "학습상담",
+    route: "이룸",
+    desc: "학생경력개발시스템 이룸(대학일자리플러스센터) 사이트의 '통합상담 &gt; 학습' 영역에서 신청합니다.",
+    link: "#",
+  },
+  career: {
+    worry: "진로/취업 고민 (모의면접이 필요해요 / 취업클리닉 받고싶어요)",
+    type: "진로·취업상담",
+    route: "이룸",
+    desc: "이룸 사이트의 '통합상담 &gt; 진로/취업' 영역에서 신청합니다.",
+    link: "#",
+  },
+  psych: {
+    worry: "사람들과의 관계가 힘들어요",
+    type: "심리상담",
+    route: "이룸",
+    desc: "이룸 사이트의 '통합상담 &gt; 심리' 영역에서 신청합니다. 4영역 중 유일하게 별도 절차(자기진단 체크리스트 등)가 있습니다.",
+    link: "#",
+  },
+  group: {
+    worry: "여러 사람과 얘기 나누고 싶어요",
+    type: "집단상담",
+    route: "딜라이트",
+    desc: "딜라이트(학생상담센터) 사이트에서 직접 신청합니다.",
+    link: "#",
+  },
+  startup: {
+    worry: "창업 관련 고민이 있어요",
+    type: "창업상담",
+    route: "이룸",
+    desc: "이룸 사이트의 '통합상담 &gt; 창업' 영역에서 신청합니다.",
+    link: "#",
+  },
+};
+
+function initLadder() {
+  const container = document.querySelector("[data-ladder]");
+  if (!container) return;
+
+  const buttons = container.querySelectorAll(".ladder-option");
+  const result = container.querySelector(".ladder-result");
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const key = btn.dataset.key;
+
+      if (key === "crisis") {
+        result.innerHTML = `
+          <h4>지금 많이 위급하신가요?</h4>
+          <p>다른 단계를 거치지 않고 바로 연락해 주세요.</p>
+          <p style="margin-top:10px;">
+            <a class="btn" href="tel:129">☎ 129 (보건복지상담센터)</a>
+            <a class="btn secondary" href="tel:1577-0199">☎ 1577-0199 (정신건강 위기상담)</a>
+          </p>`;
+        result.classList.add("show");
+        return;
+      }
+
+      const info = LADDER_MAP[key];
+      if (!info) return;
+
+      result.innerHTML = `
+        <h4>${info.worry}</h4>
+        <p>→ <strong>${info.type}</strong> (<span class="tag" style="display:inline;">${info.route}</span>)</p>
+        <p>${info.desc}</p>
+        <a class="btn" href="${info.link}">${info.route} 사이트로 이동 (준비 중)</a>`;
+      result.classList.add("show");
+      result.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    });
+  });
+}
+
+// 이용후기 필터 (사다리타기와 동일한 상담 유형 태그 사용)
+function initReviewFilters() {
+  const toolbar = document.querySelector("[data-review-filters]");
+  if (!toolbar) return;
+
+  const buttons = toolbar.querySelectorAll("button[data-filter]");
+  const cards = document.querySelectorAll("[data-review-card]");
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      buttons.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      const filter = btn.dataset.filter;
+
+      cards.forEach((card) => {
+        const show = filter === "all" || card.dataset.type === filter;
+        card.style.display = show ? "" : "none";
+      });
+    });
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  initLadder();
+  initReviewFilters();
+});
