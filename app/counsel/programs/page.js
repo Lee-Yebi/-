@@ -1,3 +1,5 @@
+import PageContainer from "@/components/PageContainer";
+
 const programs = [
   {
     name: "진로/취업상담",
@@ -47,7 +49,7 @@ const programs = [
 
 export default function ProgramsPage() {
   return (
-    <div className="mx-auto max-w-5xl px-4 py-10">
+    <PageContainer>
       <h1 className="text-xl font-semibold">센터 운영 프로그램</h1>
 
       <div className="mt-6 space-y-4">
@@ -82,6 +84,6 @@ export default function ProgramsPage() {
           </section>
         ))}
       </div>
-    </div>
+    </PageContainer>
   );
 }

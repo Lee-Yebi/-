@@ -1,3 +1,5 @@
+import PageContainer from "@/components/PageContainer";
+
 const faqs = [
   {
     question: "누구나 상담받을 수 있나요?",
@@ -35,13 +37,13 @@ const faqs = [
 
 export default function FaqPage() {
   return (
-    <div className="mx-auto max-w-5xl px-4 py-10">
+    <PageContainer>
       <h1 className="text-xl font-semibold">FAQ</h1>
 
       <div className="mt-6 divide-y divide-border rounded-xl border border-border bg-card">
         {faqs.map((item) => (
           <details key={item.question} className="group px-4 py-3">
-            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-medium text-foreground marker:content-none">
+            <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 text-sm font-medium text-foreground marker:content-none">
               {item.question}
               <span
                 aria-hidden
@@ -56,6 +58,6 @@ export default function FaqPage() {
           </details>
         ))}
       </div>
-    </div>
+    </PageContainer>
   );
 }

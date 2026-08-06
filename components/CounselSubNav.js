@@ -26,7 +26,7 @@ export default function CounselSubNav() {
               <Link
                 href={link.href}
                 aria-current={active ? "page" : undefined}
-                className={`inline-block rounded-full border px-3 py-1.5 whitespace-nowrap transition-colors ${
+                className={`flex min-h-11 items-center rounded-full border px-3 whitespace-nowrap transition-colors ${
                   active
                     ? "border-highlight-border bg-highlight font-medium text-highlight-foreground"
                     : "border-transparent text-muted hover:text-accent"

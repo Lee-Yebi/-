@@ -1,12 +1,14 @@
+import PageContainer from "@/components/PageContainer";
+
 const collection = [
-  { item: "이름, 학과, 학년, 학번, 연락처, 주소", purpose: "상담" },
-  { item: "필수항목 이외 (찾아온 경위, 문제유형 등)", purpose: "상담" },
-  { item: "이전상담경험, 종교", purpose: "상담" },
+  { item: "이름, 학과, 학년, 학번, 연락처, 주소", purpose: "상담", period: "5년" },
+  { item: "필수항목 이외 (찾아온 경위, 문제유형 등)", purpose: "상담", period: "5년" },
+  { item: "이전상담경험, 종교", purpose: "상담", period: "5년" },
 ];
 
 export default function PrivacyPage() {
   return (
-    <div className="mx-auto max-w-5xl px-4 py-10">
+    <PageContainer>
       <h1 className="text-xl font-semibold">비밀보장 및 개인정보 보호</h1>
 
       <p className="mt-4 text-sm leading-relaxed text-muted">
@@ -14,8 +16,28 @@ export default function PrivacyPage() {
         수집·이용합니다.
       </p>
 
-      <div className="mt-4 overflow-x-auto rounded-xl border border-border">
-        <table className="w-full min-w-[480px] text-left text-sm">
+      {/* mobile: stacked cards, one row per item */}
+      <div className="mt-4 space-y-3 md:hidden">
+        {collection.map((row) => (
+          <div key={row.item} className="rounded-xl border border-border bg-card p-4">
+            <p className="text-sm font-medium text-foreground">{row.item}</p>
+            <dl className="mt-2 space-y-1 text-sm text-muted">
+              <div className="flex justify-between gap-4">
+                <dt>수집 목적</dt>
+                <dd>{row.purpose}</dd>
+              </div>
+              <div className="flex justify-between gap-4">
+                <dt>보유 기간</dt>
+                <dd>{row.period}</dd>
+              </div>
+            </dl>
+          </div>
+        ))}
+      </div>
+
+      {/* desktop: table */}
+      <div className="mt-4 hidden overflow-x-auto rounded-xl border border-border md:block">
+        <table className="w-full text-left text-sm">
           <thead>
             <tr className="border-b border-border bg-border/20 text-foreground">
               <th className="px-4 py-3 font-medium">수집 항목</th>
@@ -28,7 +50,7 @@ export default function PrivacyPage() {
               <tr key={row.item}>
                 <td className="px-4 py-3 text-muted">{row.item}</td>
                 <td className="px-4 py-3 text-muted">{row.purpose}</td>
-                <td className="px-4 py-3 text-muted">5년</td>
+                <td className="px-4 py-3 text-muted">{row.period}</td>
               </tr>
             ))}
           </tbody>
@@ -49,6 +71,6 @@ export default function PrivacyPage() {
           있습니다.
         </li>
       </ul>
-    </div>
+    </PageContainer>
   );
 }
