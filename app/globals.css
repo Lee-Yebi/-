@@ -28,21 +28,6 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #211b1d;
-    --foreground: #ece6e3;
-    --card: #2b2325;
-    --border: #3d3335;
-    --muted: #b0a3a0;
-    --accent: #d98fa8;
-    --accent-2: #b98493;
-    --highlight: #3a3020;
-    --highlight-border: #5c4b28;
-    --highlight-foreground: #f0d9a0;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
