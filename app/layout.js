@@ -1,4 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import Link from "next/link";
 import "./globals.css";
 import CrisisBanner from "@/components/CrisisBanner";
@@ -39,6 +40,7 @@ export default function RootLayout({ children }) {
         <MainNav />
         <main className="w-full flex-1">{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
