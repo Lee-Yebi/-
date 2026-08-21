@@ -24,6 +24,11 @@ export default function MainNav() {
     setOpen(false);
   }, [pathname]);
 
+  // the landing page is its own layout: no tab navigation there
+  if (pathname === "/") {
+    return null;
+  }
+
   return (
     <nav className="w-full border-b border-border md:border-b-0">
       <div className="mx-auto max-w-5xl px-4 py-2">
