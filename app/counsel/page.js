@@ -1,6 +1,29 @@
 import Link from "next/link";
 import PageContainer from "@/components/PageContainer";
 
+const visitReasons = [
+  {
+    title: "나를 알고 싶을 때",
+    desc: "내가 어떤 사람인지, 무엇을 좋아하는지 스스로도 잘 모르겠을 때",
+  },
+  {
+    title: "혼자 감당이 안 될 때",
+    desc: "스스로 해결해 보려 했지만 잘 풀리지 않는 문제가 생겼을 때",
+  },
+  {
+    title: "진로가 막막할 때",
+    desc: "앞으로의 방향과 미래가 불안하게 느껴질 때",
+  },
+  {
+    title: "객관적인 확인이 필요할 때",
+    desc: "내 성격·적성을 검사 결과로 확인하고 싶을 때",
+  },
+  {
+    title: "더 성장하고 싶을 때",
+    desc: "미처 몰랐던 나의 강점을 찾아 발전시키고 싶을 때",
+  },
+];
+
 const concernCategories = [
   { title: "자아성장", tags: ["자기탐색 및 성장", "자기표현 향상"] },
   { title: "정서적 문제", tags: ["우울", "무기력", "급격한 기분변화", "불안"] },
@@ -45,7 +68,27 @@ export default function CounselPage() {
     <PageContainer>
       <h1 className="text-xl font-semibold">상담 알아보기</h1>
 
-      <p className="mt-2 text-sm text-muted">
+      <section className="mt-6">
+        <h2 className="text-base font-semibold text-foreground">이럴 때 방문하세요</h2>
+        <p className="mt-2 text-sm text-muted">
+          상담센터는 문제가 심각해야만 가는 곳이 아닙니다.
+        </p>
+
+        <div className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2">
+          {visitReasons.map((reason) => (
+            <div key={reason.title} className="rounded-xl border border-border bg-card p-5">
+              <h3 className="text-base font-semibold text-accent">{reason.title}</h3>
+              <p className="mt-2 text-[15px] leading-[1.7] text-muted">{reason.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        <p className="mt-4 text-sm text-muted">
+          이 외에도 대학생활·대인관계·정서 등 어떤 주제든 상담할 수 있습니다.
+        </p>
+      </section>
+
+      <p className="mt-8 text-sm text-muted">
         아래 중 하나라도 해당된다면 편하게 신청하셔도 됩니다
       </p>
 
