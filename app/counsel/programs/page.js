@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import PageContainer from "@/components/PageContainer";
+import SourceNote from "@/components/SourceNote";
 
 const tabs = [
   { key: "individual", label: "개인상담" },
@@ -384,6 +385,8 @@ export default function ProgramsPage() {
           </div>
         </div>
       )}
+
+      <SourceNote />
     </PageContainer>
   );
 }

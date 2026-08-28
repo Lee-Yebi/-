@@ -1,5 +1,6 @@
 import Link from "next/link";
 import PageContainer from "@/components/PageContainer";
+import SourceNote from "@/components/SourceNote";
 
 const visitReasons = [
   {
@@ -129,6 +130,8 @@ export default function CounselPage() {
       >
         상담 신청부터 진행까지 보기
       </Link>
+
+      <SourceNote />
     </PageContainer>
   );
 }
