@@ -32,18 +32,21 @@ const tabsData = {
   test: {
     meta: null,
     steps: [
-      { title: "신청서 작성", desc: null },
-      { title: "심리검사 실시", desc: null },
-      { title: "해석상담 진행", desc: null },
+      { title: "신청서 작성", desc: "학생경력개발시스템에서 온라인으로 신청" },
+      { title: "심리검사 실시", desc: "원하는 영역에 맞는 검사를 진행" },
+      { title: "해석상담 진행", desc: "상담 선생님과 함께 결과를 읽어보는 시간" },
     ],
     note: "검사만 받는 것이 아니라, 결과를 함께 읽어주는 해석상담이 반드시 따라옵니다.",
   },
   group: {
     meta: null,
     steps: [
-      { title: "홈페이지·비교과통합관리시스템 공고", desc: null },
-      { title: "온라인 신청", desc: null },
-      { title: "프로그램 참여", desc: null },
+      {
+        title: "홈페이지·비교과통합관리시스템 공고",
+        desc: "학생상담센터 홈페이지와 비교과통합관리시스템에 게시",
+      },
+      { title: "온라인 신청", desc: "비교과통합관리시스템에서 신청" },
+      { title: "프로그램 참여", desc: "소그룹으로 모여 활동과 대화 진행" },
     ],
     note: "상시 접수가 아니라 모집 공고 → 신청 방식이므로, 학기 초 공지를 챙겨보는 것이 중요합니다.",
   },
