@@ -132,19 +132,6 @@ const partnerCategories = [
   },
 ];
 
-const crisisSteps = [
-  "본인 신청 또는 타인 의뢰",
-  "방문·전화 접수 및 위기 정도 확인",
-  "전문 상담원의 접수상담 및 위기 평가",
-  "위험 수준에 따른 맞춤 개입",
-];
-
-const levelResponses = [
-  { level: "응급 상황", response: "경찰·119 연락 및 응급의료센터 연계" },
-  { level: "고위험군", response: "의뢰서 작성 후 전문 연계기관에 의뢰" },
-  { level: "저위험군", response: "개인상담·심리검사 진행 및 사례회의" },
-];
-
 export default function ExternalPage() {
   return (
     <PageContainer>
@@ -244,64 +231,6 @@ export default function ExternalPage() {
             </div>
           ))}
         </div>
-      </section>
-
-      {/* 위기상담 진행 방식 — 맨 아래, 기본 접힘 */}
-      <section className="mt-10">
-        <details className="group rounded-xl border border-border bg-card">
-          <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-base font-semibold text-foreground marker:content-none">
-            위기상담 진행 방식
-            <span
-              aria-hidden
-              className="shrink-0 text-muted transition-transform group-open:rotate-45"
-            >
-              +
-            </span>
-          </summary>
-
-          <div className="border-t border-border px-5 py-5">
-            <ol className="space-y-3">
-              {crisisSteps.map((step, i) => (
-                <li key={step} className="flex gap-4">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent text-sm font-semibold text-white">
-                    {i + 1}
-                  </span>
-                  <p className="pt-1 text-sm leading-relaxed text-foreground">{step}</p>
-                </li>
-              ))}
-            </ol>
-
-            <h3 className="mt-6 text-sm font-semibold text-foreground">수준별 대응</h3>
-
-            <div className="mt-3 space-y-3 md:hidden">
-              {levelResponses.map((row) => (
-                <div key={row.level} className="rounded-xl border border-border bg-background p-4">
-                  <p className="text-sm font-medium text-foreground">{row.level}</p>
-                  <p className="mt-1 text-sm leading-relaxed text-muted">{row.response}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-3 hidden overflow-x-auto rounded-xl border border-border md:block">
-              <table className="w-full text-left text-sm">
-                <thead>
-                  <tr className="border-b border-border bg-border/20 text-foreground">
-                    <th className="px-4 py-3 font-medium">수준</th>
-                    <th className="px-4 py-3 font-medium">대응</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-border">
-                  {levelResponses.map((row) => (
-                    <tr key={row.level}>
-                      <td className="px-4 py-3 font-medium text-foreground">{row.level}</td>
-                      <td className="px-4 py-3 text-muted">{row.response}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </details>
       </section>
     </PageContainer>
   );

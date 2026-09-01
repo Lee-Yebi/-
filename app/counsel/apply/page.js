@@ -8,6 +8,7 @@ const tabs = [
   { key: "individual", label: "개인상담" },
   { key: "test", label: "심리검사" },
   { key: "group", label: "집단상담·프로그램" },
+  { key: "crisis", label: "위기상담" },
 ];
 
 const tabsData = {
@@ -144,6 +145,28 @@ const groupOperations = [
   "신청은 비교과통합관리시스템에서 온라인으로 진행합니다.",
 ];
 
+// 위기상담 탭에 이어붙이는 내용 (/external 페이지에서 이동)
+const crisisSigns = [
+  "일상생활이 어려울 정도의 극심한 정서적 고통과 혼란",
+  "자살에 대한 생각이나 계획",
+  "극심한 우울·불안, 감당하기 힘든 스트레스",
+  "중독 문제",
+  "폭력 피해",
+];
+
+const crisisSteps = [
+  "본인 신청 또는 타인 의뢰",
+  "방문·전화 접수 및 위기 정도 확인",
+  "전문 상담원의 접수상담 및 위기 평가",
+  "위험 수준에 따른 맞춤 개입",
+];
+
+const levelResponseRows = [
+  { label: "응급 상황", value: "경찰·119 연락 및 응급의료센터 연계" },
+  { label: "고위험군", value: "의뢰서 작성 후 전문 연계기관에 의뢰" },
+  { label: "저위험군", value: "개인상담·심리검사 진행 및 사례회의" },
+];
+
 function InfoTable({ rows, labelHeader = "구분", valueHeader = "내용" }) {
   return (
     <>
@@ -249,37 +272,95 @@ export default function ApplyPage() {
         </div>
       </div>
 
-      {/* (1) 한 줄 소개 */}
-      <div className="mt-6 rounded-xl border border-highlight-border bg-highlight p-5 text-sm leading-relaxed text-highlight-foreground">
-        {active.note}
-      </div>
+      {activeTab !== "crisis" && (
+        <>
+          {/* (1) 한 줄 소개 */}
+          <div className="mt-6 rounded-xl border border-highlight-border bg-highlight p-5 text-sm leading-relaxed text-highlight-foreground">
+            {active.note}
+          </div>
 
-      {/* (2) 신청 절차 */}
-      <h2 className="mt-8 text-base font-semibold text-foreground">신청 절차</h2>
-      {active.meta && (
-        <p className="mt-1 text-sm font-medium text-accent">{active.meta}</p>
+          {/* (2) 신청 절차 */}
+          <h2 className="mt-8 text-base font-semibold text-foreground">신청 절차</h2>
+          {active.meta && (
+            <p className="mt-1 text-sm font-medium text-accent">{active.meta}</p>
+          )}
+          <ol className="mt-4 space-y-3">
+            {active.steps.map((step, i) => (
+              <li
+                key={step.title}
+                className="flex gap-4 rounded-xl border border-border bg-card p-5"
+              >
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent text-sm font-semibold text-white">
+                  {i + 1}
+                </span>
+                <div>
+                  <p className="text-base font-semibold text-foreground">{step.title}</p>
+                  {step.desc && (
+                    <p className="mt-1 text-sm leading-relaxed text-muted">{step.desc}</p>
+                  )}
+                </div>
+              </li>
+            ))}
+          </ol>
+
+          {/* (3) 구분선 */}
+          <hr className="mt-10 border-border" />
+        </>
       )}
-      <ol className="mt-4 space-y-3">
-        {active.steps.map((step, i) => (
-          <li
-            key={step.title}
-            className="flex gap-4 rounded-xl border border-border bg-card p-5"
-          >
-            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent text-sm font-semibold text-white">
-              {i + 1}
-            </span>
-            <div>
-              <p className="text-base font-semibold text-foreground">{step.title}</p>
-              {step.desc && (
-                <p className="mt-1 text-sm leading-relaxed text-muted">{step.desc}</p>
-              )}
-            </div>
-          </li>
-        ))}
-      </ol>
 
-      {/* (3) 구분선 */}
-      <hr className="mt-10 border-border" />
+      {/* 위기상담: 노란 안내 박스 -> 이럴 때는 바로 연락하세요 -> 진행 절차 -> 수준별 대응 (external 페이지에서 이동) */}
+      {activeTab === "crisis" && (
+        <>
+          <div className="mt-6 rounded-xl border border-highlight-border bg-highlight p-5 text-sm leading-relaxed text-highlight-foreground">
+            평소의 대처 방법으로는 감당하기 어려운 상태라면 위기상담 대상입니다.
+          </div>
+
+          <h2 className="mt-8 text-base font-semibold text-foreground">
+            이럴 때는 바로 연락하세요
+          </h2>
+          <ul className="mt-4 space-y-2 rounded-xl border border-border bg-card p-5">
+            {crisisSigns.map((sign) => (
+              <li key={sign} className="text-sm leading-relaxed text-muted">
+                · {sign}
+              </li>
+            ))}
+          </ul>
+
+          <h2 className="mt-8 text-base font-semibold text-foreground">진행 절차</h2>
+          <ol className="mt-4 space-y-3">
+            {crisisSteps.map((step, i) => (
+              <li
+                key={step}
+                className="flex gap-4 rounded-xl border border-border bg-card p-5"
+              >
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent text-sm font-semibold text-white">
+                  {i + 1}
+                </span>
+                <p className="pt-1 text-base font-semibold text-foreground">{step}</p>
+              </li>
+            ))}
+          </ol>
+
+          <hr className="mt-10 border-border" />
+
+          <div className="mt-8">
+            <h2 className="text-base font-semibold text-foreground">수준별 대응</h2>
+            <InfoTable rows={levelResponseRows} labelHeader="수준" valueHeader="대응" />
+          </div>
+
+          <div className="mt-8 rounded-xl border border-highlight-border bg-highlight p-5 text-sm leading-relaxed text-highlight-foreground">
+            지금 도움이 필요하다면{" "}
+            <a href="tel:109" className="font-semibold underline underline-offset-2">
+              109
+            </a>
+            (자살예방 상담전화·24시간)로 바로 연락하세요. 교내 상담은{" "}
+            <a href="tel:029018056" className="font-semibold underline underline-offset-2">
+              02-901-8056
+            </a>
+            입니다.
+          </div>
+        </>
+      )}
 
       {/* (4) 상세 내용 */}
       {/* 개인상담: 프로그램 상세 (programs 페이지에서 이동) */}
