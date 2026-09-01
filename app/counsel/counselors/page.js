@@ -27,16 +27,6 @@ export default function CounselorsPage() {
         모든 상담사는 임상심리사 또는 상담심리사 1·2급 이상의 자격증을 보유한
         전문가입니다.
       </div>
-
-      <p className="mt-10 text-sm leading-relaxed text-muted">
-        상담사 개별 소개는 준비 중입니다.
-        <br />
-        궁금한 점은{" "}
-        <a href="tel:029018056" className="font-medium text-accent hover:text-accent-2">
-          02-901-8056
-        </a>
-        으로 문의해주세요.
-      </p>
     </PageContainer>
   );
 }

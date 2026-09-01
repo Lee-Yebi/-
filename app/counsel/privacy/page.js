@@ -6,14 +6,6 @@ const collection = [
   { item: "이전상담경험, 종교", purpose: "상담", period: "5년" },
 ];
 
-const faqs = [
-  "상담 내용이 학교나 부모님에게 전달되나요?",
-  "상담 기록은 얼마나 보관되나요?",
-  "상담받은 사실이 학적부나 성적에 남나요?",
-  "교수님이나 지인과 마주치면 어떡하나요?",
-  "비밀보장에 예외가 있나요?",
-];
-
 export default function PrivacyPage() {
   return (
     <PageContainer>
@@ -23,26 +15,7 @@ export default function PrivacyPage() {
         상담 내용과 개인정보는 철저히 비밀이 보장됩니다.
       </p>
 
-      <div className="mt-6 divide-y divide-border rounded-xl border border-border bg-card">
-        {faqs.map((question) => (
-          <details key={question} className="group px-4 py-3">
-            <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 text-sm font-medium text-foreground marker:content-none">
-              {question}
-              <span
-                aria-hidden
-                className="shrink-0 text-muted transition-transform group-open:rotate-45"
-              >
-                +
-              </span>
-            </summary>
-            <p className="mt-2 inline-block rounded-full border border-highlight-border bg-highlight px-3 py-1 text-xs font-semibold text-highlight-foreground">
-              [확인 중]
-            </p>
-          </details>
-        ))}
-      </div>
-
-      <p className="mt-10 text-sm leading-relaxed text-muted">
+      <p className="mt-6 text-sm leading-relaxed text-muted">
         덕성여자대학교 학생상담센터는 상담을 위하여 아래와 같이 개인정보 및 민감정보를
         수집·이용합니다.
       </p>
