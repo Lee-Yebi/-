@@ -30,7 +30,7 @@ export default function NewReviewPage() {
     setError("");
 
     const { error: insertError } = await supabase.from("reviews").insert({
-      type,
+      category: type,
       content: content.trim(),
       status: "pending",
     });
