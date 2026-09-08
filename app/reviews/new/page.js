@@ -17,6 +17,13 @@ export default function NewReviewPage() {
   const trimmedLength = content.trim().length;
   const canSubmit = Boolean(type) && trimmedLength >= MIN_LENGTH && !submitting;
 
+  let submitHint = "";
+  if (!type) {
+    submitHint = "상담 유형을 선택해주세요";
+  } else if (trimmedLength < MIN_LENGTH) {
+    submitHint = "후기를 20자 이상 작성해주세요";
+  }
+
   async function handleSubmit(e) {
     e.preventDefault();
     if (!canSubmit) return;
@@ -80,7 +87,9 @@ export default function NewReviewPage() {
       </div>
 
       <form className="mt-6" onSubmit={handleSubmit}>
-        <span className="text-sm font-medium text-foreground">상담 유형</span>
+        <span className="text-sm font-medium text-foreground">
+          상담 유형 <span className="text-xs font-normal text-muted">필수</span>
+        </span>
         <div className="mt-2 flex flex-wrap gap-2" role="radiogroup" aria-label="상담 유형">
           {reviewTypes.map((t) => (
             <button
@@ -127,6 +136,7 @@ export default function NewReviewPage() {
         >
           {submitting ? "제출 중…" : "제출하기"}
         </button>
+        {submitHint && <p className="mt-2 text-center text-xs text-muted">{submitHint}</p>}
       </form>
     </PageContainer>
   );
