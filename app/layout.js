@@ -5,6 +5,7 @@ import "./globals.css";
 import CrisisBanner from "@/components/CrisisBanner";
 import MainNav from "@/components/MainNav";
 import Footer from "@/components/Footer";
+import Mascot from "@/components/Mascot";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,6 +41,7 @@ export default function RootLayout({ children }) {
         <MainNav />
         <main className="w-full flex-1">{children}</main>
         <Footer />
+        <Mascot />
         <Analytics />
       </body>
     </html>
