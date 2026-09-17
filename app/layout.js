@@ -18,8 +18,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "덕성여자대학교 학생상담센터",
-  description: "덕성여자대학교 학생상담센터 안내 사이트",
+  title: "무궁담",
+  description: "무궁담 · 덕성여자대학교 학생상담센터 안내 사이트",
 };
 
 export default function RootLayout({ children }) {
@@ -35,7 +35,7 @@ export default function RootLayout({ children }) {
             href="/"
             className="mx-auto block max-w-5xl px-4 py-4 text-base font-semibold text-accent hover:text-accent-2"
           >
-            덕성여자대학교 학생상담센터
+            무궁담
           </Link>
         </header>
         <MainNav />
