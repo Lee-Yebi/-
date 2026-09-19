@@ -3,6 +3,7 @@
 import { useState } from "react";
 import PageContainer from "@/components/PageContainer";
 import SourceNote from "@/components/SourceNote";
+import MountainIcon from "@/components/icons/MountainIcon";
 
 const tabs = [
   { key: "individual", label: "개인상담" },
@@ -172,25 +173,25 @@ function InfoTable({ rows, labelHeader = "구분", valueHeader = "내용" }) {
     <>
       <div className="mt-4 space-y-3 md:hidden">
         {rows.map((row) => (
-          <div key={row.label} className="rounded-xl border border-border bg-card p-4">
-            <p className="text-sm font-medium text-foreground">{row.label}</p>
-            <p className="mt-1 text-sm leading-relaxed text-muted">{row.value}</p>
+          <div key={row.label} className="rounded-2xl border border-[var(--color-border)] bg-card p-4">
+            <p className="text-sm font-medium text-text">{row.label}</p>
+            <p className="mt-1 text-sm leading-relaxed text-text-sub">{row.value}</p>
           </div>
         ))}
       </div>
-      <div className="mt-4 hidden overflow-x-auto rounded-xl border border-border md:block">
+      <div className="mt-4 hidden overflow-x-auto rounded-2xl border border-[var(--color-border)] md:block">
         <table className="w-full text-left text-sm">
           <thead>
-            <tr className="border-b border-border bg-border/20 text-foreground">
+            <tr className="border-b border-[var(--color-border)] bg-[var(--color-border)]/20 text-text">
               <th className="px-4 py-3 font-medium">{labelHeader}</th>
               <th className="px-4 py-3 font-medium">{valueHeader}</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-border bg-card">
+          <tbody className="divide-y divide-[var(--color-border)] bg-card">
             {rows.map((row) => (
               <tr key={row.label}>
-                <td className="px-4 py-3 font-medium text-foreground">{row.label}</td>
-                <td className="px-4 py-3 text-muted">{row.value}</td>
+                <td className="px-4 py-3 font-medium text-text">{row.label}</td>
+                <td className="px-4 py-3 text-text-sub">{row.value}</td>
               </tr>
             ))}
           </tbody>
@@ -205,9 +206,9 @@ function ComparisonTable({ rows }) {
     <>
       <div className="mt-4 space-y-3 md:hidden">
         {rows.map((row) => (
-          <div key={row.label} className="rounded-xl border border-border bg-card p-4">
-            <p className="text-sm font-medium text-foreground">{row.label}</p>
-            <dl className="mt-2 space-y-1 text-sm text-muted">
+          <div key={row.label} className="rounded-2xl border border-[var(--color-border)] bg-card p-4">
+            <p className="text-sm font-medium text-text">{row.label}</p>
+            <dl className="mt-2 space-y-1 text-sm text-text-sub">
               <div className="flex justify-between gap-4">
                 <dt>개인상담</dt>
                 <dd>{row.individual}</dd>
@@ -220,21 +221,21 @@ function ComparisonTable({ rows }) {
           </div>
         ))}
       </div>
-      <div className="mt-4 hidden overflow-x-auto rounded-xl border border-border md:block">
+      <div className="mt-4 hidden overflow-x-auto rounded-2xl border border-[var(--color-border)] md:block">
         <table className="w-full text-left text-sm">
           <thead>
-            <tr className="border-b border-border bg-border/20 text-foreground">
+            <tr className="border-b border-[var(--color-border)] bg-[var(--color-border)]/20 text-text">
               <th className="px-4 py-3 font-medium"></th>
               <th className="px-4 py-3 font-medium">개인상담</th>
               <th className="px-4 py-3 font-medium">집단상담</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-border bg-card">
+          <tbody className="divide-y divide-[var(--color-border)] bg-card">
             {rows.map((row) => (
               <tr key={row.label}>
-                <td className="px-4 py-3 font-medium text-foreground">{row.label}</td>
-                <td className="px-4 py-3 text-muted">{row.individual}</td>
-                <td className="px-4 py-3 text-muted">{row.group}</td>
+                <td className="px-4 py-3 font-medium text-text">{row.label}</td>
+                <td className="px-4 py-3 text-text-sub">{row.individual}</td>
+                <td className="px-4 py-3 text-text-sub">{row.group}</td>
               </tr>
             ))}
           </tbody>
@@ -249,12 +250,16 @@ export default function ApplyPage() {
   const active = tabsData[activeTab];
 
   return (
-    <PageContainer>
-      <h1 className="text-xl font-semibold">상담 신청부터 진행까지</h1>
+    <div className="brand-scope min-h-screen w-full bg-cream">
+      <PageContainer>
+      <h1 className="flex items-center gap-2 text-xl font-semibold text-moss">
+        <MountainIcon className="text-moss" />
+        상담 신청부터 진행까지
+      </h1>
 
       {/* tabs */}
-      <div className="mt-6 overflow-x-auto">
-        <div className="flex gap-6 border-b border-border">
+      <div className="mt-9 overflow-x-auto">
+        <div className="flex gap-6 border-b border-[var(--color-border)]">
           {tabs.map((tab) => (
             <button
               key={tab.key}
@@ -262,8 +267,8 @@ export default function ApplyPage() {
               onClick={() => setActiveTab(tab.key)}
               className={`shrink-0 border-b-2 px-1 py-3 text-sm font-medium whitespace-nowrap transition-colors ${
                 activeTab === tab.key
-                  ? "border-accent text-accent"
-                  : "border-transparent text-muted"
+                  ? "border-moss text-moss"
+                  : "border-transparent text-text-sub"
               }`}
             >
               {tab.label}
@@ -275,28 +280,28 @@ export default function ApplyPage() {
       {activeTab !== "crisis" && (
         <>
           {/* (1) 한 줄 소개 */}
-          <div className="mt-6 rounded-xl border border-highlight-border bg-highlight p-5 text-sm leading-relaxed text-highlight-foreground">
+          <div className="mt-9 rounded-2xl border border-maroon/20 bg-blush p-6 text-sm leading-relaxed text-maroon">
             {active.note}
           </div>
 
           {/* (2) 신청 절차 */}
-          <h2 className="mt-8 text-base font-semibold text-foreground">신청 절차</h2>
+          <h2 className="mt-12 text-base font-semibold text-text">신청 절차</h2>
           {active.meta && (
-            <p className="mt-1 text-sm font-medium text-accent">{active.meta}</p>
+            <p className="mt-1 text-sm font-medium text-moss">{active.meta}</p>
           )}
           <ol className="mt-4 space-y-3">
             {active.steps.map((step, i) => (
               <li
                 key={step.title}
-                className="flex gap-4 rounded-xl border border-border bg-card p-5"
+                className="flex gap-4 rounded-2xl border border-[var(--color-border)] bg-card p-6"
               >
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent text-sm font-semibold text-white">
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-moss-deep text-sm font-semibold text-white">
                   {i + 1}
                 </span>
                 <div>
-                  <p className="text-base font-semibold text-foreground">{step.title}</p>
+                  <p className="text-base font-semibold text-text">{step.title}</p>
                   {step.desc && (
-                    <p className="mt-1 text-sm leading-relaxed text-muted">{step.desc}</p>
+                    <p className="mt-1 text-sm leading-relaxed text-text-sub">{step.desc}</p>
                   )}
                 </div>
               </li>
@@ -304,51 +309,51 @@ export default function ApplyPage() {
           </ol>
 
           {/* (3) 구분선 */}
-          <hr className="mt-10 border-border" />
+          <hr className="mt-[60px] border-[var(--color-border)]" />
         </>
       )}
 
       {/* 위기상담: 노란 안내 박스 -> 이럴 때는 바로 연락하세요 -> 진행 절차 -> 수준별 대응 (external 페이지에서 이동) */}
       {activeTab === "crisis" && (
         <>
-          <div className="mt-6 rounded-xl border border-highlight-border bg-highlight p-5 text-sm leading-relaxed text-highlight-foreground">
+          <div className="mt-9 rounded-2xl border border-maroon/20 bg-blush p-6 text-sm leading-relaxed text-maroon">
             평소의 대처 방법으로는 감당하기 어려운 상태라면 위기상담 대상입니다.
           </div>
 
-          <h2 className="mt-8 text-base font-semibold text-foreground">
+          <h2 className="mt-12 text-base font-semibold text-text">
             이럴 때는 바로 연락하세요
           </h2>
-          <ul className="mt-4 space-y-2 rounded-xl border border-border bg-card p-5">
+          <ul className="mt-4 space-y-2 rounded-2xl border border-[var(--color-border)] bg-card p-6">
             {crisisSigns.map((sign) => (
-              <li key={sign} className="text-sm leading-relaxed text-muted">
+              <li key={sign} className="text-sm leading-relaxed text-text-sub">
                 · {sign}
               </li>
             ))}
           </ul>
 
-          <h2 className="mt-8 text-base font-semibold text-foreground">진행 절차</h2>
+          <h2 className="mt-12 text-base font-semibold text-text">진행 절차</h2>
           <ol className="mt-4 space-y-3">
             {crisisSteps.map((step, i) => (
               <li
                 key={step}
-                className="flex gap-4 rounded-xl border border-border bg-card p-5"
+                className="flex gap-4 rounded-2xl border border-[var(--color-border)] bg-card p-6"
               >
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent text-sm font-semibold text-white">
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-moss-deep text-sm font-semibold text-white">
                   {i + 1}
                 </span>
-                <p className="pt-1 text-base font-semibold text-foreground">{step}</p>
+                <p className="pt-1 text-base font-semibold text-text">{step}</p>
               </li>
             ))}
           </ol>
 
-          <hr className="mt-10 border-border" />
+          <hr className="mt-[60px] border-[var(--color-border)]" />
 
-          <div className="mt-8">
-            <h2 className="text-base font-semibold text-foreground">수준별 대응</h2>
+          <div className="mt-12">
+            <h2 className="text-base font-semibold text-text">수준별 대응</h2>
             <InfoTable rows={levelResponseRows} labelHeader="수준" valueHeader="대응" />
           </div>
 
-          <div className="mt-8 rounded-xl border border-highlight-border bg-highlight p-5 text-sm leading-relaxed text-highlight-foreground">
+          <div className="mt-12 rounded-2xl border border-maroon/20 bg-blush p-6 text-sm leading-relaxed text-maroon">
             지금 도움이 필요하다면{" "}
             <a href="tel:109" className="font-semibold underline underline-offset-2">
               109
@@ -365,25 +370,25 @@ export default function ApplyPage() {
       {/* (4) 상세 내용 */}
       {/* 개인상담: 프로그램 상세 (programs 페이지에서 이동) */}
       {activeTab === "individual" && (
-        <div className="mt-8">
-          <p className="text-sm leading-relaxed text-muted">
-            <span className="font-medium text-foreground">개인상담이란?</span> 대학생활이나
+        <div className="mt-12">
+          <p className="text-sm leading-relaxed text-text-sub">
+            <span className="font-medium text-text">개인상담이란?</span> 대학생활이나
             일상에서 혼자 풀기 어려운 주제를, 상담 전문 선생님과 1:1로 만나 깊이 있게
             다루는 상담 서비스입니다. 문제의 해결책을 찾는 것뿐 아니라, 그 과정에서
             자신을 이해하고 내적으로 성숙해지는 것을 목표로 합니다.
           </p>
 
-          <h2 className="mt-8 text-base font-semibold text-foreground">주로 다루는 주제</h2>
+          <h2 className="mt-12 text-base font-semibold text-text">주로 다루는 주제</h2>
           <div className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2">
             {individualTopics.map((topic) => (
-              <div key={topic.title} className="rounded-xl border border-border bg-card p-5">
-                <h3 className="text-base font-semibold text-accent">{topic.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted">{topic.desc}</p>
+              <div key={topic.title} className="rounded-2xl border border-[var(--color-border)] bg-card p-6">
+                <h3 className="text-base font-semibold text-moss">{topic.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-text-sub">{topic.desc}</p>
               </div>
             ))}
           </div>
 
-          <h2 className="mt-8 text-base font-semibold text-foreground">
+          <h2 className="mt-12 text-base font-semibold text-text">
             함께 제공되는 상담 형태
           </h2>
           <InfoTable rows={individualFormatRows} />
@@ -392,33 +397,33 @@ export default function ApplyPage() {
 
       {/* 심리검사: 프로그램 상세 (programs 페이지에서 이동) */}
       {activeTab === "test" && (
-        <div className="mt-8">
-          <h2 className="text-base font-semibold text-foreground">검사 영역</h2>
+        <div className="mt-12">
+          <h2 className="text-base font-semibold text-text">검사 영역</h2>
           <div className="mt-3 flex flex-wrap gap-2">
             {testAreas.map((area) => (
               <span
                 key={area}
-                className="rounded-full bg-highlight px-3 py-1.5 text-sm text-highlight-foreground"
+                className="rounded-full bg-blush px-3 py-1.5 text-sm text-maroon"
               >
                 {area}
               </span>
             ))}
           </div>
 
-          <h2 className="mt-8 text-base font-semibold text-foreground">주요 검사 종류</h2>
+          <h2 className="mt-12 text-base font-semibold text-text">주요 검사 종류</h2>
           <div className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2">
             {testItems.map((item) => (
-              <div key={item.name} className="rounded-xl border border-border bg-card p-5">
-                <h3 className="text-base font-semibold text-accent">{item.name}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted">{item.desc}</p>
+              <div key={item.name} className="rounded-2xl border border-[var(--color-border)] bg-card p-6">
+                <h3 className="text-base font-semibold text-moss">{item.name}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-text-sub">{item.desc}</p>
                 {item.time && (
-                  <p className="mt-2 text-xs font-medium text-muted">소요 시간: {item.time}</p>
+                  <p className="mt-2 text-xs font-medium text-text-sub">소요 시간: {item.time}</p>
                 )}
               </div>
             ))}
           </div>
 
-          <div className="mt-6 rounded-xl border border-highlight-border bg-highlight p-5 text-sm leading-relaxed text-highlight-foreground">
+          <div className="mt-9 rounded-2xl border border-maroon/20 bg-blush p-6 text-sm leading-relaxed text-maroon">
             검사는 안내 → 실시 → 결과 해석상담 순으로 진행되며, 해석상담은 보통 단회기로
             이루어집니다.
           </div>
@@ -427,51 +432,51 @@ export default function ApplyPage() {
 
       {/* 집단상담·프로그램: 프로그램 상세 (programs 페이지에서 이동) */}
       {activeTab === "group" && (
-        <div className="mt-8">
-          <p className="text-sm leading-relaxed text-muted">
-            <span className="font-medium text-foreground">집단상담이란?</span> 비슷한
+        <div className="mt-12">
+          <p className="text-sm leading-relaxed text-text-sub">
+            <span className="font-medium text-text">집단상담이란?</span> 비슷한
             관심사나 고민을 가진 학생들이 상담 전문 선생님과 함께 모여, 활동과 대화를
             통해 서로의 경험을 나누는 프로그램입니다.
           </p>
 
-          <h2 className="mt-8 text-base font-semibold text-foreground">개인상담과 다른 점</h2>
+          <h2 className="mt-12 text-base font-semibold text-text">개인상담과 다른 점</h2>
           <ComparisonTable rows={groupComparisonRows} />
 
-          <h2 className="mt-8 text-base font-semibold text-foreground">운영 방식</h2>
+          <h2 className="mt-12 text-base font-semibold text-text">운영 방식</h2>
           <ul className="mt-3 space-y-2">
             {groupOperations.map((item) => (
-              <li key={item} className="text-sm leading-relaxed text-muted">
+              <li key={item} className="text-sm leading-relaxed text-text-sub">
                 · {item}
               </li>
             ))}
           </ul>
 
-          <div className="mt-4 rounded-xl border border-highlight-border bg-highlight p-5 text-sm leading-relaxed text-highlight-foreground">
+          <div className="mt-4 rounded-2xl border border-maroon/20 bg-blush p-6 text-sm leading-relaxed text-maroon">
             운영 주제는 매 학기 달라집니다.
           </div>
         </div>
       )}
 
       {/* common info */}
-      <section className="mt-10">
-        <h2 className="text-base font-semibold text-foreground">이용 시간 및 문의처</h2>
-        <dl className="mt-4 divide-y divide-border rounded-xl border border-border bg-card">
+      <section className="mt-[60px]">
+        <h2 className="text-base font-semibold text-text">이용 시간 및 문의처</h2>
+        <dl className="mt-4 divide-y divide-[var(--color-border)] rounded-2xl border border-[var(--color-border)] bg-card">
           {infoRows.map((row) => (
             <div
               key={row.label}
               className="flex flex-col gap-1.5 px-5 py-4 md:flex-row md:items-center md:justify-between md:gap-4"
             >
-              <dt className="text-sm font-medium text-foreground">{row.label}</dt>
-              <dd className="flex flex-col items-start gap-2 text-sm text-muted md:items-end">
+              <dt className="text-sm font-medium text-text">{row.label}</dt>
+              <dd className="flex flex-col items-start gap-2 text-sm text-text-sub md:items-end">
                 {row.href ? (
-                  <a href={row.href} className="text-accent hover:text-accent-2">
+                  <a href={row.href} className="text-moss-deep hover:opacity-80">
                     {row.value}
                   </a>
                 ) : (
                   <span>{row.value}</span>
                 )}
                 {row.badge && (
-                  <span className="rounded-full border border-highlight-border bg-highlight px-3 py-1 text-xs font-semibold text-highlight-foreground">
+                  <span className="rounded-full border border-maroon/20 bg-blush px-3 py-1 text-xs font-semibold text-maroon">
                     {row.badge}
                   </span>
                 )}
@@ -482,6 +487,7 @@ export default function ApplyPage() {
       </section>
 
       <SourceNote />
-    </PageContainer>
+      </PageContainer>
+    </div>
   );
 }

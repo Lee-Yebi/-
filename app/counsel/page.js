@@ -1,6 +1,7 @@
 import Link from "next/link";
 import PageContainer from "@/components/PageContainer";
 import SourceNote from "@/components/SourceNote";
+import MountainIcon from "@/components/icons/MountainIcon";
 
 const visitReasons = [
   {
@@ -66,72 +67,83 @@ const concernCategories = [
 
 export default function CounselPage() {
   return (
-    <PageContainer>
-      <h1 className="text-xl font-semibold">상담 알아보기</h1>
+    <div className="brand-scope min-h-screen w-full bg-cream">
+      <PageContainer>
+        <h1 className="flex items-center gap-2 text-xl font-semibold text-moss">
+          <MountainIcon className="text-moss" />
+          상담 알아보기
+        </h1>
 
-      <section className="mt-6">
-        <h2 className="text-base font-semibold text-foreground">이럴 때 방문하세요</h2>
-        <p className="mt-2 text-sm text-muted">
-          상담센터는 문제가 심각해야만 가는 곳이 아닙니다.
+        <section className="mt-9">
+          <h2 className="text-base font-semibold text-text">이럴 때 방문하세요</h2>
+          <p className="mt-2 text-sm text-text-sub">
+            상담센터는 문제가 심각해야만 가는 곳이 아닙니다.
+          </p>
+
+          <div className="mt-6 grid grid-cols-1 gap-3 md:grid-cols-2">
+            {visitReasons.map((reason) => (
+              <div
+                key={reason.title}
+                className="rounded-2xl border border-[var(--color-border)] bg-card p-6"
+              >
+                <h3 className="text-base font-semibold text-moss">{reason.title}</h3>
+                <p className="mt-2 text-[15px] leading-[1.7] text-text-sub">{reason.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <p className="mt-6 text-sm text-text-sub">
+            이 외에도 대학생활·대인관계·정서 등 어떤 주제든 상담할 수 있습니다.
+          </p>
+        </section>
+
+        <p className="mt-12 text-sm text-text-sub">
+          아래 중 하나라도 해당된다면 편하게 신청하셔도 됩니다
         </p>
 
-        <div className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2">
-          {visitReasons.map((reason) => (
-            <div key={reason.title} className="rounded-xl border border-border bg-card p-5">
-              <h3 className="text-base font-semibold text-accent">{reason.title}</h3>
-              <p className="mt-2 text-[15px] leading-[1.7] text-muted">{reason.desc}</p>
+        <div className="mt-6 grid grid-cols-1 gap-3 md:grid-cols-2">
+          {concernCategories.map((cat) => (
+            <div
+              key={cat.title}
+              className="rounded-2xl border border-[var(--color-border)] bg-card p-6"
+            >
+              <h2 className="text-base font-semibold text-moss">{cat.title}</h2>
+              <div className="mt-3 flex flex-wrap gap-1.5">
+                {cat.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-[20px] bg-blush px-[11px] py-1.5 text-[13px] whitespace-nowrap text-maroon"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              {cat.crisisNote && (
+                <>
+                  <hr className="mt-4 border-[var(--color-border)]" />
+                  <p className="mt-3 text-[13px] text-maroon">
+                    지금 많이 힘드시다면{" "}
+                    <a href="tel:109" className="font-semibold underline underline-offset-2">
+                      109
+                    </a>
+                    (24시간)로 바로 연락하셔도 됩니다
+                  </p>
+                </>
+              )}
             </div>
           ))}
         </div>
 
-        <p className="mt-4 text-sm text-muted">
-          이 외에도 대학생활·대인관계·정서 등 어떤 주제든 상담할 수 있습니다.
-        </p>
-      </section>
+        <Link
+          href="/counsel/apply"
+          className="mt-12 flex min-h-11 w-full items-center justify-center rounded-2xl bg-moss-deep px-5 text-center text-sm font-medium text-white transition-opacity hover:opacity-90"
+        >
+          상담 신청부터 진행까지 보기
+        </Link>
 
-      <p className="mt-8 text-sm text-muted">
-        아래 중 하나라도 해당된다면 편하게 신청하셔도 됩니다
-      </p>
-
-      <div className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2">
-        {concernCategories.map((cat) => (
-          <div key={cat.title} className="rounded-xl border border-border bg-card p-5">
-            <h2 className="text-base font-semibold text-accent">{cat.title}</h2>
-            <div className="mt-3 flex flex-wrap gap-1.5">
-              {cat.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="rounded-[20px] bg-highlight px-[11px] py-1.5 text-[13px] whitespace-nowrap text-highlight-foreground"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-
-            {cat.crisisNote && (
-              <>
-                <hr className="mt-4 border-border" />
-                <p className="mt-3 text-[13px] text-highlight-foreground">
-                  지금 많이 힘드시다면{" "}
-                  <a href="tel:109" className="font-semibold underline underline-offset-2">
-                    109
-                  </a>
-                  (24시간)로 바로 연락하셔도 됩니다
-                </p>
-              </>
-            )}
-          </div>
-        ))}
-      </div>
-
-      <Link
-        href="/counsel/apply"
-        className="mt-8 flex min-h-11 w-full items-center justify-center rounded-xl bg-accent px-5 text-center text-sm font-medium text-white transition-colors hover:bg-accent-2"
-      >
-        상담 신청부터 진행까지 보기
-      </Link>
-
-      <SourceNote />
-    </PageContainer>
+        <SourceNote />
+      </PageContainer>
+    </div>
   );
 }

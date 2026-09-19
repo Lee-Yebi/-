@@ -16,7 +16,7 @@ export default function CounselSubNav() {
   const pathname = usePathname();
 
   return (
-    <div className="w-full border-b border-border bg-card">
+    <div className="brand-scope w-full border-b border-[var(--color-border)] bg-card">
       <ul className="mx-auto flex max-w-5xl gap-1.5 overflow-x-auto px-4 py-2.5 text-sm">
         {links.map((link) => {
           const active = pathname === link.href;
@@ -28,8 +28,8 @@ export default function CounselSubNav() {
                 aria-current={active ? "page" : undefined}
                 className={`flex min-h-11 items-center rounded-full border px-3 whitespace-nowrap transition-colors ${
                   active
-                    ? "border-highlight-border bg-highlight font-medium text-highlight-foreground"
-                    : "border-transparent text-muted hover:text-accent"
+                    ? "border-maroon/20 bg-blush font-medium text-maroon"
+                    : "border-transparent text-text-sub hover:text-moss"
                 }`}
               >
                 {link.label}

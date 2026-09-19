@@ -1,5 +1,6 @@
 import PageContainer from "@/components/PageContainer";
 import SourceNote from "@/components/SourceNote";
+import MountainIcon from "@/components/icons/MountainIcon";
 
 const etcPrograms = [
   {
@@ -75,25 +76,25 @@ function InfoTable({ rows, labelHeader = "구분", valueHeader = "내용" }) {
     <>
       <div className="mt-4 space-y-3 md:hidden">
         {rows.map((row) => (
-          <div key={row.label} className="rounded-xl border border-border bg-card p-4">
-            <p className="text-sm font-medium text-foreground">{row.label}</p>
-            <p className="mt-1 text-sm leading-relaxed text-muted">{row.value}</p>
+          <div key={row.label} className="rounded-2xl border border-[var(--color-border)] bg-card p-4">
+            <p className="text-sm font-medium text-text">{row.label}</p>
+            <p className="mt-1 text-sm leading-relaxed text-text-sub">{row.value}</p>
           </div>
         ))}
       </div>
-      <div className="mt-4 hidden overflow-x-auto rounded-xl border border-border md:block">
+      <div className="mt-4 hidden overflow-x-auto rounded-2xl border border-[var(--color-border)] md:block">
         <table className="w-full text-left text-sm">
           <thead>
-            <tr className="border-b border-border bg-border/20 text-foreground">
+            <tr className="border-b border-[var(--color-border)] bg-[var(--color-border)]/20 text-text">
               <th className="px-4 py-3 font-medium">{labelHeader}</th>
               <th className="px-4 py-3 font-medium">{valueHeader}</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-border bg-card">
+          <tbody className="divide-y divide-[var(--color-border)] bg-card">
             {rows.map((row) => (
               <tr key={row.label}>
-                <td className="px-4 py-3 font-medium text-foreground">{row.label}</td>
-                <td className="px-4 py-3 text-muted">{row.value}</td>
+                <td className="px-4 py-3 font-medium text-text">{row.label}</td>
+                <td className="px-4 py-3 text-text-sub">{row.value}</td>
               </tr>
             ))}
           </tbody>
@@ -105,22 +106,26 @@ function InfoTable({ rows, labelHeader = "구분", valueHeader = "내용" }) {
 
 export default function ProgramsPage() {
   return (
-    <PageContainer>
-      <h1 className="text-xl font-semibold">센터 운영 프로그램</h1>
+    <div className="brand-scope min-h-screen w-full bg-cream">
+      <PageContainer>
+      <h1 className="flex items-center gap-2 text-xl font-semibold text-moss">
+        <MountainIcon className="text-moss" />
+        센터 운영 프로그램
+      </h1>
 
-      <div className="mt-6 grid grid-cols-1 gap-3 md:grid-cols-2">
+      <div className="mt-9 grid grid-cols-1 gap-3 md:grid-cols-2">
         {etcPrograms.map((program) => (
-          <div key={program.title} className="rounded-xl border border-border bg-card p-5">
-            <h3 className="text-base font-semibold text-accent">{program.title}</h3>
+          <div key={program.title} className="rounded-2xl border border-[var(--color-border)] bg-card p-6">
+            <h3 className="text-base font-semibold text-moss">{program.title}</h3>
             {program.keyword && (
-              <p className="mt-1 text-xs font-medium text-muted">{program.keyword}</p>
+              <p className="mt-1 text-xs font-medium text-text-sub">{program.keyword}</p>
             )}
-            <p className="mt-2 text-sm leading-relaxed text-muted">{program.desc}</p>
+            <p className="mt-2 text-sm leading-relaxed text-text-sub">{program.desc}</p>
             {program.extra && (
-              <p className="mt-2 text-sm leading-relaxed text-muted">{program.extra}</p>
+              <p className="mt-2 text-sm leading-relaxed text-text-sub">{program.extra}</p>
             )}
             {program.badge && (
-              <p className="mt-3 inline-block rounded-full border border-highlight-border bg-highlight px-3 py-1 text-xs font-semibold text-highlight-foreground">
+              <p className="mt-3 inline-block rounded-full border border-maroon/20 bg-blush px-3 py-1 text-xs font-semibold text-maroon">
                 {program.badge}
               </p>
             )}
@@ -128,28 +133,29 @@ export default function ProgramsPage() {
         ))}
       </div>
 
-      <hr className="mt-10 border-border" />
+      <hr className="mt-[60px] border-[var(--color-border)]" />
 
-      <h2 className="mt-8 text-base font-semibold text-foreground">상담 종류별 세부 프로그램</h2>
-      <p className="mt-2 text-sm text-muted">
+      <h2 className="mt-12 text-base font-semibold text-text">상담 종류별 세부 프로그램</h2>
+      <p className="mt-2 text-sm text-text-sub">
         학생상담센터(심리상담)와 진로·학습 상담 창구가 나뉘어 있습니다.
       </p>
 
-      <h3 className="mt-6 text-sm font-semibold text-foreground">진로 / 취업 상담</h3>
+      <h3 className="mt-9 text-sm font-semibold text-text">진로 / 취업 상담</h3>
       <InfoTable rows={careerRows} labelHeader="프로그램" valueHeader="내용" />
 
-      <h3 className="mt-8 text-sm font-semibold text-foreground">심리 상담</h3>
+      <h3 className="mt-12 text-sm font-semibold text-text">심리 상담</h3>
       <InfoTable rows={psychRows} labelHeader="프로그램" valueHeader="내용" />
 
-      <h3 className="mt-8 text-sm font-semibold text-foreground">학습 상담</h3>
+      <h3 className="mt-12 text-sm font-semibold text-text">학습 상담</h3>
       <InfoTable rows={studyRows} labelHeader="프로그램" valueHeader="내용" />
 
-      <h3 className="mt-8 text-sm font-semibold text-foreground">창업 상담</h3>
-      <div className="mt-4 rounded-xl border border-border bg-card p-4">
-        <p className="text-sm text-muted">세부 내용 확인 중</p>
+      <h3 className="mt-12 text-sm font-semibold text-text">창업 상담</h3>
+      <div className="mt-4 rounded-2xl border border-[var(--color-border)] bg-card p-4">
+        <p className="text-sm text-text-sub">세부 내용 확인 중</p>
       </div>
 
       <SourceNote />
-    </PageContainer>
+      </PageContainer>
+    </div>
   );
 }

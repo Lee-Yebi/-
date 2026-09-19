@@ -60,28 +60,35 @@ export default function ReviewsPage() {
       : reviews.filter((review) => review.category === activeFilter);
 
   return (
-    <PageContainer>
-      <h1 className="text-xl font-semibold">이용후기</h1>
+    <div className="brand-scope min-h-screen w-full bg-cream">
+      <PageContainer>
+      <h1 className="text-xl font-semibold text-moss">이용후기</h1>
 
       <Link
         href="/reviews/new"
-        className="mt-4 flex min-h-11 w-full items-center justify-center rounded-xl bg-accent px-5 text-sm font-medium text-white transition-colors hover:bg-accent-2"
+        className="mt-4 flex min-h-11 w-full items-center justify-center rounded-2xl bg-moss-deep px-5 text-sm font-medium text-white transition-opacity hover:opacity-90"
       >
         후기 작성하기
       </Link>
 
-      <details className="group mt-6 rounded-xl border border-highlight-border bg-highlight p-5">
-        <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 text-base font-semibold text-accent marker:content-none">
+      <details className="group mt-9 rounded-2xl border border-maroon/20 bg-blush p-6">
+        <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 text-base font-semibold text-moss marker:content-none">
           이용후기 가이드 필독
-          <span
+          <svg
             aria-hidden
-            className="shrink-0 text-accent transition-transform group-open:rotate-45"
+            viewBox="0 0 20 20"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="h-4 w-4 shrink-0 text-moss transition-transform group-open:rotate-180"
           >
-            +
-          </span>
+            <path d="M5 7.5 L10 12.5 L15 7.5" />
+          </svg>
         </summary>
 
-        <div className="mt-4 text-[15px] leading-[1.7] text-foreground">
+        <div className="mt-4 text-[15px] leading-[1.7] text-text">
           <p>
             이용후기 게시판은 여러분이 학생상담센터와 관련된 경험을 나눌 수 있는 공간입니다.
             아래 가이드를 읽으신 후 규칙에 맞춰 작성 부탁드립니다.
@@ -97,8 +104,8 @@ export default function ReviewsPage() {
           </ol>
 
           <div className="mt-5 space-y-3">
-            <div className="rounded-xl border border-border bg-card p-[18px]">
-              <p className="font-semibold text-foreground">
+            <div className="rounded-2xl border border-[var(--color-border)] bg-card p-[18px]">
+              <p className="font-semibold text-text">
                 이런 후기, 다른 학우들에게 큰 도움이 돼요 👍
               </p>
 
@@ -110,42 +117,42 @@ export default function ReviewsPage() {
                 ].map((quote) => (
                   <p
                     key={quote}
-                    className="border-l-2 border-highlight-border pl-3 text-foreground"
+                    className="border-l-2 border-maroon/20 pl-3 text-text"
                   >
                     &quot;{quote}&quot;
                   </p>
                 ))}
               </div>
 
-              <p className="mt-3 text-sm text-muted">
+              <p className="mt-3 text-sm text-text-sub">
                 어떤 경험이었는지 구체적으로 적어주시면, 비슷한 고민을 가진 다른 학우가
                 상담을 결정하는 데 실질적인 도움이 돼요. 좋았던 점도, 아쉬웠던 점도 모두
                 환영이에요.
               </p>
             </div>
 
-            <div className="rounded-xl border border-border bg-card p-[18px]">
-              <p className="font-semibold text-foreground">
+            <div className="rounded-2xl border border-[var(--color-border)] bg-card p-[18px]">
+              <p className="font-semibold text-text">
                 이런 후기는 이렇게 다듬어서 올려주세요 ✏️
               </p>
 
-              <p className="mt-3 text-accent-2">
+              <p className="mt-3 text-text-sub">
                 <span aria-hidden>❌</span> &quot;○○상담사 겁나 별로임. 가지 마셈.&quot;
               </p>
-              <p className="mt-3 text-sm text-muted">
+              <p className="mt-3 text-sm text-text-sub">
                 특정 상담사를 지목하는 표현이 담기면 게시가 어렵습니다. 또한 &quot;별로다&quot;라는
                 감상만으론, 읽는 사람이 실제로 어떤 점을 조심해야 할지 알기 어렵습니다.
               </p>
 
-              <hr className="my-4 border-border" />
+              <hr className="my-4 border-[var(--color-border)]" />
 
-              <p className="text-sm font-semibold text-foreground">이렇게 바꿔볼 수 있어요</p>
+              <p className="text-sm font-semibold text-text">이렇게 바꿔볼 수 있어요</p>
 
-              <p className="mt-2 text-accent">
+              <p className="mt-2 text-moss">
                 <span aria-hidden>✅</span> &quot;제 얘기를 충분히 들어주지 않는다는 느낌을
                 받았어요. 상담 중간에 말이 자주 끊겨서 아쉬웠습니다.&quot;
               </p>
-              <p className="mt-3 text-sm text-muted">
+              <p className="mt-3 text-sm text-text-sub">
                 상담사를 특정하지 않아도, 어떤 상황에서 어떤 점이 아쉬웠는지는 그대로
                 전달되기 때문에, 부정적인 경험도 이렇게 적어주시면 있는 그대로 게시됩니다.
               </p>
@@ -154,7 +161,7 @@ export default function ReviewsPage() {
         </div>
       </details>
 
-      <div className="mt-6 overflow-x-auto">
+      <div className="mt-9 overflow-x-auto">
         <div className="flex gap-2">
           {filters.map((f) => (
             <button
@@ -163,8 +170,8 @@ export default function ReviewsPage() {
               onClick={() => setActiveFilter(f)}
               className={`flex min-h-11 shrink-0 items-center rounded-full px-4 text-sm font-medium whitespace-nowrap transition-colors ${
                 activeFilter === f
-                  ? "bg-accent text-white"
-                  : "border border-border bg-card text-muted"
+                  ? "bg-moss-deep text-white"
+                  : "border border-[var(--color-border)] bg-card text-text-sub"
               }`}
             >
               {f}
@@ -173,13 +180,13 @@ export default function ReviewsPage() {
         </div>
       </div>
 
-      <div className="mt-6 space-y-3">
-        {loading && <p className="text-sm text-muted">불러오는 중…</p>}
+      <div className="mt-9 space-y-3">
+        {loading && <p className="text-sm text-text-sub">불러오는 중…</p>}
 
-        {!loading && error && <p className="text-sm font-medium text-accent">{error}</p>}
+        {!loading && error && <p className="text-sm font-medium text-maroon">{error}</p>}
 
         {!loading && !error && visibleReviews.length === 0 && (
-          <p className="rounded-xl border border-border bg-card p-5 text-center text-sm text-muted">
+          <p className="rounded-2xl border border-[var(--color-border)] bg-card p-6 text-center text-sm text-text-sub">
             아직 등록된 후기가 없습니다
           </p>
         )}
@@ -187,17 +194,18 @@ export default function ReviewsPage() {
         {!loading &&
           !error &&
           visibleReviews.map((review) => (
-            <div key={review.id} className="rounded-xl border border-border bg-card p-5">
+            <div key={review.id} className="rounded-2xl border border-[var(--color-border)] bg-card p-6">
               <div className="flex items-center justify-between gap-3">
-                <span className="rounded-full bg-highlight px-3 py-1 text-xs font-medium text-highlight-foreground">
+                <span className="rounded-full bg-blush px-3 py-1 text-xs font-medium text-maroon">
                   {review.category}
                 </span>
                 <span className="text-xs text-[#8C8087]">{formatDate(review.created_at)}</span>
               </div>
-              <p className="mt-3 text-sm leading-relaxed text-foreground">{review.content}</p>
+              <p className="mt-3 text-sm leading-relaxed text-text">{review.content}</p>
             </div>
           ))}
       </div>
-    </PageContainer>
+      </PageContainer>
+    </div>
   );
 }

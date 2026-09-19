@@ -134,104 +134,106 @@ const partnerCategories = [
 
 export default function ExternalPage() {
   return (
-    <PageContainer>
-      <h1 className="text-xl font-semibold">교외 도움 찾기</h1>
+    <div className="brand-scope min-h-screen w-full bg-cream">
+      <PageContainer>
+        <h1 className="text-xl font-semibold text-moss">교외 도움 찾기</h1>
 
-      {/* 24시간 상담 전화 — 맨 위, 스크롤 없이 보이도록 */}
-      <section className="mt-3">
-        <a
-          href={tel(featuredHotline.number)}
-          className="block rounded-xl border border-highlight-border bg-highlight p-5 transition-opacity hover:opacity-90"
-        >
-          <p className="text-sm font-medium text-highlight-foreground">
-            {featuredHotline.name} · {featuredHotline.hours}
-          </p>
-          <p className="mt-1 text-[32px] font-semibold text-highlight-foreground">
-            {featuredHotline.number}
-          </p>
-        </a>
+        {/* 24시간 상담 전화 — 맨 위, 스크롤 없이 보이도록 */}
+        <section className="mt-3">
+          <a
+            href={tel(featuredHotline.number)}
+            className="block rounded-2xl border border-maroon/20 bg-blush p-6 transition-opacity hover:opacity-90"
+          >
+            <p className="text-sm font-medium text-maroon">
+              {featuredHotline.name} · {featuredHotline.hours}
+            </p>
+            <p className="mt-1 text-[32px] font-semibold text-maroon">
+              {featuredHotline.number}
+            </p>
+          </a>
 
-        <div className="mt-3 divide-y divide-border rounded-xl border border-border bg-card">
-          {otherHotlines.map((line) => (
-            <a
-              key={line.name}
-              href={tel(line.number)}
-              className="flex min-h-11 items-center justify-between gap-4 px-5 py-3"
-            >
-              <span className="text-sm text-foreground">
-                {line.name}
-                <span className="block text-xs text-muted">{line.hours}</span>
-              </span>
-              <span className="text-lg font-semibold text-accent whitespace-nowrap">
-                {line.number}
-              </span>
-            </a>
-          ))}
-        </div>
-      </section>
+          <div className="mt-3 divide-y divide-[var(--color-border)] rounded-2xl border border-[var(--color-border)] bg-card">
+            {otherHotlines.map((line) => (
+              <a
+                key={line.name}
+                href={tel(line.number)}
+                className="flex min-h-11 items-center justify-between gap-4 px-5 py-3"
+              >
+                <span className="text-sm text-text">
+                  {line.name}
+                  <span className="block text-xs text-text-sub">{line.hours}</span>
+                </span>
+                <span className="text-lg font-semibold text-maroon whitespace-nowrap">
+                  {line.number}
+                </span>
+              </a>
+            ))}
+          </div>
+        </section>
 
-      {/* 이럴 때는 바로 연락하세요 */}
-      <section className="mt-10">
-        <h2 className="text-base font-semibold text-foreground">
-          이럴 때는 바로 연락하세요
-        </h2>
-        <ul className="mt-4 space-y-2 rounded-xl border border-border bg-card p-5">
-          {crisisSigns.map((sign) => (
-            <li key={sign} className="text-sm leading-relaxed text-muted">
-              · {sign}
-            </li>
-          ))}
-        </ul>
-      </section>
+        {/* 이럴 때는 바로 연락하세요 */}
+        <section className="mt-[60px]">
+          <h2 className="text-base font-semibold text-text">
+            이럴 때는 바로 연락하세요
+          </h2>
+          <ul className="mt-4 space-y-2 rounded-2xl border border-[var(--color-border)] bg-card p-6">
+            {crisisSigns.map((sign) => (
+              <li key={sign} className="text-sm leading-relaxed text-text-sub">
+                · {sign}
+              </li>
+            ))}
+          </ul>
+        </section>
 
-      {/* 주요 연계기관 */}
-      <section className="mt-10">
-        <h2 className="text-base font-semibold text-foreground">주요 연계기관</h2>
-        <div className="mt-4 space-y-8">
-          {partnerCategories.map((group) => (
-            <div key={group.category}>
-              <span className="inline-block rounded-full bg-highlight px-3 py-1 text-sm font-medium text-highlight-foreground">
-                {group.category}
-              </span>
-              <div className="mt-3 grid grid-cols-1 gap-3 md:grid-cols-2">
-                {group.orgs.map((org) => (
-                  <div
-                    key={org.name}
-                    className="rounded-xl border border-border bg-card p-[18px]"
-                  >
-                    <h3 className="text-base font-semibold text-accent">{org.name}</h3>
-                    <a
-                      href={tel(org.number)}
-                      className="mt-2 flex min-h-11 items-center text-lg font-semibold text-accent"
+        {/* 주요 연계기관 */}
+        <section className="mt-[60px]">
+          <h2 className="text-base font-semibold text-text">주요 연계기관</h2>
+          <div className="mt-4 space-y-8">
+            {partnerCategories.map((group) => (
+              <div key={group.category}>
+                <span className="inline-block rounded-full bg-blush px-3 py-1 text-sm font-medium text-maroon">
+                  {group.category}
+                </span>
+                <div className="mt-3 grid grid-cols-1 gap-3 md:grid-cols-2">
+                  {group.orgs.map((org) => (
+                    <div
+                      key={org.name}
+                      className="rounded-2xl border border-[var(--color-border)] bg-card p-[18px]"
                     >
-                      {org.number}
-                    </a>
-                    {org.extraNumber && (
+                      <h3 className="text-base font-semibold text-moss">{org.name}</h3>
                       <a
-                        href={tel(org.extraNumber)}
-                        className="-mt-1 block text-sm text-muted"
+                        href={tel(org.number)}
+                        className="mt-2 flex min-h-11 items-center text-lg font-semibold text-maroon"
                       >
-                        {org.extraLabel} {org.extraNumber}
+                        {org.number}
                       </a>
-                    )}
-                    <p className="mt-1 text-sm text-muted">{org.hours}</p>
-                    {org.url && (
-                      <a
-                        href={org.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-2 inline-block text-sm text-accent underline underline-offset-2 hover:text-accent-2"
-                      >
-                        홈페이지 →
-                      </a>
-                    )}
-                  </div>
-                ))}
+                      {org.extraNumber && (
+                        <a
+                          href={tel(org.extraNumber)}
+                          className="-mt-1 block text-sm text-text-sub"
+                        >
+                          {org.extraLabel} {org.extraNumber}
+                        </a>
+                      )}
+                      <p className="mt-1 text-sm text-text-sub">{org.hours}</p>
+                      {org.url && (
+                        <a
+                          href={org.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-2 inline-block text-sm text-moss-deep underline underline-offset-2 hover:opacity-80"
+                        >
+                          홈페이지 →
+                        </a>
+                      )}
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-      </section>
-    </PageContainer>
+            ))}
+          </div>
+        </section>
+      </PageContainer>
+    </div>
   );
 }

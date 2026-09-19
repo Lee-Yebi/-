@@ -54,41 +54,44 @@ export default function NewReviewPage() {
 
   if (submitted) {
     return (
-      <PageContainer>
-        <h1 className="text-xl font-semibold text-foreground">
-          소중한 후기 감사합니다. 검토 후 게시됩니다.
-        </h1>
+      <div className="brand-scope min-h-screen w-full bg-cream">
+        <PageContainer>
+          <h1 className="text-xl font-semibold text-moss">
+            소중한 후기 감사합니다. 검토 후 게시됩니다.
+          </h1>
 
-        <div className="mt-6 rounded-xl border border-highlight-border bg-highlight p-5 text-sm leading-relaxed text-highlight-foreground">
-          혼자 감당하기 어려운 일이 있다면{" "}
-          <a href="tel:109" className="font-semibold underline underline-offset-2">
-            109
-          </a>
-          (자살예방 상담전화·24시간)로 언제든 연락하세요.
-          <br />
-          교내 상담은{" "}
-          <a href="tel:029018056" className="font-semibold underline underline-offset-2">
-            02-901-8056
-          </a>
-          입니다.
-        </div>
-      </PageContainer>
+          <div className="mt-9 rounded-2xl border border-maroon/20 bg-blush p-6 text-sm leading-relaxed text-maroon">
+            혼자 감당하기 어려운 일이 있다면{" "}
+            <a href="tel:109" className="font-semibold underline underline-offset-2">
+              109
+            </a>
+            (자살예방 상담전화·24시간)로 언제든 연락하세요.
+            <br />
+            교내 상담은{" "}
+            <a href="tel:029018056" className="font-semibold underline underline-offset-2">
+              02-901-8056
+            </a>
+            입니다.
+          </div>
+        </PageContainer>
+      </div>
     );
   }
 
   return (
-    <PageContainer>
-      <h1 className="text-xl font-semibold">후기 작성</h1>
+    <div className="brand-scope min-h-screen w-full bg-cream">
+      <PageContainer>
+      <h1 className="text-xl font-semibold text-moss">후기 작성</h1>
 
-      <div className="mt-6 rounded-xl border border-highlight-border bg-highlight p-5 text-sm leading-relaxed text-highlight-foreground">
+      <div className="mt-9 rounded-2xl border border-maroon/20 bg-blush p-6 text-sm leading-relaxed text-maroon">
         작성한 후기는 검토 후 게시됩니다.
         <br />
         이름이나 학번 등 본인을 알아볼 수 있는 정보는 적지 말아주세요.
       </div>
 
-      <form className="mt-6" onSubmit={handleSubmit}>
-        <span className="text-sm font-medium text-foreground">
-          상담 유형 <span className="text-xs font-normal text-muted">필수</span>
+      <form className="mt-9" onSubmit={handleSubmit}>
+        <span className="text-sm font-medium text-text">
+          상담 유형 <span className="text-xs font-normal text-text-sub">필수</span>
         </span>
         <div className="mt-2 flex flex-wrap gap-2" role="radiogroup" aria-label="상담 유형">
           {reviewTypes.map((t) => (
@@ -100,8 +103,8 @@ export default function NewReviewPage() {
               onClick={() => setType(t)}
               className={`flex min-h-11 items-center rounded-full px-4 text-sm font-medium transition-colors ${
                 type === t
-                  ? "bg-accent text-white"
-                  : "border border-border bg-card text-muted"
+                  ? "bg-moss-deep text-white"
+                  : "border border-[var(--color-border)] bg-card text-text-sub"
               }`}
             >
               {t}
@@ -111,7 +114,7 @@ export default function NewReviewPage() {
 
         <label
           htmlFor="review-content"
-          className="mt-6 block text-sm font-medium text-foreground"
+          className="mt-9 block text-sm font-medium text-text"
         >
           후기 내용
         </label>
@@ -121,23 +124,24 @@ export default function NewReviewPage() {
           onChange={(e) => setContent(e.target.value)}
           rows={8}
           placeholder="상담 경험을 자유롭게 남겨주세요."
-          className="mt-2 w-full rounded-xl border border-border bg-card p-4 text-sm leading-relaxed text-foreground placeholder:text-muted focus:border-accent focus:outline-none"
+          className="mt-2 w-full rounded-2xl border border-[var(--color-border)] bg-card p-4 text-sm leading-relaxed text-text placeholder:text-text-sub focus:border-moss-deep focus:outline-none"
         />
-        <p className="mt-1 text-xs text-muted">
+        <p className="mt-1 text-xs text-text-sub">
           {trimmedLength}/{MIN_LENGTH}자 이상
         </p>
 
-        {error && <p className="mt-3 text-sm font-medium text-accent">{error}</p>}
+        {error && <p className="mt-3 text-sm font-medium text-maroon">{error}</p>}
 
         <button
           type="submit"
           disabled={!canSubmit}
-          className="mt-6 flex min-h-11 w-full items-center justify-center rounded-xl bg-accent px-5 text-sm font-medium text-white transition-colors hover:bg-accent-2 disabled:cursor-not-allowed disabled:opacity-40"
+          className="mt-9 flex min-h-11 w-full items-center justify-center rounded-2xl bg-moss-deep px-5 text-sm font-medium text-white transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
         >
           {submitting ? "제출 중…" : "제출하기"}
         </button>
-        {submitHint && <p className="mt-2 text-center text-xs text-muted">{submitHint}</p>}
+        {submitHint && <p className="mt-2 text-center text-xs text-text-sub">{submitHint}</p>}
       </form>
-    </PageContainer>
+      </PageContainer>
+    </div>
   );
 }

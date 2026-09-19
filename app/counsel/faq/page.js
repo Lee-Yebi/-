@@ -1,4 +1,5 @@
 import PageContainer from "@/components/PageContainer";
+import MountainIcon from "@/components/icons/MountainIcon";
 
 const faqs = [
   {
@@ -38,39 +39,50 @@ const faqs = [
 
 export default function FaqPage() {
   return (
-    <PageContainer>
-      <h1 className="text-xl font-semibold">FAQ</h1>
+    <div className="brand-scope min-h-screen w-full bg-cream">
+      <PageContainer>
+      <h1 className="flex items-center gap-2 text-xl font-semibold text-moss">
+        <MountainIcon className="text-moss" />
+        FAQ
+      </h1>
 
-      <div className="mt-6 divide-y divide-border rounded-xl border border-border bg-card">
+      <div className="mt-9 divide-y divide-[var(--color-border)] rounded-2xl border border-[var(--color-border)] bg-card">
         {faqs.map((item) => (
           <details key={item.question} className="group px-4 py-3">
-            <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 text-base font-medium text-foreground marker:content-none">
+            <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 text-base font-medium text-text marker:content-none">
               {item.question}
-              <span
+              <svg
                 aria-hidden
-                className="shrink-0 text-muted transition-transform group-open:rotate-45"
+                viewBox="0 0 20 20"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="h-4 w-4 shrink-0 text-text-sub transition-transform group-open:rotate-180"
               >
-                +
-              </span>
+                <path d="M5 7.5 L10 12.5 L15 7.5" />
+              </svg>
             </summary>
-            <p className="mt-2 text-[15px] leading-[1.7] text-muted">
+            <p className="mt-2 text-[15px] leading-[1.7] text-text-sub">
               {item.answer ?? "내용을 준비 중입니다."}
             </p>
           </details>
         ))}
       </div>
 
-      <p className="mt-10 text-xs text-[#8C8087]">
+      <p className="mt-[60px] text-xs text-[#8C8087]">
         출처:{" "}
         <a
           href="https://www.dspress.org/news/articleView.html?idxno=11955"
           target="_blank"
           rel="noopener noreferrer"
-          className="underline underline-offset-2 hover:text-accent"
+          className="underline underline-offset-2 hover:text-moss-deep"
         >
           덕성여대신문 (dspress.org)
         </a>
       </p>
-    </PageContainer>
+      </PageContainer>
+    </div>
   );
 }
