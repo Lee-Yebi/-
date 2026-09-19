@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Footer() {
   return (
     <footer className="mt-auto border-t border-border bg-background py-6 text-center text-xs text-muted">
@@ -19,6 +21,11 @@ export default function Footer() {
             109
           </a>{" "}
           (24시간)
+        </p>
+        <p>
+          <Link href="/about" className="text-[14px] text-muted hover:text-accent">
+            만든 사람들
+          </Link>
         </p>
       </div>
     </footer>

@@ -1,5 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import PageContainer from "@/components/PageContainer";
+import { TEAM } from "@/data/team";
 
 const entryCards = [
   {
@@ -46,6 +48,27 @@ export default function Home() {
           </Link>
         ))}
       </div>
+
+      <Link
+        href="/about"
+        className="mt-4 flex flex-col items-center gap-4 rounded-xl border border-highlight-border bg-highlight p-5 text-center transition-opacity hover:opacity-90 sm:flex-row sm:text-left"
+      >
+        <Image
+          src={TEAM.mascot.image}
+          alt={TEAM.mascot.name}
+          width={56}
+          height={56}
+          className="shrink-0 object-contain"
+        />
+        <div>
+          <p className="text-[15px] font-semibold text-accent">
+            이 사이트는 {TEAM.name}이 만들었습니다
+          </p>
+          <p className="mt-1 text-[14px] text-muted">
+            덕성여대 재학생들이 상담을 더 쉽게 찾을 수 있도록
+          </p>
+        </div>
+      </Link>
     </PageContainer>
   );
 }
