@@ -59,7 +59,7 @@ export default function NewReviewPage() {
           소중한 후기 감사합니다. 검토 후 게시됩니다.
         </h1>
 
-        <div className="mt-6 rounded-xl border border-crisis-border bg-crisis p-5 text-sm leading-relaxed text-crisis-foreground">
+        <div className="mt-6 rounded-xl border border-highlight-border bg-highlight p-5 text-sm leading-relaxed text-highlight-foreground">
           혼자 감당하기 어려운 일이 있다면{" "}
           <a href="tel:109" className="font-semibold underline underline-offset-2">
             109

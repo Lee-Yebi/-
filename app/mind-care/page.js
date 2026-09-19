@@ -1,7 +1,6 @@
 import Link from "next/link";
 import PageContainer from "@/components/PageContainer";
 import { loadAllDiseases } from "@/lib/mentalhealth";
-import SproutIcon from "@/components/icons/SproutIcon";
 
 function topTags(keyWord) {
   if (!keyWord) return [];
@@ -17,10 +16,7 @@ export default function MindCarePage() {
 
   return (
     <PageContainer>
-      <h1 className="flex items-center gap-2 text-xl font-semibold">
-        <SproutIcon className="h-6 w-6 text-accent" />
-        마음 관리
-      </h1>
+      <h1 className="text-xl font-semibold">마음 관리</h1>
       <p className="mt-2 text-sm text-muted">
         국가정신건강정보포털의 자료를 바탕으로 정리한 주제별 정보입니다.
       </p>

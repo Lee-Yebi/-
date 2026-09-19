@@ -2,21 +2,17 @@ import Link from "next/link";
 import Image from "next/image";
 import PageContainer from "@/components/PageContainer";
 import { TEAM } from "@/data/team";
-import MountainIcon from "@/components/icons/MountainIcon";
-import SproutIcon from "@/components/icons/SproutIcon";
 
 const entryCards = [
   {
     title: "마음 관리",
     desc: "지금 내 마음 상태를 살펴보고 싶다면",
     href: "/mind-care",
-    Icon: SproutIcon,
   },
   {
     title: "상담 알아보기",
     desc: "어떤 고민을 상담할 수 있는지, 어떻게 신청하는지",
     href: "/counsel",
-    Icon: MountainIcon,
   },
   {
     title: "이용후기",
@@ -47,11 +43,6 @@ export default function Home() {
             href={card.href}
             className="block rounded-xl border border-border bg-card p-6 transition-colors hover:border-accent/40"
           >
-            {card.Icon && (
-              <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-highlight text-accent">
-                <card.Icon className="h-5 w-5" />
-              </div>
-            )}
             <h2 className="text-lg font-semibold text-accent">{card.title}</h2>
             <p className="mt-1.5 text-sm text-muted">{card.desc}</p>
           </Link>

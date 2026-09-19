@@ -68,7 +68,7 @@ export default async function DiseasePage({ params }) {
         에서 무료로 다운받으실 수 있습니다.
       </div>
 
-      <div className="mt-6 rounded-xl border border-crisis-border bg-crisis p-5 text-sm leading-relaxed text-crisis-foreground">
+      <div className="mt-6 rounded-xl border border-highlight-border bg-highlight p-5 text-sm leading-relaxed text-highlight-foreground">
         혼자 감당하기 어렵다면 교내 상담을 신청해보세요.{" "}
         <a href="tel:029018056" className="font-semibold underline underline-offset-2">
           02-901-8056

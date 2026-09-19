@@ -1,39 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  /* 오름이 브랜드 팔레트 */
-  --cream: #fdf3e3;
-  --moss: #6b8e4e;
-  --sprout: #a8c97c;
-  --leaf: #7fb35c;
-  --maroon: #7a2e3b;
-  --blush: #f6c4c0;
-
-  --background: var(--cream);
+  --background: #ffffff;
   --foreground: #33292c;
-  --card: var(--cream);
+  --card: #ffffff;
   --border: #e3ddd5;
   --muted: #6e6165;
-  --accent: var(--moss);
-  --accent-2: var(--leaf);
-  --highlight: var(--blush);
-  --highlight-border: color-mix(in srgb, var(--maroon) 20%, var(--blush));
+  --accent: #6b2c3e;
+  --accent-2: #9a5468;
+  --highlight: #fbf3dc;
+  --highlight-border: #ebdcb8;
   --highlight-foreground: #6b5426;
-
-  /* 위기상담 안내처럼 정말 중요한 요소 전용 — 경고가 아닌 차분한 브랜드 컬러 */
-  --crisis: color-mix(in srgb, var(--maroon) 12%, var(--cream));
-  --crisis-border: color-mix(in srgb, var(--maroon) 35%, var(--cream));
-  --crisis-foreground: var(--maroon);
 }
 
 @theme inline {
-  --color-cream: var(--cream);
-  --color-moss: var(--moss);
-  --color-sprout: var(--sprout);
-  --color-leaf: var(--leaf);
-  --color-maroon: var(--maroon);
-  --color-blush: var(--blush);
-
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -44,9 +24,6 @@
   --color-highlight: var(--highlight);
   --color-highlight-border: var(--highlight-border);
   --color-highlight-foreground: var(--highlight-foreground);
-  --color-crisis: var(--crisis);
-  --color-crisis-border: var(--crisis-border);
-  --color-crisis-foreground: var(--crisis-foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
