@@ -5,74 +5,124 @@ import Image from "next/image";
 import PageContainer from "@/components/PageContainer";
 import { TEAM } from "@/data/team";
 
+const LEFT_COL = "w-24 shrink-0 md:w-28";
+
 export default function AboutPage() {
   const [mascotImgError, setMascotImgError] = useState(false);
 
-  const hasMeaningCards = Boolean(TEAM.nameMeaning || TEAM.siteNameMeaning);
-
   return (
     <PageContainer>
-      {/* 1. 팀 이름과 한 줄 소개 */}
+      {/* 팀 이름 + 소개 */}
       <h1 className="text-[28px] font-semibold text-accent">{TEAM.name}</h1>
-      {TEAM.tagline && <p className="mt-2 text-base text-muted">{TEAM.tagline}</p>}
+      {TEAM.intro.length > 0 && (
+        <div className="mt-3 max-w-[620px] space-y-3">
+          {TEAM.intro.map((paragraph) => (
+            <p key={paragraph} className="text-base leading-relaxed text-muted">
+              {paragraph}
+            </p>
+          ))}
+        </div>
+      )}
 
-      {/* 2. 팀명 뜻 / 무궁담이라는 이름 */}
-      {hasMeaningCards && (
-        <section className="mt-8 grid grid-cols-1 gap-3 md:grid-cols-2">
-          {TEAM.nameMeaning && (
-            <div className="rounded-xl border border-border bg-card p-5">
-              <h2 className="text-base font-semibold text-foreground">팀명 뜻</h2>
-              <p className="mt-2 text-sm leading-relaxed text-muted">{TEAM.nameMeaning}</p>
+      {/* 팀명 뜻 */}
+      {TEAM.nameMeaning?.lines?.length > 0 && (
+        <section className="mt-10">
+          <h2 className="text-base font-semibold text-foreground">팀명 뜻</h2>
+          <div className="mt-4 rounded-xl border border-border bg-card p-[18px]">
+            <div className="space-y-3">
+              {TEAM.nameMeaning.lines.map((line) => (
+                <div key={line.en} className="flex items-start">
+                  <div className={`${LEFT_COL} pr-4 text-[16px] font-semibold text-accent`}>
+                    {line.en}
+                  </div>
+                  <div className="border-l border-border pl-4 text-[15px] text-foreground">
+                    {line.ko}
+                  </div>
+                </div>
+              ))}
             </div>
-          )}
-          {TEAM.siteNameMeaning && (
-            <div className="rounded-xl border border-border bg-card p-5">
-              <h2 className="text-base font-semibold text-foreground">무궁담이라는 이름</h2>
-              <p className="mt-2 text-sm leading-relaxed text-muted">{TEAM.siteNameMeaning}</p>
-            </div>
-          )}
+
+            {TEAM.nameMeaning.slogan && (
+              <div className="mt-4 border-t border-border pt-[18px] pb-[18px] text-center">
+                <p className="text-[18px] font-semibold text-accent">
+                  {TEAM.nameMeaning.slogan}
+                </p>
+              </div>
+            )}
+          </div>
         </section>
       )}
 
-      {/* 3. 우리가 하려는 일 */}
+      {/* 무궁담이라는 이름 */}
+      {TEAM.siteNameMeaning && (
+        <section className="mt-10">
+          <div className="rounded-xl border border-border bg-card p-[18px]">
+            <h2 className="text-base font-semibold text-foreground">무궁담이라는 이름</h2>
+            <p className="mt-2 text-[15px] leading-relaxed text-muted">
+              {TEAM.siteNameMeaning}
+            </p>
+          </div>
+        </section>
+      )}
+
+      {/* 팀 목표 */}
       {TEAM.goals.length > 0 && (
         <section className="mt-10">
-          <h2 className="text-base font-semibold text-foreground">우리가 하려는 일</h2>
-          <ul className="mt-4 space-y-2 rounded-xl border border-border bg-card p-5">
+          <h2 className="text-base font-semibold text-foreground">팀 목표</h2>
+          <div className="mt-4 space-y-[10px]">
             {TEAM.goals.map((goal) => (
-              <li key={goal} className="text-sm leading-relaxed text-muted">
-                · {goal}
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
-
-      {/* 4. 팀원 소개 */}
-      {TEAM.members.length > 0 && (
-        <section className="mt-10">
-          <h2 className="text-base font-semibold text-foreground">팀원 소개</h2>
-          <div className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2">
-            {TEAM.members.map((member) => (
-              <div key={member.name} className="rounded-xl border border-border bg-card p-5">
-                <p className="text-[16px] font-semibold text-foreground">{member.name}</p>
-                {(member.major || member.studentYear) && (
-                  <p className="mt-1 text-[14px] text-muted">
-                    {[member.major, member.studentYear].filter(Boolean).join(" · ")}
-                  </p>
-                )}
-                {member.role && (
-                  <span className="mt-3 inline-block rounded-full bg-highlight px-3 py-1 text-xs font-medium text-highlight-foreground">
-                    {member.role}
+              <div
+                key={goal.en}
+                className="flex items-start rounded-xl border border-border bg-card p-[18px]"
+              >
+                <div className={`${LEFT_COL} flex justify-center pr-4`}>
+                  <span className="rounded-[20px] bg-highlight px-3 py-1 text-center text-[13px] font-medium text-highlight-foreground">
+                    {goal.en}
                   </span>
-                )}
+                </div>
+                <div>
+                  <p className="text-[16px] font-semibold text-foreground">{goal.ko}</p>
+                  <p className="mt-1 text-[15px] text-muted">{goal.desc}</p>
+                </div>
               </div>
             ))}
           </div>
         </section>
       )}
 
-      {/* 5. 마스코트 */}
+      {/* 팀원 소개 */}
+      {TEAM.members.length > 0 && (
+        <section className="mt-10">
+          <h2 className="text-base font-semibold text-foreground">팀원 소개</h2>
+          <div className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2">
+            {TEAM.members.map((member) => (
+              <div
+                key={member.name}
+                className="flex h-full items-start gap-3 rounded-xl border border-border bg-card p-[18px]"
+              >
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-highlight text-[18px] font-semibold text-accent">
+                  {member.name.slice(0, 1)}
+                </div>
+                <div>
+                  <p className="text-[16px] font-semibold text-foreground">{member.name}</p>
+                  {(member.major || member.year) && (
+                    <p className="mt-1 text-[14px] text-muted">
+                      {[member.major, member.year].filter(Boolean).join(" · ")}
+                    </p>
+                  )}
+                  {member.role && (
+                    <span className="mt-2 inline-block rounded-[20px] bg-highlight px-3 py-1 text-[13px] font-medium text-highlight-foreground">
+                      {member.role}
+                    </span>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* 마스코트 */}
       <section className="mt-10">
         <h2 className="text-base font-semibold text-foreground">마스코트 {TEAM.mascot.name}</h2>
         <div className="mt-4 flex flex-col items-center gap-4 rounded-xl border border-border bg-card p-5 text-center md:flex-row md:items-start md:text-left">
@@ -95,7 +145,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 6. 활동 연혁 */}
+      {/* 활동 연혁 */}
       {TEAM.history.length > 0 && (
         <section className="mt-10">
           <h2 className="text-base font-semibold text-foreground">활동 연혁</h2>
@@ -107,10 +157,8 @@ export default function AboutPage() {
                   <p className="shrink-0 text-[14px] text-muted sm:w-24">{item.date}</p>
                   <div>
                     <p className="text-base font-semibold text-foreground">{item.title}</p>
-                    {item.description && (
-                      <p className="mt-1 text-sm leading-relaxed text-muted">
-                        {item.description}
-                      </p>
+                    {item.desc && (
+                      <p className="mt-1 text-sm leading-relaxed text-muted">{item.desc}</p>
                     )}
                   </div>
                 </div>
@@ -120,7 +168,7 @@ export default function AboutPage() {
         </section>
       )}
 
-      {/* 7. 인스타그램 */}
+      {/* 인스타그램 */}
       {TEAM.instagram && (
         <a
           href={TEAM.instagram}
