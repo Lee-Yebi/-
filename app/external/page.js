@@ -6,7 +6,7 @@ function tel(number) {
 
 const featuredHotline = {
   name: "정신건강위기상담전화",
-  number: "1577-0799",
+  number: "1577-0199",
   hours: "24시간",
 };
 

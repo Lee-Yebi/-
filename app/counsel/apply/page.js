@@ -67,7 +67,7 @@ const infoRows = [
     label: "위치",
     value: "덕성여자대학교 덕우당(한옥) 1층 106호 (서울 도봉구 삼양로144길 33)",
   },
-  { label: "전화", href: "tel:0290018056", value: "02-901-8056" },
+  { label: "전화", href: "tel:029018056", value: "02-901-8056" },
   {
     label: "이메일",
     href: "mailto:counsel@duksung.ac.kr",
