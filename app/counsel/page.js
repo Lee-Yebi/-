@@ -1,6 +1,7 @@
 import Link from "next/link";
 import PageContainer from "@/components/PageContainer";
 import SourceNote from "@/components/SourceNote";
+import MountainIcon from "@/components/icons/MountainIcon";
 
 const visitReasons = [
   {
@@ -67,7 +68,10 @@ const concernCategories = [
 export default function CounselPage() {
   return (
     <PageContainer>
-      <h1 className="text-xl font-semibold">상담 알아보기</h1>
+      <h1 className="flex items-center gap-2 text-xl font-semibold">
+        <MountainIcon className="h-6 w-6 text-accent" />
+        상담 알아보기
+      </h1>
 
       <section className="mt-6">
         <h2 className="text-base font-semibold text-foreground">이럴 때 방문하세요</h2>
@@ -111,7 +115,7 @@ export default function CounselPage() {
             {cat.crisisNote && (
               <>
                 <hr className="mt-4 border-border" />
-                <p className="mt-3 text-[13px] text-highlight-foreground">
+                <p className="mt-3 text-[13px] text-crisis-foreground">
                   지금 많이 힘드시다면{" "}
                   <a href="tel:109" className="font-semibold underline underline-offset-2">
                     109

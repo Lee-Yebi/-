@@ -17,7 +17,7 @@ export default function Footer() {
         <p>학기 중 월~금 10:00~16:00 (점심 12:00~13:00 제외)</p>
         <p>
           위기 상황이라면{" "}
-          <a href="tel:109" className="font-medium text-accent hover:text-accent-2">
+          <a href="tel:109" className="font-medium text-crisis-foreground hover:opacity-75">
             109
           </a>{" "}
           (24시간)

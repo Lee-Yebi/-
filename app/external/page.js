@@ -141,12 +141,12 @@ export default function ExternalPage() {
       <section className="mt-3">
         <a
           href={tel(featuredHotline.number)}
-          className="block rounded-xl border border-highlight-border bg-highlight p-5 transition-opacity hover:opacity-90"
+          className="block rounded-xl border border-crisis-border bg-crisis p-5 transition-opacity hover:opacity-90"
         >
-          <p className="text-sm font-medium text-highlight-foreground">
+          <p className="text-sm font-medium text-crisis-foreground">
             {featuredHotline.name} · {featuredHotline.hours}
           </p>
-          <p className="mt-1 text-[32px] font-semibold text-highlight-foreground">
+          <p className="mt-1 text-[32px] font-semibold text-crisis-foreground">
             {featuredHotline.number}
           </p>
         </a>

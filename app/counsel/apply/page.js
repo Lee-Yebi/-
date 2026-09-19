@@ -348,7 +348,7 @@ export default function ApplyPage() {
             <InfoTable rows={levelResponseRows} labelHeader="수준" valueHeader="대응" />
           </div>
 
-          <div className="mt-8 rounded-xl border border-highlight-border bg-highlight p-5 text-sm leading-relaxed text-highlight-foreground">
+          <div className="mt-8 rounded-xl border border-crisis-border bg-crisis p-5 text-sm leading-relaxed text-crisis-foreground">
             지금 도움이 필요하다면{" "}
             <a href="tel:109" className="font-semibold underline underline-offset-2">
               109
