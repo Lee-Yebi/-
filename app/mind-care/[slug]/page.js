@@ -33,7 +33,7 @@ export default async function DiseasePage({ params }) {
         {disease.sections.map((section, i) => (
           <details key={section.num} className="group px-4 py-3" open={i === 0}>
             <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 text-[16px] font-medium text-foreground marker:content-none">
-              {section.title}
+              {section.title === "Intro" ? "개요" : section.title}
               <span
                 aria-hidden
                 className="shrink-0 text-muted transition-transform group-open:rotate-45"
