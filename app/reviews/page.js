@@ -5,7 +5,7 @@ import Link from "next/link";
 import PageContainer from "@/components/PageContainer";
 import { supabase } from "@/lib/supabaseClient";
 
-const filters = ["전체", "학습", "진로·취업", "심리", "집단", "심리검사"];
+const filters = ["전체", "심리", "집단", "심리검사"];
 
 function formatDate(value) {
   if (!value) return "";
@@ -71,6 +71,19 @@ export default function ReviewsPage() {
         후기 작성하기
       </Link>
 
+      <div className="mt-9 rounded-2xl border border-maroon/25 bg-blush p-[18px] text-[15px] leading-[1.7] text-maroon">
+        상담 과정에서 느낀 불편한 점이 있다면, 접수실 조교 선생님이나{" "}
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSdeczpU3kP8Wy4eIPYFP6UaOnscbsjPuI7JDRBmPq4bmDURPg/viewform"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-maroon underline underline-offset-2"
+        >
+          설문 링크
+        </a>
+        를 통해 말씀해 주세요. 상담사 교체, 불편사항 모두 가능합니다.
+      </div>
+
       <details className="group mt-9 rounded-2xl border border-maroon/20 bg-blush p-6">
         <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 text-base font-semibold text-moss marker:content-none">
           이용후기 가이드 필독
@@ -100,6 +113,10 @@ export default function ReviewsPage() {
             <li>
               상담사나 학생상담센터에 대한 불편한 점이 있으셨다면, 아래 예시를 참고하여
               적어주세요.
+            </li>
+            <li>
+              학습과 진로·취업 관련 상담은 학생상담센터 관할이 아니어서 이용후기 대상에서
+              제외했습니다. 심리상담, 집단상담, 심리검사 경험을 나눠주세요.
             </li>
           </ol>
 
@@ -158,6 +175,21 @@ export default function ReviewsPage() {
               </p>
             </div>
           </div>
+
+          <hr className="mt-5 border-[var(--color-border)]" />
+
+          <p className="mt-4 text-[14px] leading-[1.7] text-text-sub">
+            상담센터에 직접 후기를 남기고 싶다면{" "}
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSebPWGMsBQJB_FMBAWtEW1_a5-_gGMHzZQ2a4mVYpgFl97lvw/viewform"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-moss-deep underline underline-offset-2"
+            >
+              학생상담센터 이용후기 폼
+            </a>
+            을 이용하실 수도 있습니다.
+          </p>
         </div>
       </details>
 

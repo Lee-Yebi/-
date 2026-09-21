@@ -4,7 +4,7 @@ import { useState } from "react";
 import PageContainer from "@/components/PageContainer";
 import { supabase } from "@/lib/supabaseClient";
 
-const reviewTypes = ["학습", "진로·취업", "심리", "집단", "심리검사"];
+const reviewTypes = ["심리", "집단", "심리검사"];
 const MIN_LENGTH = 20;
 
 export default function NewReviewPage() {
@@ -87,6 +87,19 @@ export default function NewReviewPage() {
         작성한 후기는 검토 후 게시됩니다.
         <br />
         이름이나 학번 등 본인을 알아볼 수 있는 정보는 적지 말아주세요.
+      </div>
+
+      <div className="mt-3 rounded-2xl border border-maroon/25 bg-blush p-[18px] text-[15px] leading-[1.7] text-maroon">
+        상담 과정에서 느낀 불편한 점이 있다면, 접수실 조교 선생님이나{" "}
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSdeczpU3kP8Wy4eIPYFP6UaOnscbsjPuI7JDRBmPq4bmDURPg/viewform"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-maroon underline underline-offset-2"
+        >
+          설문 링크
+        </a>
+        를 통해 말씀해 주세요. 상담사 교체, 불편사항 모두 가능합니다.
       </div>
 
       <form className="mt-9" onSubmit={handleSubmit}>

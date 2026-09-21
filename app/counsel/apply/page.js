@@ -19,6 +19,7 @@ const tabsData = {
       {
         title: "신청서 작성",
         desc: "학생경력개발시스템에서 온라인으로 신청",
+        link: { label: "학생경력개발시스템 바로가기", href: "https://job.duksung.ac.kr/" },
       },
       {
         title: "접수면접 및 심리검사",
@@ -34,7 +35,11 @@ const tabsData = {
   test: {
     meta: null,
     steps: [
-      { title: "신청서 작성", desc: "학생경력개발시스템에서 온라인으로 신청" },
+      {
+        title: "신청서 작성",
+        desc: "학생경력개발시스템에서 온라인으로 신청",
+        link: { label: "학생경력개발시스템 바로가기", href: "https://job.duksung.ac.kr/" },
+      },
       { title: "심리검사 실시", desc: "원하는 영역에 맞는 검사를 진행" },
       { title: "해석상담 진행", desc: "상담 선생님과 함께 결과를 읽어보는 시간" },
     ],
@@ -46,8 +51,19 @@ const tabsData = {
       {
         title: "홈페이지·비교과통합관리시스템 공고",
         desc: "학생상담센터 홈페이지와 비교과통합관리시스템에 게시",
+        link: {
+          label: "비교과통합관리시스템(De:light) 바로가기",
+          href: "https://delight.duksung.ac.kr/",
+        },
       },
-      { title: "온라인 신청", desc: "비교과통합관리시스템에서 신청" },
+      {
+        title: "온라인 신청",
+        desc: "비교과통합관리시스템에서 신청",
+        link: {
+          label: "비교과통합관리시스템(De:light) 바로가기",
+          href: "https://delight.duksung.ac.kr/",
+        },
+      },
       { title: "프로그램 참여", desc: "소그룹으로 모여 활동과 대화 진행" },
     ],
     note: "상시 접수가 아니라 모집 공고 → 신청 방식이므로, 학기 초 공지를 챙겨보는 것이 중요합니다.",
@@ -67,6 +83,7 @@ const infoRows = [
   {
     label: "위치",
     value: "덕성여자대학교 덕우당(한옥) 1층 106호 (서울 도봉구 삼양로144길 33)",
+    note: "휠체어를 사용하는 학생은 장애학생지원센터 내 휴게실에서 상담을 진행할 수 있습니다. 신청 시 미리 알려주세요.",
   },
   { label: "전화", href: "tel:029018056", value: "02-901-8056" },
   {
@@ -303,6 +320,16 @@ export default function ApplyPage() {
                   {step.desc && (
                     <p className="mt-1 text-sm leading-relaxed text-text-sub">{step.desc}</p>
                   )}
+                  {step.link && (
+                    <a
+                      href={step.link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-[6px] inline-block text-[14px] text-moss-deep underline underline-offset-2"
+                    >
+                      {step.link.label} ↗
+                    </a>
+                  )}
                 </div>
               </li>
             ))}
@@ -462,25 +489,27 @@ export default function ApplyPage() {
         <h2 className="text-base font-semibold text-text">이용 시간 및 문의처</h2>
         <dl className="mt-4 divide-y divide-[var(--color-border)] rounded-2xl border border-[var(--color-border)] bg-card">
           {infoRows.map((row) => (
-            <div
-              key={row.label}
-              className="flex flex-col gap-1.5 px-5 py-4 md:flex-row md:items-center md:justify-between md:gap-4"
-            >
-              <dt className="text-sm font-medium text-text">{row.label}</dt>
-              <dd className="flex flex-col items-start gap-2 text-sm text-text-sub md:items-end">
-                {row.href ? (
-                  <a href={row.href} className="text-moss-deep hover:opacity-80">
-                    {row.value}
-                  </a>
-                ) : (
-                  <span>{row.value}</span>
-                )}
-                {row.badge && (
-                  <span className="rounded-full border border-maroon/20 bg-blush px-3 py-1 text-xs font-semibold text-maroon">
-                    {row.badge}
-                  </span>
-                )}
-              </dd>
+            <div key={row.label}>
+              <div className="flex flex-col gap-1.5 px-5 py-4 md:flex-row md:items-center md:justify-between md:gap-4">
+                <dt className="text-sm font-medium text-text">{row.label}</dt>
+                <dd className="flex flex-col items-start gap-2 text-sm text-text-sub md:items-end">
+                  {row.href ? (
+                    <a href={row.href} className="text-moss-deep hover:opacity-80">
+                      {row.value}
+                    </a>
+                  ) : (
+                    <span>{row.value}</span>
+                  )}
+                  {row.badge && (
+                    <span className="rounded-full border border-maroon/20 bg-blush px-3 py-1 text-xs font-semibold text-maroon">
+                      {row.badge}
+                    </span>
+                  )}
+                </dd>
+              </div>
+              {row.note && (
+                <p className="px-5 pb-4 text-[14px] leading-relaxed text-text-sub">{row.note}</p>
+              )}
             </div>
           ))}
         </dl>
