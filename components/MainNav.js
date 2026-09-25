@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 
 const links = [
   { href: "/mind-care", label: "마음 관리" },
-  { href: "/counsel", label: "상담 알아보기" },
+  { href: "/counsel", label: "상담센터 안내" },
   { href: "/reviews", label: "이용후기" },
   { href: "/external", label: "교외 도움 찾기" },
 ];

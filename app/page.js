@@ -10,7 +10,7 @@ const entryCards = [
     href: "/mind-care",
   },
   {
-    title: "상담 알아보기",
+    title: "상담센터 안내",
     desc: "어떤 고민을 상담할 수 있는지, 어떻게 신청하는지",
     href: "/counsel",
   },
