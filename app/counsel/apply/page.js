@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import PageContainer from "@/components/PageContainer";
 import SourceNote from "@/components/SourceNote";
 import MountainIcon from "@/components/icons/MountainIcon";
@@ -69,31 +70,6 @@ const tabsData = {
     note: "상시 접수가 아니라 모집 공고 → 신청 방식이므로, 학기 초 공지를 챙겨보는 것이 중요합니다.",
   },
 };
-
-const infoRows = [
-  {
-    label: "학기 중",
-    value: "월~금 10:00 ~ 16:00 (점심시간 12:00 ~ 13:00 제외)",
-  },
-  {
-    label: "방학 중",
-    value: "기존 진행 사례와 위기상담만 운영",
-    badge: "신규 상담 신청 불가",
-  },
-  {
-    label: "위치",
-    value: "덕성여자대학교 덕우당(한옥) 1층 106호 (서울 도봉구 삼양로144길 33)",
-    note: "휠체어를 사용하는 학생은 장애학생지원센터 내 휴게실에서 상담을 진행할 수 있습니다. 신청 시 미리 알려주세요.",
-  },
-  { label: "전화", href: "tel:029018056", value: "02-901-8056" },
-  {
-    label: "이메일",
-    href: "mailto:counsel@duksung.ac.kr",
-    value: "counsel@duksung.ac.kr",
-  },
-  { label: "신청 경로", value: "학생경력개발시스템 / 비교과통합관리시스템" },
-  { label: "비용", value: "재학생 대상 학내 서비스" },
-];
 
 // 개인상담 탭에 이어붙이는 내용 (/counsel/programs 개인상담 탭에서 이동)
 const individualTopics = [
@@ -184,6 +160,17 @@ const levelResponseRows = [
   { label: "고위험군", value: "의뢰서 작성 후 전문 연계기관에 의뢰" },
   { label: "저위험군", value: "개인상담·심리검사 진행 및 사례회의" },
 ];
+
+function InfoLink() {
+  return (
+    <Link
+      href="/counsel/info"
+      className="mt-9 inline-block text-[14px] text-moss-deep underline underline-offset-2"
+    >
+      이용 시간과 위치 보기
+    </Link>
+  );
+}
 
 function InfoTable({ rows, labelHeader = "구분", valueHeader = "내용" }) {
   return (
@@ -391,6 +378,8 @@ export default function ApplyPage() {
             </a>
             입니다.
           </div>
+
+          <InfoLink />
         </>
       )}
 
@@ -419,6 +408,8 @@ export default function ApplyPage() {
             함께 제공되는 상담 형태
           </h2>
           <InfoTable rows={individualFormatRows} />
+
+          <InfoLink />
         </div>
       )}
 
@@ -454,6 +445,8 @@ export default function ApplyPage() {
             검사는 안내 → 실시 → 결과 해석상담 순으로 진행되며, 해석상담은 보통 단회기로
             이루어집니다.
           </div>
+
+          <InfoLink />
         </div>
       )}
 
@@ -481,39 +474,10 @@ export default function ApplyPage() {
           <div className="mt-4 rounded-2xl border border-maroon/20 bg-blush p-6 text-sm leading-relaxed text-maroon">
             운영 주제는 매 학기 달라집니다.
           </div>
+
+          <InfoLink />
         </div>
       )}
-
-      {/* common info */}
-      <section className="mt-[60px]">
-        <h2 className="text-base font-semibold text-text">이용 시간 및 문의처</h2>
-        <dl className="mt-4 divide-y divide-[var(--color-border)] rounded-2xl border border-[var(--color-border)] bg-card">
-          {infoRows.map((row) => (
-            <div key={row.label}>
-              <div className="flex flex-col gap-1.5 px-5 py-4 md:flex-row md:items-center md:justify-between md:gap-4">
-                <dt className="text-sm font-medium text-text">{row.label}</dt>
-                <dd className="flex flex-col items-start gap-2 text-sm text-text-sub md:items-end">
-                  {row.href ? (
-                    <a href={row.href} className="text-moss-deep hover:opacity-80">
-                      {row.value}
-                    </a>
-                  ) : (
-                    <span>{row.value}</span>
-                  )}
-                  {row.badge && (
-                    <span className="rounded-full border border-maroon/20 bg-blush px-3 py-1 text-xs font-semibold text-maroon">
-                      {row.badge}
-                    </span>
-                  )}
-                </dd>
-              </div>
-              {row.note && (
-                <p className="px-5 pb-4 text-[14px] leading-relaxed text-text-sub">{row.note}</p>
-              )}
-            </div>
-          ))}
-        </dl>
-      </section>
 
       <SourceNote />
       </PageContainer>
