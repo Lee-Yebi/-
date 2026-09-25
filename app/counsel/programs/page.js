@@ -14,6 +14,11 @@ const etcPrograms = [
     title: "찾아가는 심리측정 페스티벌 '심심해(心心解)'",
     desc: "매년 진행되는 심리건강 증진 행사로, 온라인으로 참여 가능. 간단한 심리검사로 현재의 심리 상태를 확인하고, 심박변이도·호흡 등 생리신호 측정을 통한 스트레스 점검도 함께 진행합니다.",
     extra: "실시 검사: CES-D(부정적 정서 경험, 일상의 흥미·활동 에너지 저하 여부 확인), 진로정체감검사(진로 결정 수준 확인)",
+    link: {
+      label: "비교과통합관리시스템(De:light)에서 신청하기",
+      href: "https://delight.duksung.ac.kr/",
+    },
+    linkNote: "모집 기간에만 신청할 수 있습니다.",
   },
   {
     title: "정신건강 특강 및 교육",
@@ -128,6 +133,19 @@ export default function ProgramsPage() {
               <p className="mt-3 inline-block rounded-full border border-maroon/20 bg-blush px-3 py-1 text-xs font-semibold text-maroon">
                 {program.badge}
               </p>
+            )}
+            {program.link && (
+              <a
+                href={program.link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 inline-block text-[14px] text-moss-deep underline underline-offset-2"
+              >
+                {program.link.label} ↗
+              </a>
+            )}
+            {program.linkNote && (
+              <p className="mt-1 text-[13px] text-text-sub">{program.linkNote}</p>
             )}
           </div>
         ))}
