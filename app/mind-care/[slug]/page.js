@@ -8,6 +8,23 @@ export function generateStaticParams() {
   return SLUGS.map((slug) => ({ slug }));
 }
 
+function Chevron({ className }) {
+  return (
+    <svg
+      aria-hidden
+      viewBox="0 0 20 20"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <path d="M5 7.5 L10 12.5 L15 7.5" />
+    </svg>
+  );
+}
+
 export default async function DiseasePage({ params }) {
   const { slug } = await params;
   const disease = loadDisease(slug);
@@ -34,28 +51,32 @@ export default async function DiseasePage({ params }) {
           </div>
         )}
 
-        <div className="mt-9 divide-y divide-[var(--color-border)] rounded-2xl border border-[var(--color-border)] bg-card">
-          {disease.sections.map((section, i) => (
-            <details key={section.num} className="group px-4 py-3" open={i === 0}>
-              <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 text-[16px] font-medium text-text marker:content-none">
-                {section.title === "Intro" ? "개요" : section.title}
-                <svg
-                  aria-hidden
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="h-4 w-4 shrink-0 text-text-sub transition-transform group-open:rotate-180"
-                >
-                  <path d="M5 7.5 L10 12.5 L15 7.5" />
-                </svg>
+        <div className="mt-9 space-y-3">
+          {disease.topics.map((topic) => (
+            <details
+              key={topic.title}
+              className="group/major rounded-2xl border border-[var(--color-border)] bg-card p-5"
+              open={topic.title === "개요"}
+            >
+              <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 text-[18px] font-semibold text-moss marker:content-none">
+                {topic.title}
+                <Chevron className="h-5 w-5 shrink-0 text-moss transition-transform group-open/major:rotate-180" />
               </summary>
-              <div
-                className="diss-body mt-2 text-[15px] leading-[1.7] text-text"
-                dangerouslySetInnerHTML={{ __html: section.html }}
-              />
+
+              <div className="mt-3 divide-y divide-[var(--color-border)] border-y border-[var(--color-border)] pl-4">
+                {topic.sections.map((section) => (
+                  <details key={section.num} className="group/minor py-3">
+                    <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 text-[16px] font-medium text-text marker:content-none">
+                      {section.title}
+                      <Chevron className="h-4 w-4 shrink-0 text-text-sub transition-transform group-open/minor:rotate-180" />
+                    </summary>
+                    <div
+                      className="diss-body mt-2 text-[15px] leading-[1.7] text-text"
+                      dangerouslySetInnerHTML={{ __html: section.html }}
+                    />
+                  </details>
+                ))}
+              </div>
             </details>
           ))}
         </div>
@@ -90,6 +111,10 @@ export default async function DiseasePage({ params }) {
             109
           </a>
           (자살예방 상담전화·24시간)로 바로 연락하셔도 됩니다.
+          <br />
+          <Link href="/external" className="font-semibold underline underline-offset-2">
+            교외 도움 찾기 보기
+          </Link>
         </div>
 
         <Link
