@@ -118,9 +118,12 @@ export default function ProgramsPage() {
         센터 운영 프로그램
       </h1>
 
-      <div className="mt-9 grid grid-cols-1 gap-3 md:grid-cols-2">
+      <div className="mt-9 columns-1 md:columns-2 md:gap-[14px]">
         {etcPrograms.map((program) => (
-          <div key={program.title} className="rounded-2xl border border-[var(--color-border)] bg-card p-6">
+          <div
+            key={program.title}
+            className="mb-[14px] break-inside-avoid rounded-2xl border border-[var(--color-border)] bg-card p-6"
+          >
             <h3 className="text-base font-semibold text-moss">{program.title}</h3>
             {program.keyword && (
               <p className="mt-1 text-xs font-medium text-text-sub">{program.keyword}</p>
