@@ -51,33 +51,40 @@ export default async function DiseasePage({ params }) {
           </div>
         )}
 
-        <div className="mt-9 space-y-3">
+        <div className="mt-9 space-y-8">
           {disease.topics.map((topic) => (
-            <details
-              key={topic.title}
-              className="group/major rounded-2xl border border-[var(--color-border)] bg-card p-5"
-              open={topic.title === "개요"}
-            >
-              <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 text-[18px] font-semibold text-moss marker:content-none">
-                {topic.title}
-                <Chevron className="h-5 w-5 shrink-0 text-moss transition-transform group-open/major:rotate-180" />
-              </summary>
+            <div key={topic.title}>
+              <div className="flex items-center gap-[10px]">
+                <span className="h-[18px] w-[3px] shrink-0 bg-[var(--color-sprout)]" />
+                <h2 className="text-[18px] font-semibold text-moss">{topic.title}</h2>
+              </div>
 
-              <div className="mt-3 divide-y divide-[var(--color-border)] border-y border-[var(--color-border)] pl-4">
-                {topic.sections.map((section) => (
-                  <details key={section.num} className="group/minor py-3">
-                    <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 text-[16px] font-medium text-text marker:content-none">
-                      {section.title}
-                      <Chevron className="h-4 w-4 shrink-0 text-text-sub transition-transform group-open/minor:rotate-180" />
-                    </summary>
+              <div className="mt-3 space-y-2">
+                {topic.sections.map((section) =>
+                  section.title === topic.title ? (
                     <div
-                      className="diss-body mt-2 text-[15px] leading-[1.7] text-text"
+                      key={section.num}
+                      className="diss-body text-[15px] leading-[1.7] text-text"
                       dangerouslySetInnerHTML={{ __html: section.html }}
                     />
-                  </details>
-                ))}
+                  ) : (
+                    <details
+                      key={section.num}
+                      className="group/minor rounded-xl border border-[var(--color-border)] bg-card p-4"
+                    >
+                      <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 text-[16px] font-medium text-text marker:content-none">
+                        {section.title}
+                        <Chevron className="h-4 w-4 shrink-0 text-text-sub transition-transform group-open/minor:rotate-180" />
+                      </summary>
+                      <div
+                        className="diss-body mt-2 text-[15px] leading-[1.7] text-text"
+                        dangerouslySetInnerHTML={{ __html: section.html }}
+                      />
+                    </details>
+                  ),
+                )}
               </div>
-            </details>
+            </div>
           ))}
         </div>
 
