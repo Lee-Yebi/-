@@ -24,7 +24,10 @@ const infoRows = [
   {
     label: "위치",
     value: "덕성여자대학교 덕우당(한옥) 1층 106호 (서울 도봉구 삼양로144길 33)",
-    note: "휠체어를 사용하는 학생은 장애학생지원센터 내 휴게실에서 상담을 진행할 수 있습니다. 신청 시 미리 알려주세요.",
+    note: [
+      "휠체어를 사용하는 학생은 장애학생지원센터 내 휴게실에서 상담을 진행할 수 있습니다.",
+      "신청 시 미리 알려주세요.",
+    ],
   },
   { label: "전화", href: "tel:029018056", value: "02-901-8056" },
   {
@@ -68,7 +71,9 @@ export default function CounselInfoPage() {
                 </dd>
               </div>
               {row.note && (
-                <p className="px-5 pb-4 text-[14px] leading-relaxed text-text-sub">{row.note}</p>
+                <p className="px-5 pb-4 text-[14px] leading-relaxed text-text-sub">
+                  {row.note.flatMap((line, i) => (i === 0 ? [line] : [<br key={i} />, line]))}
+                </p>
               )}
             </div>
           ))}
