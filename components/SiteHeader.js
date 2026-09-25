@@ -32,7 +32,7 @@ export default function SiteHeader() {
             src={LOGO_SRC}
             alt="무궁담"
             onError={() => setImgError(true)}
-            className={`w-auto ${isHome ? LOGO_HOME_HEIGHT_CLASS : LOGO_HEADER_HEIGHT_CLASS}`}
+            className={`block w-auto -translate-x-full ${isHome ? LOGO_HOME_HEIGHT_CLASS : LOGO_HEADER_HEIGHT_CLASS}`}
           />
         )}
       </Link>
