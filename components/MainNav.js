@@ -30,8 +30,8 @@ export default function MainNav() {
   }
 
   return (
-    <nav className="w-full border-b border-border md:border-b-0">
-      <div className="mx-auto max-w-5xl px-4 py-2">
+    <nav className="w-full bg-cream">
+      <div className="mx-auto max-w-[720px] px-4 py-2">
         {/* mobile: hamburger toggle */}
         <div className="flex items-center justify-between md:hidden">
           <span className="text-sm font-medium text-muted">메뉴</span>

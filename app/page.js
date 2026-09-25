@@ -29,7 +29,7 @@ const entryCards = [
 export default function Home() {
   return (
     <div className="brand-scope min-h-screen w-full bg-cream">
-      <PageContainer>
+      <PageContainer pt="pt-4">
         <h1 className="text-[28px] leading-snug font-semibold text-text">
           혼자 견디지 않아도 괜찮습니다
         </h1>
