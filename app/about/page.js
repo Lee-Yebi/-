@@ -25,9 +25,21 @@ export default function AboutPage() {
         </div>
       )}
 
+      {/* 인스타그램 */}
+      {TEAM.instagram && (
+        <a
+          href={TEAM.instagram}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-[20px] inline-flex min-h-11 items-center justify-center rounded-2xl bg-moss-deep px-5 text-sm font-medium text-white transition-opacity hover:opacity-90"
+        >
+          인스타그램 보러 가기
+        </a>
+      )}
+
       {/* 팀명 뜻 */}
       {TEAM.nameMeaning?.lines?.length > 0 && (
-        <section className="mt-[60px]">
+        <section className="mt-8">
           <h2 className="text-base font-semibold text-text">팀명 뜻</h2>
           <div className="mt-4 rounded-2xl border border-[var(--color-border)] bg-card p-[18px]">
             <div className="space-y-3">
@@ -167,18 +179,6 @@ export default function AboutPage() {
             ))}
           </ol>
         </section>
-      )}
-
-      {/* 인스타그램 */}
-      {TEAM.instagram && (
-        <a
-          href={TEAM.instagram}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-[60px] flex min-h-11 w-full items-center justify-center rounded-2xl bg-moss-deep px-5 text-sm font-medium text-white transition-opacity hover:opacity-90"
-        >
-          인스타그램 보러 가기
-        </a>
       )}
       </PageContainer>
     </div>
