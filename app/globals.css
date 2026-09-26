@@ -59,8 +59,12 @@
   --font-mono: var(--font-geist-mono);
 }
 
+html {
+  background: var(--color-cream);
+}
+
 body {
-  background: var(--background);
+  background: var(--color-cream);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
