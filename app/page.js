@@ -6,6 +6,8 @@ import Image from "next/image";
 import PageContainer from "@/components/PageContainer";
 import { TEAM } from "@/data/team";
 
+const LOGO_MAX_WIDTH_CLASS = "max-w-[1200px]";
+
 const entryCards = [
   {
     title: "마음 관리",
@@ -34,21 +36,21 @@ export default function Home() {
 
   return (
     <div className="brand-scope min-h-screen w-full bg-cream">
-      <PageContainer pt="pt-4">
+      <div className={`mx-auto mt-2 w-full px-4 ${LOGO_MAX_WIDTH_CLASS}`}>
         {logoError ? (
-          <p className="mt-2 mb-4 text-center text-[28px] font-semibold text-moss">
-            무궁담
-          </p>
+          <p className="text-center text-[28px] font-semibold text-moss">무궁담</p>
         ) : (
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src="/logo-main.png"
             alt="무궁담 - 마음을 마주하는 이야기"
             onError={() => setLogoError(true)}
-            className="mx-auto mt-2 mb-4 block aspect-[1848/851] w-full max-w-[900px] h-auto"
+            className="block aspect-[1848/851] w-full h-auto"
           />
         )}
+      </div>
 
+      <PageContainer pt="pt-4">
         <h1 className="text-[28px] leading-snug font-semibold text-text">
           혼자 견디지 않아도 괜찮습니다
         </h1>
