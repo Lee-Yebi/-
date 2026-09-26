@@ -42,7 +42,7 @@ export default function Home() {
         ) : (
           // eslint-disable-next-line @next/next/no-img-element
           <img
-            src="/logo-main.png"
+            src="/main_logo_final.png"
             alt="무궁담 - 마음을 마주하는 이야기"
             onError={() => setLogoError(true)}
             className="block aspect-[1848/851] w-full h-auto"
