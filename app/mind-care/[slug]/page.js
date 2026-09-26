@@ -61,7 +61,7 @@ export default async function DiseasePage({ params }) {
 
               <div className="mt-3 space-y-2">
                 {topic.sections.map((section) =>
-                  section.title === topic.title ? (
+                  section.isOverviewIntro ? (
                     <div
                       key={section.num}
                       className="diss-body text-[15px] leading-[1.7] text-text"
