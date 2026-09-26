@@ -6,7 +6,7 @@ import Image from "next/image";
 import PageContainer from "@/components/PageContainer";
 import { TEAM } from "@/data/team";
 
-const LOGO_MAX_WIDTH_CLASS = "max-w-[1200px]";
+const LOGO_MAX_WIDTH_CLASS = "max-w-[1000px]";
 
 const entryCards = [
   {
