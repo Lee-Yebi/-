@@ -36,7 +36,7 @@ export default function Home() {
 
   return (
     <div className="brand-scope min-h-screen w-full bg-cream">
-      <div className={`mx-auto mt-2 mb-[5px] w-full px-4 ${LOGO_MAX_WIDTH_CLASS}`}>
+      <div className={`mx-auto mt-2 mb-[1px] w-full px-4 ${LOGO_MAX_WIDTH_CLASS}`}>
         {logoError ? (
           <p className="text-center text-[28px] font-semibold text-moss">무궁담</p>
         ) : (
@@ -50,7 +50,7 @@ export default function Home() {
         )}
       </div>
 
-      <PageContainer pt="pt-[7px]">
+      <PageContainer pt="pt-[11px]">
         <h1 className="text-[28px] leading-snug font-semibold text-text">
           혼자 견디지 않아도 괜찮습니다
         </h1>
