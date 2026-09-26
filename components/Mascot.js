@@ -9,11 +9,11 @@ const MASCOT_MESSAGES = [
   { mood: "happy", text: "오늘 하루도 여기까지 온 것만으로 충분해요." },
   { mood: "happy", text: "작은 걸음도 걸음이에요." },
   { mood: "happy", text: "여기까지 온 당신이 대견해요." },
-  { mood: "happy", text: "잘 지내고 있나요? 물 한 잔 마시고 가요." },
-  { mood: "calm", text: "어깨에 힘 들어가 있지 않나요? 한 번 내려볼까요." },
-  { mood: "calm", text: "천천히 숨 한 번 쉬고 가요." },
-  { mood: "calm", text: "지금 기분이 어떤지, 잠깐만 들여다봐 주세요." },
-  { mood: "calm", text: "오늘 잘 챙겨 먹었나요?" },
+  { mood: "wink", text: "잘 지내고 있나요? 물 한 잔 마시고 가요." },
+  { mood: "wink", text: "오늘 잘 챙겨 먹었나요?" },
+  { mood: "surprised", text: "어깨에 힘 들어가 있지 않나요? 한 번 내려볼까요." },
+  { mood: "tired", text: "천천히 숨 한 번 쉬고 가요." },
+  { mood: "tired", text: "지금 기분이 어떤지, 잠깐만 들여다봐 주세요." },
   { mood: "sad", text: "모든 걸 혼자 감당하지 않아도 괜찮아요." },
   { mood: "sad", text: "괜찮지 않아도 괜찮아요." },
 ];
@@ -21,15 +21,19 @@ const MASCOT_MESSAGES = [
 const MASCOT_IMAGES = {
   default: "/mascot-default.png",
   happy: "/mascot-happy.png",
-  calm: "/mascot-calm.png",
+  wink: "/mascot-wink.png",
+  surprised: "/mascot-surprised.png",
+  tired: "/mascot-tired.png",
   sad: "/mascot-sad.png",
 };
 
 const MASCOT_ALT = {
   default: "마스코트 캐릭터",
-  happy: "웃고 있는 마스코트 캐릭터",
-  calm: "차분한 표정의 마스코트 캐릭터",
-  sad: "안타까워하는 마스코트 캐릭터",
+  happy: "활짝 웃는 마스코트 캐릭터",
+  wink: "윙크하는 마스코트 캐릭터",
+  surprised: "놀란 표정의 마스코트 캐릭터",
+  tired: "시무룩한 마스코트 캐릭터",
+  sad: "눈물짓는 마스코트 캐릭터",
 };
 
 // 이 경로에서는 마스코트를 띄우지 않음
