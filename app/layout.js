@@ -20,6 +20,23 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "무궁담",
   description: "무궁담 · 덕성여자대학교 학생상담센터 안내 사이트",
+  manifest: "/manifest.json",
+  openGraph: {
+    title: "무궁담",
+    description: "덕성여자대학교 학생상담센터 안내",
+    images: ["/logo-circle.png"],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "무궁담",
+    description: "덕성여자대학교 학생상담센터 안내",
+    images: ["/logo-circle.png"],
+  },
+};
+
+export const viewport = {
+  themeColor: "#6B8E4E",
 };
 
 export default function RootLayout({ children }) {
