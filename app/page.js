@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import PageContainer from "@/components/PageContainer";
@@ -27,9 +30,25 @@ const entryCards = [
 ];
 
 export default function Home() {
+  const [logoError, setLogoError] = useState(false);
+
   return (
     <div className="brand-scope min-h-screen w-full bg-cream">
       <PageContainer pt="pt-4">
+        {logoError ? (
+          <p className="mt-2 mb-4 text-center text-[28px] font-semibold text-moss">
+            무궁담
+          </p>
+        ) : (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src="/logo-main.png"
+            alt="무궁담 - 마음을 마주하는 이야기"
+            onError={() => setLogoError(true)}
+            className="mx-auto mt-2 mb-4 block aspect-[1848/851] w-full max-w-[900px] h-auto"
+          />
+        )}
+
         <h1 className="text-[28px] leading-snug font-semibold text-text">
           혼자 견디지 않아도 괜찮습니다
         </h1>
