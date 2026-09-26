@@ -36,7 +36,7 @@ export default function Home() {
 
   return (
     <div className="brand-scope min-h-screen w-full bg-cream">
-      <div className={`mx-auto mt-2 w-full px-4 ${LOGO_MAX_WIDTH_CLASS}`}>
+      <div className={`mx-auto mt-2 mb-2 w-full px-4 ${LOGO_MAX_WIDTH_CLASS}`}>
         {logoError ? (
           <p className="text-center text-[28px] font-semibold text-moss">무궁담</p>
         ) : (
@@ -50,7 +50,7 @@ export default function Home() {
         )}
       </div>
 
-      <PageContainer pt="pt-4">
+      <PageContainer pt="pt-1">
         <h1 className="text-[28px] leading-snug font-semibold text-text">
           혼자 견디지 않아도 괜찮습니다
         </h1>
@@ -58,7 +58,7 @@ export default function Home() {
           덕성여자대학교 학생상담센터는 재학생 누구나 무료로 이용할 수 있습니다.
         </p>
 
-        <div className="mt-8 grid grid-cols-1 gap-3 md:grid-cols-2">
+        <div className="mt-5 grid grid-cols-1 gap-3 md:grid-cols-2">
           {entryCards.map((card) => (
             <Link
               key={card.href}
