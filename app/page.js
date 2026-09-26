@@ -36,21 +36,27 @@ export default function Home() {
 
   return (
     <div className="brand-scope min-h-screen w-full bg-cream">
-      <div className={`mx-auto mt-2 mb-[1px] w-full px-4 ${LOGO_MAX_WIDTH_CLASS}`}>
-        {logoError ? (
-          <p className="text-center text-[28px] font-semibold text-moss">무궁담</p>
-        ) : (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src="/main_logo_final.png"
-            alt="무궁담 - 마음을 마주하는 이야기"
-            onError={() => setLogoError(true)}
-            className="block aspect-[1848/851] w-full h-auto"
-          />
-        )}
+      <div className={`mx-auto mt-4 w-full px-4 ${LOGO_MAX_WIDTH_CLASS}`}>
+        {/* 실제 그림은 원본(1848x851)의 세로 202~602px 구간에만 있어서,
+            안쪽 박스를 그 구간 비율(1848:401)로 자르고 이미지를 음수
+            여백으로 밀어 넣는다. 두 값 다 원본 대비 퍼센트라서
+            화면 폭이 달라져도 잘리는 비율이 유지된다. */}
+        <div className="overflow-hidden aspect-[1848/401]">
+          {logoError ? (
+            <p className="text-center text-[28px] font-semibold text-moss">무궁담</p>
+          ) : (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src="/main_logo_final.png"
+              alt="무궁담 - 마음을 마주하는 이야기"
+              onError={() => setLogoError(true)}
+              className="mt-[-10.9%] mb-[-13.4%] block aspect-[1848/851] w-full h-auto"
+            />
+          )}
+        </div>
       </div>
 
-      <PageContainer pt="pt-[11px]">
+      <PageContainer pt="pt-5">
         <h1 className="text-[28px] leading-snug font-semibold text-text">
           혼자 견디지 않아도 괜찮습니다
         </h1>
