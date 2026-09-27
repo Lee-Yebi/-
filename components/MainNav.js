@@ -6,9 +6,10 @@ import { usePathname } from "next/navigation";
 
 const links = [
   { href: "/mind-care", label: "마음 관리" },
-  { href: "/counsel", label: "상담센터 안내" },
+  { href: "/counsel", label: "학생상담센터 안내" },
   { href: "/reviews", label: "이용후기" },
   { href: "/external", label: "교외 도움 찾기" },
+  { href: "/about", label: "DPSY:ON 소개" },
 ];
 
 function isActive(pathname, href) {
