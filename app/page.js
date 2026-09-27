@@ -15,18 +15,18 @@ const entryCards = [
     href: "/mind-care",
   },
   {
-    title: "상담센터 안내",
-    desc: "어떤 고민을 상담할 수 있는지, 어떻게 신청하는지",
+    title: "학생상담센터 안내",
+    desc: "어떤 도움을 받을 수 있는지 알아봐요",
     href: "/counsel",
   },
   {
     title: "이용후기",
-    desc: "먼저 다녀온 학생들의 이야기",
+    desc: "먼저 상담센터를 이용한 덕우들의 이야기",
     href: "/reviews",
   },
   {
     title: "교외 도움 찾기",
-    desc: "학교 밖에서 도움받을 수 있는 곳",
+    desc: "학교 밖에서도 도움받을 수 있어요",
     href: "/external",
   },
 ];
@@ -84,10 +84,10 @@ export default function Home() {
           />
           <div>
             <p className="text-[15px] font-semibold text-maroon">
-              이 사이트는 {TEAM.name}이 만들었습니다
+              무궁담을 만든 DPSY:ON을 소개합니다
             </p>
             <p className="mt-1 text-[14px] text-maroon">
-              덕성여대 재학생들이 상담을 더 쉽게 찾을 수 있도록
+              우리가 모인 이유와 만들고 싶은 변화를 들려드릴게요.
             </p>
           </div>
         </Link>

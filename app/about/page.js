@@ -70,7 +70,7 @@ export default function AboutPage() {
       {TEAM.siteNameMeaning && (
         <section className="mt-[60px]">
           <div className="rounded-2xl border border-[var(--color-border)] bg-card p-[18px]">
-            <h2 className="text-base font-semibold text-text">무궁담이라는 이름</h2>
+            <h2 className="text-base font-semibold text-text">왜 &apos;무궁담&apos;일까요?</h2>
             <p className="mt-2 text-[15px] leading-relaxed text-text-sub">
               {TEAM.siteNameMeaning}
             </p>
