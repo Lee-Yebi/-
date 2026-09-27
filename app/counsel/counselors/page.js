@@ -128,12 +128,15 @@ export default function CounselorsPage() {
   return (
     <div className="brand-scope min-h-screen w-full bg-cream">
       <PageContainer>
-        <div className="flex items-center gap-2">
-          <h1 className="flex shrink-0 items-center gap-2 text-xl font-semibold text-moss">
+        <div className="relative">
+          <h1 className="flex items-center gap-2 text-xl font-semibold text-moss">
             <MountainIcon className="text-moss" />
             상담사 소개
           </h1>
-          <DecoImage src="/oreumi_point_side.png" className="ml-auto hidden w-[88px] shrink-0 sm:block" />
+          <DecoImage
+            src="/oreumi_point_side.png"
+            className="absolute top-1/2 right-0 hidden w-[88px] -translate-y-1/2 sm:block"
+          />
         </div>
 
         <div className="mt-9 rounded-2xl border border-maroon/20 bg-blush p-6 text-sm leading-relaxed text-maroon">

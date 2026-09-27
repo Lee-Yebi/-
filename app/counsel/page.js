@@ -70,12 +70,15 @@ export default function CounselPage() {
   return (
     <div className="brand-scope min-h-screen w-full bg-cream">
       <PageContainer>
-        <div className="flex items-center gap-2">
-          <h1 className="flex shrink-0 items-center gap-2 text-xl font-semibold text-moss">
+        <div className="relative">
+          <h1 className="flex items-center gap-2 text-xl font-semibold text-moss">
             <MountainIcon className="text-moss" />
             상담 알아보기
           </h1>
-          <DecoImage src="/oreumi_welcome.png" className="ml-auto hidden w-24 shrink-0 md:block" />
+          <DecoImage
+            src="/oreumi_welcome.png"
+            className="absolute top-1/2 right-0 hidden w-24 -translate-y-1/2 md:block"
+          />
         </div>
 
         <section className="mt-9">

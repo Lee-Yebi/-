@@ -26,7 +26,7 @@ export function FlowerDivider({ className = "" }) {
   return (
     <div className={`flex items-center ${className}`}>
       <div className="h-px flex-1 bg-[var(--color-border)]" />
-      <DecoImage src="/flower_hibiscus.png" className="mx-3 w-6 shrink-0" />
+      <DecoImage src="/flower_hibiscus.png" className="mx-4 w-9 shrink-0" />
       <div className="h-px flex-1 bg-[var(--color-border)]" />
     </div>
   );

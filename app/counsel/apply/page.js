@@ -250,12 +250,17 @@ export default function ApplyPage() {
           )}
 
           {/* (2) 신청 절차 */}
-          <h2 className="mt-12 text-base font-semibold text-text">신청 절차</h2>
+          <h2 className="relative mt-12 text-base font-semibold text-text">
+            신청 절차
+            {activeTab === "individual" && (
+              <DecoImage
+                src="/oreumi_fighting.png"
+                className="absolute top-1/2 right-0 w-[72px] -translate-y-1/2"
+              />
+            )}
+          </h2>
           {active.meta && (
             <p className="mt-1 text-sm font-medium text-moss">{active.meta}</p>
-          )}
-          {activeTab === "individual" && (
-            <DecoImage src="/oreumi_fighting.png" className="mt-3 ml-auto block w-[72px]" />
           )}
           <ol className="mt-4 space-y-3">
             {active.steps.map((step, i) => (
