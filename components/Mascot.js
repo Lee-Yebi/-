@@ -1,8 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import Image from "next/image";
 
 // 메시지 + 표정 짝 — 여기에 추가/수정하면 됩니다.
 const MASCOT_MESSAGES = [
@@ -96,6 +95,8 @@ const MASCOT_ALT = {
 // 이 경로에서는 마스코트를 띄우지 않음
 const HIDDEN_PATHS = ["/reviews/new", "/admin"];
 
+const MOODS = ["default", "happy", "wink", "surprised", "sad", "tired"];
+
 function pickMessage(excludeText) {
   const pool = MASCOT_MESSAGES.filter((m) => m.text !== excludeText);
   const list = pool.length > 0 ? pool : MASCOT_MESSAGES;
@@ -107,36 +108,29 @@ export default function Mascot() {
   const [mood, setMood] = useState("default");
   const [message, setMessage] = useState("");
   const [open, setOpen] = useState(false);
-  const [imgSrc, setImgSrc] = useState(MASCOT_IMAGES.default);
-  const [visible, setVisible] = useState(true);
-  const fadeTimeout = useRef(null);
+  const [failedMoods, setFailedMoods] = useState(() => new Set());
 
-  useEffect(() => {
-    return () => {
-      if (fadeTimeout.current) clearTimeout(fadeTimeout.current);
-    };
-  }, []);
+  const effectiveMood = failedMoods.has(mood) ? "default" : mood;
 
-  function swapTo(nextMood) {
-    setVisible(false);
-    if (fadeTimeout.current) clearTimeout(fadeTimeout.current);
-    fadeTimeout.current = setTimeout(() => {
-      setMood(nextMood);
-      setImgSrc(MASCOT_IMAGES[nextMood] ?? MASCOT_IMAGES.default);
-      setVisible(true);
-    }, 150);
+  function handleImgError(m) {
+    setFailedMoods((prev) => {
+      if (prev.has(m)) return prev;
+      const next = new Set(prev);
+      next.add(m);
+      return next;
+    });
   }
 
   function handleMascotClick() {
     const picked = pickMessage(message);
     setMessage(picked.text);
     setOpen(true);
-    swapTo(picked.mood);
+    setMood(picked.mood);
   }
 
   function handleClose() {
     setOpen(false);
-    swapTo("default");
+    setMood("default");
   }
 
   useEffect(() => {
@@ -187,19 +181,21 @@ export default function Mascot() {
           aria-label="마스코트에게 말 걸기"
           className="transition-transform duration-150 hover:scale-105 focus-visible:scale-105 focus-visible:outline-none"
         >
-          <div
-            className={`relative h-[72px] w-[72px] transition-opacity duration-150 md:h-[100px] md:w-[100px] ${
-              visible ? "opacity-100" : "opacity-0"
-            }`}
-          >
-            <Image
-              src={imgSrc}
-              alt={MASCOT_ALT[mood] ?? MASCOT_ALT.default}
-              fill
-              sizes="(min-width: 768px) 100px, 72px"
-              className="object-contain"
-              onError={() => setImgSrc(MASCOT_IMAGES.default)}
-            />
+          <div className="relative aspect-square h-[72px] w-[72px] md:h-[100px] md:w-[100px]">
+            {MOODS.map((m) => (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                key={m}
+                src={MASCOT_IMAGES[m]}
+                alt={m === effectiveMood ? (MASCOT_ALT[m] ?? MASCOT_ALT.default) : ""}
+                loading="eager"
+                fetchPriority={m === "default" ? "high" : undefined}
+                onError={() => handleImgError(m)}
+                className={`absolute inset-0 h-full w-full object-contain transition-opacity duration-[180ms] ease-in-out ${
+                  m === effectiveMood ? "opacity-100" : "opacity-0"
+                }`}
+              />
+            ))}
           </div>
         </button>
       </div>
