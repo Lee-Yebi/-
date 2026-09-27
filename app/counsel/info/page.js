@@ -8,7 +8,7 @@ import PageContainer from "@/components/PageContainer";
 import SourceNote from "@/components/SourceNote";
 import MountainIcon from "@/components/icons/MountainIcon";
 
-const MAP_IMAGE_SRC = null; // 예: '/map.png'
+const MAP_IMAGE_SRC = "/map.png";
 const MAP_IMAGE_ALT = "덕성여자대학교 학생상담센터 약도";
 
 const infoRows = [
