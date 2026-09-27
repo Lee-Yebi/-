@@ -8,7 +8,7 @@ import MountainIcon from "@/components/icons/MountainIcon";
 
 const tabs = [
   { key: "individual", label: "개인상담" },
-  { key: "test", label: "심리검사" },
+  { key: "test", label: "해석상담" },
   { key: "group", label: "집단상담·프로그램" },
   { key: "crisis", label: "위기상담" },
 ];
@@ -41,7 +41,11 @@ const tabsData = {
         desc: "학생경력개발시스템에서 온라인으로 신청",
         link: { label: "학생경력개발시스템 바로가기", href: "https://job.duksung.ac.kr/" },
       },
-      { title: "심리검사 실시", desc: "원하는 영역에 맞는 검사를 진행" },
+      {
+        title: "심리검사 실시",
+        desc: "원하는 영역에 맞는 검사를 진행",
+        tip: "상담은 필요한 검사를 완료한 후 진행되며, 검사를 빠르게 완료할수록 대기 기간이 짧아질 수 있습니다.",
+      },
       { title: "해석상담 진행", desc: "상담 선생님과 함께 결과를 읽어보는 시간" },
     ],
     note: "검사만 받는 것이 아니라, 결과를 함께 읽어주는 해석상담이 반드시 따라옵니다.",
@@ -119,18 +123,16 @@ const testItems = [
 ];
 
 // 집단상담·프로그램 탭에 이어붙이는 내용 (/counsel/programs 집단상담 탭에서 이동)
-const groupComparisonRows = [
-  { label: "형태", individual: "상담자와 1:1", group: "소그룹 + 상담자" },
-  {
-    label: "강점",
-    individual: "나의 문제를 깊이 있게 다룸",
-    group: "내 문제를 다른 시각에서 보게 됨",
-  },
-  {
-    label: "부수 효과",
-    individual: "자기이해",
-    group: "또래의 격려·피드백을 통한 대인관계 능력 향상",
-  },
+const individualTraits = [
+  "전문 상담자와 1:1로 진행돼요",
+  "남에게 말하기 어려운 이야기도 편하게 꺼낼 수 있어요",
+  "문제가 급하거나 복잡할 때, 여러 사람 앞에서 얘기하는 게 부담스러울 때 더 잘 맞아요",
+];
+
+const groupTraits = [
+  "비슷한 고민을 가진 사람들 8~15명 정도가 함께해요",
+  "서로 공감하고 실시간으로 피드백을 주고받으며 새로운 시각을 얻을 수 있어요",
+  "사람들과 어울리는 연습이나 소속감·유대감이 필요할 때 더 잘 맞아요",
 ];
 
 const groupOperations = [
@@ -205,50 +207,6 @@ function InfoTable({ rows, labelHeader = "구분", valueHeader = "내용" }) {
   );
 }
 
-function ComparisonTable({ rows }) {
-  return (
-    <>
-      <div className="mt-4 space-y-3 md:hidden">
-        {rows.map((row) => (
-          <div key={row.label} className="rounded-2xl border border-[var(--color-border)] bg-card p-4">
-            <p className="text-sm font-medium text-text">{row.label}</p>
-            <dl className="mt-2 space-y-1 text-sm text-text-sub">
-              <div className="flex justify-between gap-4">
-                <dt>개인상담</dt>
-                <dd>{row.individual}</dd>
-              </div>
-              <div className="flex justify-between gap-4">
-                <dt>집단상담</dt>
-                <dd>{row.group}</dd>
-              </div>
-            </dl>
-          </div>
-        ))}
-      </div>
-      <div className="mt-4 hidden overflow-x-auto rounded-2xl border border-[var(--color-border)] md:block">
-        <table className="w-full text-left text-sm">
-          <thead>
-            <tr className="border-b border-[var(--color-border)] bg-[var(--color-border)]/20 text-text">
-              <th className="px-4 py-3 font-medium"></th>
-              <th className="px-4 py-3 font-medium">개인상담</th>
-              <th className="px-4 py-3 font-medium">집단상담</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-[var(--color-border)] bg-card">
-            {rows.map((row) => (
-              <tr key={row.label}>
-                <td className="px-4 py-3 font-medium text-text">{row.label}</td>
-                <td className="px-4 py-3 text-text-sub">{row.individual}</td>
-                <td className="px-4 py-3 text-text-sub">{row.group}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </>
-  );
-}
-
 export default function ApplyPage() {
   const [activeTab, setActiveTab] = useState("individual");
   const active = tabsData[activeTab];
@@ -284,9 +242,11 @@ export default function ApplyPage() {
       {activeTab !== "crisis" && (
         <>
           {/* (1) 한 줄 소개 */}
-          <div className="mt-9 rounded-2xl border border-maroon/20 bg-blush p-6 text-sm leading-relaxed text-maroon">
-            {active.note}
-          </div>
+          {activeTab !== "test" && (
+            <div className="mt-9 rounded-2xl border border-maroon/20 bg-blush p-6 text-sm leading-relaxed text-maroon">
+              {active.note}
+            </div>
+          )}
 
           {/* (2) 신청 절차 */}
           <h2 className="mt-12 text-base font-semibold text-text">신청 절차</h2>
@@ -306,6 +266,11 @@ export default function ApplyPage() {
                   <p className="text-base font-semibold text-text">{step.title}</p>
                   {step.desc && (
                     <p className="mt-1 text-sm leading-relaxed text-text-sub">{step.desc}</p>
+                  )}
+                  {step.tip && (
+                    <p className="mt-[6px] text-[13px] text-text-sub">
+                      <span className="font-semibold text-moss">TIP</span> {step.tip}
+                    </p>
                   )}
                   {step.link && (
                     <a
@@ -330,11 +295,7 @@ export default function ApplyPage() {
       {/* 위기상담: 노란 안내 박스 -> 이럴 때는 바로 연락하세요 -> 진행 절차 -> 수준별 대응 (external 페이지에서 이동) */}
       {activeTab === "crisis" && (
         <>
-          <div className="mt-9 rounded-2xl border border-maroon/20 bg-blush p-6 text-sm leading-relaxed text-maroon">
-            평소의 대처 방법으로는 감당하기 어려운 상태라면 위기상담 대상입니다.
-          </div>
-
-          <h2 className="mt-12 text-base font-semibold text-text">
+          <h2 className="mt-9 text-base font-semibold text-text">
             이럴 때는 바로 연락하세요
           </h2>
           <ul className="mt-4 space-y-2 rounded-2xl border border-[var(--color-border)] bg-card p-6">
@@ -441,11 +402,6 @@ export default function ApplyPage() {
             ))}
           </div>
 
-          <div className="mt-9 rounded-2xl border border-maroon/20 bg-blush p-6 text-sm leading-relaxed text-maroon">
-            검사는 안내 → 실시 → 결과 해석상담 순으로 진행되며, 해석상담은 보통 단회기로
-            이루어집니다.
-          </div>
-
           <InfoLink />
         </div>
       )}
@@ -454,13 +410,62 @@ export default function ApplyPage() {
       {activeTab === "group" && (
         <div className="mt-12">
           <p className="text-sm leading-relaxed text-text-sub">
-            <span className="font-medium text-text">집단상담이란?</span> 비슷한
-            관심사나 고민을 가진 학생들이 상담 전문 선생님과 함께 모여, 활동과 대화를
-            통해 서로의 경험을 나누는 프로그램입니다.
+            <span className="font-medium text-text">집단상담이란?</span> 상담 전문가
+            선생님과 비슷한 관심사를 가진 학생들과 함께 모여 여러 활동이나 대화를
+            통해서 자신의 경험을 나누고 공감함으로써 자신과 타인을 보다 잘 이해하게
+            되어 내적인 성장을 돕는 프로그램입니다. 집단상담의 종류로는 긍정적
+            자아상/자기표현향상/발표불안감소/마음챙김명상/대인관계향상/진로탐색
+            프로그램 등이 있습니다. 진행하는 집단상담의 주제는 매학기 변동될 수
+            있으며 일시는 게시판에 공고합니다.
+          </p>
+          <p className="mt-2 text-[12px] text-text-sub">
+            출처:{" "}
+            <a
+              href="https://www.duksung.ac.kr/contents/contents.do?ciIdx=327&menuId=1246"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-2 hover:text-moss-deep"
+            >
+              덕성여자대학교 공식 홈페이지
+            </a>{" "}
+            — 대학생활 &gt; 학생상담센터 안내, 2026.9 확인
           </p>
 
           <h2 className="mt-12 text-base font-semibold text-text">개인상담과 다른 점</h2>
-          <ComparisonTable rows={groupComparisonRows} />
+          <div className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2">
+            <div className="rounded-2xl border border-[var(--color-border)] bg-card p-6">
+              <h3 className="text-base font-semibold text-moss">개인상담</h3>
+              <ul className="mt-3 space-y-2">
+                {individualTraits.map((item) => (
+                  <li key={item} className="text-sm leading-relaxed text-text-sub">
+                    · {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="rounded-2xl border border-[var(--color-border)] bg-card p-6">
+              <h3 className="text-base font-semibold text-moss">집단상담</h3>
+              <ul className="mt-3 space-y-2">
+                {groupTraits.map((item) => (
+                  <li key={item} className="text-sm leading-relaxed text-text-sub">
+                    · {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          <p className="mt-2 text-[12px] text-text-sub">
+            참고: 최낙현(수원시청소년육성재단 청소년상담센터 상담사),{" "}
+            <a
+              href="https://www.kyeonggi.com/article/201707180933865"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-2 hover:text-moss-deep"
+            >
+              「[청소년상담] 개인상담과 집단상담의 차이」
+            </a>
+            , 경기신문, 2017.7.18.
+          </p>
 
           <h2 className="mt-12 text-base font-semibold text-text">운영 방식</h2>
           <ul className="mt-3 space-y-2">
@@ -470,10 +475,6 @@ export default function ApplyPage() {
               </li>
             ))}
           </ul>
-
-          <div className="mt-4 rounded-2xl border border-maroon/20 bg-blush p-6 text-sm leading-relaxed text-maroon">
-            운영 주제는 매 학기 달라집니다.
-          </div>
 
           <InfoLink />
         </div>
