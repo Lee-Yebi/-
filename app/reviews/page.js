@@ -75,17 +75,33 @@ export default function ReviewsPage() {
         <DecoImage src="/oreumi_thumbsup.png" className="w-16 shrink-0" />
       </div>
 
-      <div className="mt-9 rounded-2xl border border-maroon/25 bg-blush p-[18px] text-[15px] leading-[1.7] text-maroon">
-        상담 과정에서 느낀 불편한 점이 있다면, 접수실 조교 선생님이나{" "}
-        <a
-          href="https://docs.google.com/forms/d/e/1FAIpQLSdeczpU3kP8Wy4eIPYFP6UaOnscbsjPuI7JDRBmPq4bmDURPg/viewform"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-maroon underline underline-offset-2"
-        >
-          설문 링크
-        </a>
-        를 통해 말씀해 주세요. 상담사 교체, 불편사항 모두 가능합니다.
+      <div className="mt-9 rounded-2xl border border-maroon/25 bg-blush p-[18px] text-maroon">
+        <p className="text-[14px] font-semibold text-maroon">상담센터에 직접 전하고 싶다면</p>
+        <div className="mt-2 space-y-2 text-[14px] leading-[1.6]">
+          <p>
+            상담이 불편했다면 —{" "}
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSdeczpU3kP8Wy4eIPYFP6UaOnscbsjPuI7JDRBmPq4bmDURPg/viewform"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-maroon underline underline-offset-2"
+            >
+              건의사항 폼
+            </a>
+          </p>
+          <p>
+            후기를 센터에 직접 남기려면 —{" "}
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSebPWGMsBQJB_FMBAWtEW1_a5-_gGMHzZQ2a4mVYpgFl97lvw/viewform"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-maroon underline underline-offset-2"
+            >
+              학생상담센터 이용후기 폼
+            </a>
+          </p>
+        </div>
+        <p className="mt-3 text-[13px] text-maroon/80">상담사 교체도 요청할 수 있어요.</p>
       </div>
 
       <details className="group mt-9 rounded-2xl border border-maroon/20 bg-blush p-6">
@@ -179,21 +195,6 @@ export default function ReviewsPage() {
               </p>
             </div>
           </div>
-
-          <hr className="mt-5 border-[var(--color-border)]" />
-
-          <p className="mt-4 text-[14px] leading-[1.7] text-text-sub">
-            상담센터에 직접 후기를 남기고 싶다면{" "}
-            <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLSebPWGMsBQJB_FMBAWtEW1_a5-_gGMHzZQ2a4mVYpgFl97lvw/viewform"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-moss-deep underline underline-offset-2"
-            >
-              학생상담센터 이용후기 폼
-            </a>
-            을 이용하실 수도 있습니다.
-          </p>
         </div>
       </details>
 

@@ -77,7 +77,7 @@ export default function CounselPage() {
           </h1>
           <DecoImage
             src="/oreumi_welcome.png"
-            className="absolute top-1/2 right-0 hidden w-24 -translate-y-1/2 md:block"
+            className="absolute top-0 right-0 hidden w-24 md:block"
           />
         </div>
 

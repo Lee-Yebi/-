@@ -135,7 +135,7 @@ export default function CounselorsPage() {
           </h1>
           <DecoImage
             src="/oreumi_point_side.png"
-            className="absolute top-1/2 right-0 hidden w-[88px] -translate-y-1/2 sm:block"
+            className="absolute top-0 right-0 hidden w-[88px] sm:block"
           />
         </div>
 

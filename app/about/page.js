@@ -17,7 +17,7 @@ export default function AboutPage() {
       {/* 팀 이름 + 소개 */}
       <div className="flex max-w-[620px] items-center gap-3">
         <h1 className="shrink-0 text-[28px] font-semibold text-moss">{TEAM.name}</h1>
-        <DecoImage src="/oreumi_cheer.png" className="ml-auto hidden w-[110px] shrink-0 sm:block" />
+        <DecoImage src="/oreumi_hooray.png" className="ml-auto hidden w-[110px] shrink-0 sm:block" />
       </div>
       {TEAM.intro.length > 0 && (
         <div className="mt-3 max-w-[620px] space-y-3">
@@ -88,8 +88,14 @@ export default function AboutPage() {
       {/* 팀 목표 */}
       {TEAM.goals.length > 0 && (
         <section className="mt-[60px]">
-          <h2 className="text-base font-semibold text-text">팀 목표</h2>
-          <div className="mt-4 space-y-[10px]">
+          <h2 className="relative text-base font-semibold text-text sm:pl-20">
+            <DecoImage
+              src="/oreumi_cheer.png"
+              className="absolute top-0 left-0 hidden w-[72px] sm:block"
+            />
+            팀 목표
+          </h2>
+          <div className="mt-4 space-y-[10px] sm:mt-20">
             {TEAM.goals.map((goal) => (
               <div
                 key={goal.en}
