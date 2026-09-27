@@ -123,11 +123,11 @@ export default function CounselPage() {
                 <>
                   <hr className="mt-4 border-[var(--color-border)]" />
                   <p className="mt-3 text-[13px] text-maroon">
-                    지금 많이 힘드시다면{" "}
+                    지금 많이 힘드시다면, 자살예방 상담전화{" "}
                     <a href="tel:109" className="font-semibold underline underline-offset-2">
                       109
                     </a>
-                    (24시간)로 바로 연락하셔도 됩니다
+                    (24시간)에 바로 연락해 주세요.
                   </p>
                 </>
               )}
