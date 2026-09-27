@@ -1,5 +1,6 @@
 import PageContainer from "@/components/PageContainer";
 import MountainIcon from "@/components/icons/MountainIcon";
+import DecoImage from "@/components/Deco";
 
 // 출처: docs/덕성여자대학교 학생상담센터 구성원 이력(26.09.18).xlsx
 // A열(직위/직급)의 병합 셀을 해제하고, B열(학위/자격증)의 줄바꿈 단위로 한 사람씩 분리했다.
@@ -127,10 +128,13 @@ export default function CounselorsPage() {
   return (
     <div className="brand-scope min-h-screen w-full bg-cream">
       <PageContainer>
-        <h1 className="flex items-center gap-2 text-xl font-semibold text-moss">
-          <MountainIcon className="text-moss" />
-          상담사 소개
-        </h1>
+        <div className="flex items-center gap-2">
+          <h1 className="flex shrink-0 items-center gap-2 text-xl font-semibold text-moss">
+            <MountainIcon className="text-moss" />
+            상담사 소개
+          </h1>
+          <DecoImage src="/oreumi_point_side.png" className="ml-auto hidden w-[88px] shrink-0 sm:block" />
+        </div>
 
         <div className="mt-9 rounded-2xl border border-maroon/20 bg-blush p-6 text-sm leading-relaxed text-maroon">
           모든 상담사는 임상심리사 또는 상담심리사 1·2급 이상의 자격증을 보유한

@@ -5,6 +5,7 @@ import Link from "next/link";
 import PageContainer from "@/components/PageContainer";
 import SourceNote from "@/components/SourceNote";
 import MountainIcon from "@/components/icons/MountainIcon";
+import DecoImage from "@/components/Deco";
 
 const tabs = [
   { key: "individual", label: "개인상담" },
@@ -252,6 +253,9 @@ export default function ApplyPage() {
           <h2 className="mt-12 text-base font-semibold text-text">신청 절차</h2>
           {active.meta && (
             <p className="mt-1 text-sm font-medium text-moss">{active.meta}</p>
+          )}
+          {activeTab === "individual" && (
+            <DecoImage src="/oreumi_fighting.png" className="mt-3 ml-auto block w-[72px]" />
           )}
           <ol className="mt-4 space-y-3">
             {active.steps.map((step, i) => (

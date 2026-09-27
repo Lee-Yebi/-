@@ -7,6 +7,7 @@
 import PageContainer from "@/components/PageContainer";
 import SourceNote from "@/components/SourceNote";
 import MountainIcon from "@/components/icons/MountainIcon";
+import DecoImage from "@/components/Deco";
 
 const MAP_IMAGE_SRC = "/map.png";
 const MAP_IMAGE_ALT = "덕성여자대학교 학생상담센터 약도";
@@ -78,7 +79,10 @@ export default function CounselInfoPage() {
 
       {MAP_IMAGE_SRC && (
         <section className="mt-12">
-          <h2 className="text-base font-semibold text-text">찾아오시는 길</h2>
+          <h2 className="flex items-center gap-2 text-base font-semibold text-text">
+            <DecoImage src="/oreumi_hiking_left.png" className="hidden w-14 shrink-0 sm:block" />
+            찾아오시는 길
+          </h2>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={MAP_IMAGE_SRC}

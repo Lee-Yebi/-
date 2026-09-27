@@ -42,11 +42,13 @@ export default function FaqPage() {
   return (
     <div className="brand-scope min-h-screen w-full bg-cream">
       <PageContainer>
-      <h1 className="flex items-center gap-2 text-xl font-semibold text-moss">
-        <DecoImage src="/oreumi_point.png" className="w-16 shrink-0" />
-        <MountainIcon className="text-moss" />
-        FAQ
-      </h1>
+      <div className="flex items-center gap-2">
+        <h1 className="flex shrink-0 items-center gap-2 text-xl font-semibold text-moss">
+          <MountainIcon className="text-moss" />
+          FAQ
+        </h1>
+        <DecoImage src="/oreumi_point.png" className="ml-auto hidden w-16 shrink-0 sm:block" />
+      </div>
 
       <div className="mt-9 divide-y divide-[var(--color-border)] rounded-2xl border border-[var(--color-border)] bg-card">
         {faqs.map((item) => (
