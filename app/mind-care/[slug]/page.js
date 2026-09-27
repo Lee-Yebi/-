@@ -123,13 +123,6 @@ export default async function DiseasePage({ params }) {
             교외 도움 찾기 보기
           </Link>
         </div>
-
-        <Link
-          href="/counsel/apply"
-          className="mt-3 flex min-h-11 w-full items-center justify-center rounded-2xl bg-moss-deep px-5 text-sm font-medium text-white transition-opacity hover:opacity-90"
-        >
-          상담 신청부터 진행까지 보기
-        </Link>
       </PageContainer>
     </div>
   );
