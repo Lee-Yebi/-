@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import PageContainer from "@/components/PageContainer";
+import DecoImage from "@/components/Deco";
 import { supabase } from "@/lib/supabaseClient";
 
 const filters = ["전체", "심리", "집단", "심리검사"];
@@ -64,12 +65,15 @@ export default function ReviewsPage() {
       <PageContainer>
       <h1 className="text-xl font-semibold text-moss">이용후기</h1>
 
-      <Link
-        href="/reviews/new"
-        className="mt-4 flex min-h-11 w-full items-center justify-center rounded-2xl bg-moss-deep px-5 text-sm font-medium text-white transition-opacity hover:opacity-90"
-      >
-        후기 작성하기
-      </Link>
+      <div className="mt-4 flex items-center gap-3">
+        <Link
+          href="/reviews/new"
+          className="flex min-h-11 flex-1 items-center justify-center rounded-2xl bg-moss-deep px-5 text-sm font-medium text-white transition-opacity hover:opacity-90"
+        >
+          후기 작성하기
+        </Link>
+        <DecoImage src="/oreumi_thumbsup.png" className="w-16 shrink-0" />
+      </div>
 
       <div className="mt-9 rounded-2xl border border-maroon/25 bg-blush p-[18px] text-[15px] leading-[1.7] text-maroon">
         상담 과정에서 느낀 불편한 점이 있다면, 접수실 조교 선생님이나{" "}
@@ -218,9 +222,10 @@ export default function ReviewsPage() {
         {!loading && error && <p className="text-sm font-medium text-maroon">{error}</p>}
 
         {!loading && !error && visibleReviews.length === 0 && (
-          <p className="rounded-2xl border border-[var(--color-border)] bg-card p-6 text-center text-sm text-text-sub">
-            아직 등록된 후기가 없습니다
-          </p>
+          <div className="flex flex-col items-center rounded-2xl border border-[var(--color-border)] bg-card p-6 text-center">
+            <DecoImage src="/oreumi_shy.png" className="w-[100px]" />
+            <p className="mt-3 text-sm text-text-sub">아직 등록된 후기가 없습니다</p>
+          </div>
         )}
 
         {!loading &&

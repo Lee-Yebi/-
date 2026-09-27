@@ -1,5 +1,6 @@
 import PageContainer from "@/components/PageContainer";
 import MountainIcon from "@/components/icons/MountainIcon";
+import DecoImage from "@/components/Deco";
 
 const faqs = [
   {
@@ -42,6 +43,7 @@ export default function FaqPage() {
     <div className="brand-scope min-h-screen w-full bg-cream">
       <PageContainer>
       <h1 className="flex items-center gap-2 text-xl font-semibold text-moss">
+        <DecoImage src="/oreumi_point.png" className="w-16 shrink-0" />
         <MountainIcon className="text-moss" />
         FAQ
       </h1>

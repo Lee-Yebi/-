@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import PageContainer from "@/components/PageContainer";
+import DecoImage from "@/components/Deco";
 import { TEAM } from "@/data/team";
 
 const LEFT_COL = "w-24 shrink-0 md:w-28";
@@ -14,7 +15,10 @@ export default function AboutPage() {
     <div className="brand-scope min-h-screen w-full bg-cream">
       <PageContainer>
       {/* 팀 이름 + 소개 */}
-      <h1 className="text-[28px] font-semibold text-moss">{TEAM.name}</h1>
+      <div className="flex items-center gap-3">
+        <h1 className="shrink-0 text-[28px] font-semibold text-moss">{TEAM.name}</h1>
+        <DecoImage src="/oreumi_cheer.png" className="hidden w-[110px] shrink-0 sm:block" />
+      </div>
       {TEAM.intro.length > 0 && (
         <div className="mt-3 max-w-[620px] space-y-3">
           {TEAM.intro.map((paragraph) => (
@@ -27,14 +31,17 @@ export default function AboutPage() {
 
       {/* 인스타그램 */}
       {TEAM.instagram && (
-        <a
-          href={TEAM.instagram}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-[20px] inline-flex min-h-11 items-center justify-center rounded-2xl bg-moss-deep px-5 text-sm font-medium text-white transition-opacity hover:opacity-90"
-        >
-          인스타그램 보러 가기
-        </a>
+        <>
+          <DecoImage src="/oreumi_bow.png" className="mx-auto mt-[20px] block w-[90px]" />
+          <a
+            href={TEAM.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-2 inline-flex min-h-11 items-center justify-center rounded-2xl bg-moss-deep px-5 text-sm font-medium text-white transition-opacity hover:opacity-90"
+          >
+            인스타그램 보러 가기
+          </a>
+        </>
       )}
 
       {/* 팀명 뜻 */}
@@ -70,7 +77,10 @@ export default function AboutPage() {
       {TEAM.siteNameMeaning && (
         <section className="mt-[60px]">
           <div className="rounded-2xl border border-[var(--color-border)] bg-card p-[18px]">
-            <h2 className="text-base font-semibold text-text">왜 &apos;무궁담&apos;일까요?</h2>
+            <h2 className="flex items-center gap-2 text-base font-semibold text-text">
+              <DecoImage src="/heart_puzzle.png" className="w-7 shrink-0" />
+              왜 &apos;무궁담&apos;일까요?
+            </h2>
             <p className="mt-2 text-[15px] leading-relaxed text-text-sub">
               {TEAM.siteNameMeaning}
             </p>
@@ -161,7 +171,10 @@ export default function AboutPage() {
       {/* 활동 연혁 */}
       {TEAM.history.length > 0 && (
         <section className="mt-[60px]">
-          <h2 className="text-base font-semibold text-text">활동 연혁</h2>
+          <h2 className="flex items-center gap-2 text-base font-semibold text-text">
+            <DecoImage src="/oreumi_hiking_right.png" className="w-14 shrink-0" />
+            활동 연혁
+          </h2>
           <ol className="relative mt-4 space-y-6 border-l-2 border-[var(--color-border)] py-1 pl-5">
             {TEAM.history.map((item) => (
               <li key={`${item.date}-${item.title}`} className="relative">

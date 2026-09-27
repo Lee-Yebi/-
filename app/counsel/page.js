@@ -2,6 +2,7 @@ import Link from "next/link";
 import PageContainer from "@/components/PageContainer";
 import SourceNote from "@/components/SourceNote";
 import MountainIcon from "@/components/icons/MountainIcon";
+import DecoImage, { FlowerDivider } from "@/components/Deco";
 
 const visitReasons = [
   {
@@ -69,10 +70,13 @@ export default function CounselPage() {
   return (
     <div className="brand-scope min-h-screen w-full bg-cream">
       <PageContainer>
-        <h1 className="flex items-center gap-2 text-xl font-semibold text-moss">
-          <MountainIcon className="text-moss" />
-          상담 알아보기
-        </h1>
+        <div className="flex items-center gap-2">
+          <h1 className="flex shrink-0 items-center gap-2 text-xl font-semibold text-moss">
+            <MountainIcon className="text-moss" />
+            상담 알아보기
+          </h1>
+          <DecoImage src="/oreumi_welcome.png" className="ml-auto hidden w-24 shrink-0 md:block" />
+        </div>
 
         <section className="mt-9">
           <h2 className="text-base font-semibold text-text">이럴 때 방문하세요</h2>
@@ -97,7 +101,9 @@ export default function CounselPage() {
           </p>
         </section>
 
-        <p className="mt-12 text-sm text-text-sub">
+        <FlowerDivider className="mt-9" />
+
+        <p className="mt-6 text-sm text-text-sub">
           아래 중 하나라도 해당된다면 편하게 신청하셔도 됩니다
         </p>
 

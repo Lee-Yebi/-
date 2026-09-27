@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import PageContainer from "@/components/PageContainer";
+import { FlowerDivider } from "@/components/Deco";
 import { TEAM } from "@/data/team";
 
 const LOGO_MAX_WIDTH_CLASS = "max-w-[1000px]";
@@ -33,6 +33,7 @@ const entryCards = [
 
 export default function Home() {
   const [logoError, setLogoError] = useState(false);
+  const [teamMascotError, setTeamMascotError] = useState(false);
 
   return (
     <div className="brand-scope min-h-screen w-full bg-cream">
@@ -71,17 +72,21 @@ export default function Home() {
           ))}
         </div>
 
+        <FlowerDivider className="mt-6" />
+
         <Link
           href="/about"
           className="mt-4 flex flex-col items-center gap-4 rounded-2xl border border-maroon/20 bg-blush p-5 text-center sm:flex-row sm:text-left"
         >
-          <Image
-            src={TEAM.mascot.image}
-            alt={TEAM.mascot.name}
-            width={56}
-            height={56}
-            className="shrink-0 object-contain"
-          />
+          {!teamMascotError && (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src="/oreumi_wave.png"
+              alt={TEAM.mascot.name}
+              onError={() => setTeamMascotError(true)}
+              className="h-auto w-[56px] shrink-0 object-contain"
+            />
+          )}
           <div>
             <p className="text-[15px] font-semibold text-maroon">
               무궁담을 만든 DPSY:ON을 소개합니다

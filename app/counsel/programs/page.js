@@ -1,6 +1,7 @@
 import PageContainer from "@/components/PageContainer";
 import SourceNote from "@/components/SourceNote";
 import MountainIcon from "@/components/icons/MountainIcon";
+import DecoImage from "@/components/Deco";
 
 const etcPrograms = [
   {
@@ -66,10 +67,13 @@ export default function ProgramsPage() {
   return (
     <div className="brand-scope min-h-screen w-full bg-cream">
       <PageContainer>
-      <h1 className="flex items-center gap-2 text-xl font-semibold text-moss">
-        <MountainIcon className="text-moss" />
-        센터 운영 프로그램
-      </h1>
+      <div className="flex items-center gap-2">
+        <h1 className="flex shrink-0 items-center gap-2 text-xl font-semibold text-moss">
+          <MountainIcon className="text-moss" />
+          센터 운영 프로그램
+        </h1>
+        <DecoImage src="/oreumi_hooray.png" className="ml-auto hidden w-[88px] shrink-0 md:block" />
+      </div>
 
       <div className="mt-9">
         {/* 모바일: 원래 데이터 순서 그대로 한 줄로 쌓기 */}
