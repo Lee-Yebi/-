@@ -77,13 +77,13 @@ export default function CounselInfoPage() {
         </dl>
       </section>
 
-      {MAP_IMAGE_SRC && (
-        <section className="mt-12">
-          <h2 className="flex items-center gap-2 text-base font-semibold text-text">
-            <DecoImage src="/oreumi_hiking_left.png" className="hidden w-14 shrink-0 sm:block" />
-            찾아오시는 길
-          </h2>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
+      <section className="mt-12">
+        <h2 className="flex items-center gap-2 text-base font-semibold text-text">
+          <DecoImage src="/oreumi_hiking_left.png" className="hidden w-14 shrink-0 sm:block" />
+          찾아오시는 길
+        </h2>
+        {MAP_IMAGE_SRC && (
+          // eslint-disable-next-line @next/next/no-img-element
           <img
             src={MAP_IMAGE_SRC}
             alt={MAP_IMAGE_ALT}
@@ -92,11 +92,19 @@ export default function CounselInfoPage() {
             }}
             className="mt-4 block h-auto w-full rounded-2xl border border-[var(--color-border)]"
           />
-          <p className="mt-2 text-[14px] text-text-sub">
-            {infoRows.find((row) => row.label === "위치").value}
-          </p>
-        </section>
-      )}
+        )}
+        <p className={`text-[14px] text-text-sub ${MAP_IMAGE_SRC ? "mt-2" : "mt-4"}`}>
+          {infoRows.find((row) => row.label === "위치").value}
+        </p>
+        <a
+          href="https://naver.me/FEUSCKS3"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-2 inline-block text-[14px] text-moss-deep underline underline-offset-2"
+        >
+          네이버 지도에서 보기 ↗
+        </a>
+      </section>
 
       <SourceNote />
       </PageContainer>

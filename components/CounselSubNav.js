@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -15,15 +16,20 @@ const links = [
 
 export default function CounselSubNav() {
   const pathname = usePathname();
+  const activeRef = useRef(null);
+
+  useEffect(() => {
+    activeRef.current?.scrollIntoView({ inline: "nearest", block: "nearest" });
+  }, [pathname]);
 
   return (
     <div className="brand-scope w-full border-b border-[var(--color-border)] bg-card">
-      <ul className="mx-auto flex max-w-5xl gap-1.5 overflow-x-auto px-4 py-2.5 text-sm">
+      <ul className="mx-auto flex gap-1.5 overflow-x-auto px-4 py-2.5 text-sm md:max-w-[720px] md:flex-wrap md:justify-center md:overflow-visible">
         {links.map((link) => {
           const active = pathname === link.href;
 
           return (
-            <li key={link.href} className="shrink-0">
+            <li key={link.href} className="shrink-0" ref={active ? activeRef : undefined}>
               <Link
                 href={link.href}
                 aria-current={active ? "page" : undefined}
