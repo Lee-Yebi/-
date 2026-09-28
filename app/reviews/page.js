@@ -96,12 +96,7 @@ export default function ReviewsPage() {
 
       <details className="group mt-9 rounded-2xl border border-maroon/20 bg-blush p-6">
         <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 text-base font-semibold text-moss marker:content-none">
-          <span className="flex items-center gap-2">
-            이용후기 가이드 필독
-            <span className="text-[13px] font-normal text-text-sub group-open:hidden">
-              읽고 작성하기
-            </span>
-          </span>
+          이용후기 가이드 필독
           <svg
             aria-hidden
             viewBox="0 0 20 20"
@@ -190,21 +185,18 @@ export default function ReviewsPage() {
               </p>
             </div>
           </div>
-
-          <div className="mt-5">
-            <hr className="border-[var(--color-border)]" />
-            <div className="mt-3 flex justify-end">
-              <DecoImage src="/oreumi_thumbsup.png" className="w-16 shrink-0" />
-            </div>
-            <Link
-              href="/reviews/new"
-              className="mt-1 flex h-11 w-full items-center justify-center rounded-lg bg-moss-deep text-sm font-medium text-white transition-opacity hover:opacity-90"
-            >
-              후기 작성하기
-            </Link>
-          </div>
         </div>
       </details>
+
+      <div className="mt-4 flex justify-end">
+        <DecoImage src="/oreumi_thumbsup.png" className="w-16 shrink-0" />
+      </div>
+      <Link
+        href="/reviews/new"
+        className="mt-1 flex h-11 w-full items-center justify-center rounded-lg bg-moss-deep text-sm font-medium text-white transition-opacity hover:opacity-90"
+      >
+        후기 작성하기
+      </Link>
 
       <div className="mt-9 overflow-x-auto">
         <div className="flex gap-2">
