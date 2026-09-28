@@ -124,13 +124,16 @@ export default function AboutPage() {
             팀원 소개
           </h2>
           <div className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2">
-            {TEAM.members.map((member) => (
+            {TEAM.members.map((member, i) => (
               <div
                 key={member.name}
                 className="flex h-full items-start gap-3 rounded-2xl border border-[var(--color-border)] bg-card p-[18px]"
               >
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-blush text-[18px] font-semibold text-moss">
-                  {member.name.slice(0, 1)}
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-blush">
+                  <DecoImage
+                    src={i % 2 === 0 ? "/heart_puzzle.png" : "/flower_hibiscus.png"}
+                    className="w-7"
+                  />
                 </div>
                 <div>
                   <p className="text-[16px] font-semibold text-text">{member.name}</p>

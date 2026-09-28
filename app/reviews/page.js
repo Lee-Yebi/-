@@ -65,16 +65,6 @@ export default function ReviewsPage() {
       <PageContainer>
       <h1 className="text-xl font-semibold text-moss">이용후기</h1>
 
-      <div className="mt-4 flex items-center gap-3">
-        <Link
-          href="/reviews/new"
-          className="flex min-h-11 flex-1 items-center justify-center rounded-2xl bg-moss-deep px-5 text-sm font-medium text-white transition-opacity hover:opacity-90"
-        >
-          후기 작성하기
-        </Link>
-        <DecoImage src="/oreumi_thumbsup.png" className="w-16 shrink-0" />
-      </div>
-
       <div className="mt-9 rounded-2xl border border-maroon/25 bg-blush p-[18px] text-maroon">
         <p className="text-[14px] font-semibold text-maroon">상담센터에 직접 전하고 싶다면</p>
         <div className="mt-2 space-y-2 text-[14px] leading-[1.6]">
@@ -106,7 +96,12 @@ export default function ReviewsPage() {
 
       <details className="group mt-9 rounded-2xl border border-maroon/20 bg-blush p-6">
         <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 text-base font-semibold text-moss marker:content-none">
-          이용후기 가이드 필독
+          <span className="flex items-center gap-2">
+            이용후기 가이드 필독
+            <span className="text-[13px] font-normal text-text-sub group-open:hidden">
+              읽고 작성하기
+            </span>
+          </span>
           <svg
             aria-hidden
             viewBox="0 0 20 20"
@@ -194,6 +189,19 @@ export default function ReviewsPage() {
                 전달되기 때문에, 부정적인 경험도 이렇게 적어주시면 있는 그대로 게시됩니다.
               </p>
             </div>
+          </div>
+
+          <div className="mt-5">
+            <hr className="border-[var(--color-border)]" />
+            <div className="mt-3 flex justify-end">
+              <DecoImage src="/oreumi_thumbsup.png" className="w-16 shrink-0" />
+            </div>
+            <Link
+              href="/reviews/new"
+              className="mt-1 flex h-11 w-full items-center justify-center rounded-lg bg-moss-deep text-sm font-medium text-white transition-opacity hover:opacity-90"
+            >
+              후기 작성하기
+            </Link>
           </div>
         </div>
       </details>
