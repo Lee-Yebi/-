@@ -64,10 +64,18 @@ export default function Home() {
             <Link
               key={card.href}
               href={card.href}
-              className="block rounded-2xl border border-sprout bg-card p-6 transition-colors hover:border-leaf"
+              className="group relative block rounded-2xl border border-sprout bg-card p-6 transition-colors duration-150 ease-[ease] hover:border-leaf hover:bg-blush/30 focus-visible:border-leaf focus-visible:bg-blush/30 focus-visible:outline-none active:bg-blush/30"
             >
-              <h2 className="text-lg font-semibold text-moss">{card.title}</h2>
+              <h2 className="text-lg font-semibold text-moss transition-colors duration-150 ease-[ease] group-hover:text-moss-deep group-focus-visible:text-moss-deep">
+                {card.title}
+              </h2>
               <p className="mt-1.5 text-sm text-text-sub">{card.desc}</p>
+              <span
+                aria-hidden
+                className="absolute right-6 bottom-6 text-[16px] text-sprout transition-all duration-150 ease-[ease] group-hover:translate-x-[3px] group-hover:text-moss group-focus-visible:translate-x-[3px] group-focus-visible:text-moss"
+              >
+                ›
+              </span>
             </Link>
           ))}
         </div>
