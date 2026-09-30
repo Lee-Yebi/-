@@ -41,6 +41,29 @@ export default function AboutPage() {
         </a>
       )}
 
+      {/* 함께 보면 좋은 곳 — 우리 팀 계정이 아닌 참고 기관 링크. 버튼과 섞이지 않게 별도 블록 */}
+      <div className="mt-3">
+        <p className="text-sm font-medium text-text-sub">함께 보면 좋은 곳</p>
+        <div className="mt-1.5 flex flex-col gap-1">
+          <a
+            href="https://www.instagram.com/ncmh_kr"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-moss-deep underline underline-offset-2 hover:opacity-80"
+          >
+            국립정신건강센터
+          </a>
+          <a
+            href="https://www.instagram.com/mental_health_korea"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-moss-deep underline underline-offset-2 hover:opacity-80"
+          >
+            멘탈헬스코리아
+          </a>
+        </div>
+      </div>
+
       {/* 팀명 뜻 */}
       {TEAM.nameMeaning?.lines?.length > 0 && (
         <section className="mt-8">
