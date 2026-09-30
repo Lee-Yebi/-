@@ -76,16 +76,7 @@ export default function FaqPage() {
       </div>
 
       <p className="mt-[60px] text-xs text-text-sub">
-        일부 답변은{" "}
-        <a
-          href="https://www.dspress.org/news/articleView.html?idxno=11955"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="underline underline-offset-2 hover:text-moss-deep"
-        >
-          덕성여대신문
-        </a>{" "}
-        기사를 참고했으며, 방학 중 운영·상담사 배정·대기 기간·휠체어 이용 안내는
+        방학 중 운영·상담사 배정·대기 기간·휠체어 이용 안내는
         덕성여자대학교 학생상담센터에 직접 확인한 내용입니다.
       </p>
       </PageContainer>
