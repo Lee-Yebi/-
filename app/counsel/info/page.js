@@ -50,9 +50,12 @@ export default function CounselInfoPage() {
         <h2 className="text-base font-semibold text-text">이용 시간 및 문의처</h2>
         <dl className="mt-4 divide-y divide-[var(--color-border)] rounded-2xl border border-[var(--color-border)] bg-card">
           {infoRows.map((row) => (
-            <div key={row.label} className="px-5 py-4">
-              <dt className="text-xs font-semibold text-text">{row.label}</dt>
-              <dd className="mt-1.5 flex flex-col items-start gap-2 text-sm leading-relaxed text-text-sub">
+            <div
+              key={row.label}
+              className="flex flex-col items-start gap-4 px-5 py-4 sm:flex-row sm:items-baseline sm:justify-between"
+            >
+              <dt className="flex-none text-left text-xs font-semibold text-text">{row.label}</dt>
+              <dd className="min-w-0 flex-1 text-left text-sm leading-relaxed text-text-sub sm:text-right">
                 {row.href ? (
                   <a href={row.href} className="text-moss-deep hover:opacity-80">
                     {row.value}
@@ -65,22 +68,22 @@ export default function CounselInfoPage() {
                     href={row.link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-moss-deep underline underline-offset-2"
+                    className="mt-1 block text-moss-deep underline underline-offset-2"
                   >
                     {row.link.label}
                   </a>
                 )}
+                {row.note && (
+                  <p className="mt-1.5 text-[14px] leading-relaxed text-text-sub">
+                    {row.note.flatMap((line, i) => (i === 0 ? [line] : [<br key={i} />, line]))}
+                  </p>
+                )}
                 {row.badge && (
-                  <span className="rounded-full border border-maroon/20 bg-blush px-3 py-1 text-xs font-semibold text-maroon">
+                  <span className="mt-1 inline-block rounded-full border border-maroon/20 bg-blush px-3 py-1 text-xs font-semibold text-maroon">
                     {row.badge}
                   </span>
                 )}
               </dd>
-              {row.note && (
-                <p className="mt-1.5 text-[14px] leading-relaxed text-text-sub">
-                  {row.note.flatMap((line, i) => (i === 0 ? [line] : [<br key={i} />, line]))}
-                </p>
-              )}
             </div>
           ))}
         </dl>
