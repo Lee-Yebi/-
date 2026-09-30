@@ -63,5 +63,5 @@ export const TEAM = {
 
   instagram: "https://www.instagram.com/oreumi_dpsy",
 
-  history: [{ date: "2026.07", title: "업데이트 예정", desc: "" }],
+  history: [{ date: "2026.5~", title: "업데이트 예정", desc: "" }],
 };

@@ -41,29 +41,6 @@ export default function AboutPage() {
         </a>
       )}
 
-      {/* 함께 보면 좋은 곳 — 우리 팀 계정이 아닌 참고 기관 링크. 버튼과 섞이지 않게 별도 블록 */}
-      <div className="mt-3">
-        <p className="text-sm font-medium text-text-sub">함께 보면 좋은 곳</p>
-        <div className="mt-1.5 flex flex-col gap-1">
-          <a
-            href="https://www.instagram.com/ncmh_kr"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm text-moss-deep underline underline-offset-2 hover:opacity-80"
-          >
-            국립정신건강센터
-          </a>
-          <a
-            href="https://www.instagram.com/mental_health_korea"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm text-moss-deep underline underline-offset-2 hover:opacity-80"
-          >
-            멘탈헬스코리아
-          </a>
-        </div>
-      </div>
-
       {/* 팀명 뜻 */}
       {TEAM.nameMeaning?.lines?.length > 0 && (
         <section className="mt-8">
@@ -225,6 +202,51 @@ export default function AboutPage() {
           </ol>
         </section>
       )}
+
+      {/* 함께한 곳 */}
+      <section className="mt-[60px]">
+        <h2 className="text-base font-semibold text-text">함께한 곳</h2>
+        <div className="mt-4 space-y-3">
+          <div className="rounded-2xl border border-[var(--color-border)] bg-card p-[18px]">
+            <span className="inline-block rounded-[20px] bg-blush px-3 py-1 text-[13px] font-medium text-maroon">
+              정보 제공 협력
+            </span>
+            <p className="mt-2 text-[16px] font-semibold text-text">덕성여자대학교 학생상담센터</p>
+            <p className="mt-1 text-[15px] leading-relaxed text-text-sub">
+              무궁담의 학생상담센터 이용 안내, 자주 묻는 질문 등 상담 관련 정보는 학생상담센터의
+              자문과 정보 제공을 바탕으로 제작되었습니다.
+            </p>
+          </div>
+          <div className="rounded-2xl border border-[var(--color-border)] bg-card p-[18px]">
+            <span className="inline-block rounded-[20px] bg-blush px-3 py-1 text-[13px] font-medium text-maroon">
+              주관
+            </span>
+            <p className="mt-2 text-[16px] font-semibold text-text">
+              보건복지부{" "}
+              <a
+                href="https://www.instagram.com/ncmh_kr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-moss-deep underline underline-offset-2 hover:opacity-80"
+              >
+                국립정신건강센터
+              </a>
+              {" · "}
+              <a
+                href="https://www.instagram.com/mental_health_korea"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-moss-deep underline underline-offset-2 hover:opacity-80"
+              >
+                멘탈헬스코리아
+              </a>
+            </p>
+            <p className="mt-1 text-[15px] leading-relaxed text-text-sub">
+              영마인드링크 3기 청년 정신건강 서포터즈 활동의 일환으로 제작되었습니다.
+            </p>
+          </div>
+        </div>
+      </section>
 
       <DecoImage src="/oreumi_bow.png" className="mx-auto mt-[40px] block w-[90px]" />
       </PageContainer>
