@@ -5,8 +5,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const LOGO_SRC = "/logo-v2.png";
-// 헤더: 모바일 68px / PC 96px
-const LOGO_HEADER_HEIGHT_CLASS = "h-[68px] md:h-24";
+// 헤더: 640px 이하 30px / 그 초과는 기존 그대로(68px, md 이상 96px)
+const LOGO_HEADER_HEIGHT_CLASS = "h-[30px] sm:h-[68px] md:h-24";
 
 export default function SiteHeader() {
   const pathname = usePathname();
@@ -20,7 +20,7 @@ export default function SiteHeader() {
 
   return (
     <header className="bg-cream pt-3 pb-2">
-      <Link href="/" aria-label="무궁담 홈으로" className="mx-auto block max-w-[720px] px-4">
+      <Link href="/" aria-label="무궁담 홈으로" className="mx-auto block max-w-[720px] px-[18px] sm:px-4">
         {imgError ? (
           <span className="inline-block text-[22px] font-semibold tracking-[-0.02em] text-moss hover:text-moss-deep md:text-[30px]">
             무궁담
@@ -31,7 +31,7 @@ export default function SiteHeader() {
             src={LOGO_SRC}
             alt="무궁담"
             onError={() => setImgError(true)}
-            className={`block w-auto -translate-x-full ${LOGO_HEADER_HEIGHT_CLASS}`}
+            className={`block w-auto max-w-full ${LOGO_HEADER_HEIGHT_CLASS}`}
           />
         )}
       </Link>
