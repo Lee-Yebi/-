@@ -95,6 +95,7 @@ body {
   color: var(--color-moss-deep);
   text-decoration: underline;
   text-underline-offset: 2px;
+  overflow-wrap: anywhere;
 }
 
 .no-scrollbar {
