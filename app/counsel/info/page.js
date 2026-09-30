@@ -25,6 +25,7 @@ const infoRows = [
     label: "위치",
     value: "덕성여자대학교 덕우당(한옥) 1층 106호 (서울 도봉구 삼양로144길 33)",
     note: ["정문에서 도보 3분, 후문에서 도보 6분"],
+    link: { label: "네이버 지도에서 보기 ↗", href: "https://naver.me/FEUSCKS3" },
   },
   { label: "전화", href: "tel:029018056", value: "02-901-8056" },
   {
@@ -59,6 +60,16 @@ export default function CounselInfoPage() {
                     </a>
                   ) : (
                     <span>{row.value}</span>
+                  )}
+                  {row.link && (
+                    <a
+                      href={row.link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-moss-deep underline underline-offset-2"
+                    >
+                      {row.link.label}
+                    </a>
                   )}
                   {row.badge && (
                     <span className="rounded-full border border-maroon/20 bg-blush px-3 py-1 text-xs font-semibold text-maroon">
@@ -96,14 +107,6 @@ export default function CounselInfoPage() {
         <p className={`text-[14px] text-text-sub ${MAP_IMAGE_SRC ? "mt-2" : "mt-4"}`}>
           {infoRows.find((row) => row.label === "위치").value}
         </p>
-        <a
-          href="https://naver.me/FEUSCKS3"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-2 inline-block text-[14px] text-moss-deep underline underline-offset-2"
-        >
-          네이버 지도에서 보기 ↗
-        </a>
       </section>
 
       <SourceNote />

@@ -143,9 +143,6 @@ export default function CounselorsPage() {
           모든 상담사는 임상심리사 또는 상담심리사 1·2급 이상의 자격증을 보유한
           전문가입니다.
         </div>
-        <p className="mt-2 text-[14px] text-text-sub">
-          상담사 개인의 이름은 공개하지 않으며, 아래는 직위별 자격 현황입니다.
-        </p>
 
         {/* 1층 — 센터장 */}
         <div className="mx-auto mt-12 w-full md:w-1/2">

@@ -8,10 +8,10 @@ const links = [
   { href: "/counsel", label: "상담 알아보기" },
   { href: "/counsel/counselors", label: "상담사 소개" },
   { href: "/counsel/apply", label: "신청부터 진행까지" },
+  { href: "/counsel/programs", label: "운영 프로그램" },
   { href: "/counsel/info", label: "이용 안내" },
   { href: "/counsel/privacy", label: "비밀보장·개인정보" },
   { href: "/counsel/faq", label: "FAQ" },
-  { href: "/counsel/programs", label: "운영 프로그램" },
 ];
 
 function ChevronIcon({ direction }) {
