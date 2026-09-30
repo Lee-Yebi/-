@@ -2,30 +2,34 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="mt-auto border-t border-border bg-background py-6 text-center text-xs text-muted">
-      <div className="mx-auto max-w-5xl space-y-1.5 px-4 leading-relaxed">
-        <p>상담실 덕우당(한옥) 1층 106호 (서울 도봉구 삼양로144길 33)</p>
-        <p>
-          <a href="tel:029018056" className="text-accent hover:text-accent-2">
-            02-901-8056
-          </a>{" "}
-          ·{" "}
-          <a href="mailto:counsel@duksung.ac.kr" className="text-accent hover:text-accent-2">
-            counsel@duksung.ac.kr
+    <footer className="mt-auto border-t border-border bg-background py-6">
+      <div className="mx-auto w-full px-4 text-center leading-relaxed md:max-w-[720px]">
+        <p className="text-sm font-semibold text-foreground">
+          🌸 무궁담 · 마음을 마주하는 이야기
+        </p>
+        <p className="mt-2 text-xs text-muted">
+          영마인드링크 3기 덕성여대팀 DPSY:ON이 만든 학생 주도 마음건강 안내 사이트예요.
+        </p>
+        <p className="text-xs text-muted">
+          학생상담센터 공식 사이트가 아니며, 상담 신청·문의는 덕성여자대학교 학생상담센터로 직접
+          해주세요.
+        </p>
+        <p className="mt-4 text-[11px] text-muted">
+          <Link href="/about" className="text-accent hover:text-accent-2">
+            DPSY:ON 소개
+          </Link>
+          {" · 인스타그램 "}
+          <a
+            href="https://www.instagram.com/oreumi_dpsy"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-accent hover:text-accent-2"
+          >
+            @oreumi_dpsy
           </a>
         </p>
-        <p>학기 중 월~금 10:00~16:00 (점심 12:00~13:00 제외)</p>
-        <p>
-          위기 상황이라면{" "}
-          <a href="tel:109" className="font-medium text-accent hover:text-accent-2">
-            109
-          </a>{" "}
-          (24시간)
-        </p>
-        <p>
-          <Link href="/about" className="text-[14px] text-muted hover:text-accent">
-            만든 사람들
-          </Link>
+        <p className="mt-1 text-[10px] text-muted">
+          © 2026 DPSY:ON · 덕성여대 심리학전공 임상심리 소모임 DCP-ing
         </p>
       </div>
     </footer>
