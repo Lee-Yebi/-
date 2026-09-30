@@ -103,13 +103,14 @@ const partnerCategories = [
         name: "한국여성상담센터",
         number: "02-953-1503",
         hours: "운영시간 확인 중",
-        url: "https://www.iffeminist.or.kr",
+        url: null,
       },
       {
         name: "한국성폭력상담소",
         number: "02-338-5801",
-        hours: "10:00~17:00 (점심 13:00~14:00)",
-        url: null,
+        hours: "평일 10:00~17:00 (점심시간 13:00~14:00 제외)",
+        url: "https://www.sisters.or.kr/",
+        urlLabel: "홈페이지 바로가기",
       },
     ],
   },
@@ -223,7 +224,7 @@ export default function ExternalPage() {
                           rel="noopener noreferrer"
                           className="mt-2 inline-block text-sm text-moss-deep underline underline-offset-2 hover:opacity-80"
                         >
-                          홈페이지 →
+                          {org.urlLabel ?? "홈페이지 →"}
                         </a>
                       )}
                     </div>
