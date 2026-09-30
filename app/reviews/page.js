@@ -121,8 +121,10 @@ export default function ReviewsPage() {
             <li>상담사 선생님을 특정할 수 있는 정보(이름, 외모 등)는 빼고 써주세요.</li>
             <li>다른 학우의 개인정보(이름, 학번 등)는 언급하지 말아주세요.</li>
             <li>
-              상담사나 학생상담센터에 대한 불편한 점이 있으셨다면, 아래 예시를 참고하여
-              적어주세요.
+              불편했던 경험도 게시할 수 있어요. 아래 예시를 참고해 적어주시고,{" "}
+              <span className="font-semibold">
+                센터의 개선이 필요하다면 건의사항 폼에도 함께 남겨주세요.
+              </span>
             </li>
             <li>
               학습과 진로·취업 관련 상담은 학생상담센터 관할이 아니어서 이용후기 대상에서
@@ -180,9 +182,23 @@ export default function ReviewsPage() {
                 받았어요. 상담 중간에 말이 자주 끊겨서 아쉬웠습니다.&quot;
               </p>
               <p className="mt-3 text-sm text-text-sub">
-                상담사를 특정하지 않아도, 어떤 상황에서 어떤 점이 아쉬웠는지는 그대로
-                전달되기 때문에, 부정적인 경험도 이렇게 적어주시면 있는 그대로 게시됩니다.
+                상담사를 특정하지 않아도 어떤 점이 아쉬웠는지는 충분히 전달돼요.
+                부정적인 경험도 이렇게 적어주시면 있는 그대로 게시됩니다.
               </p>
+
+              <div className="mt-3 rounded-2xl border border-maroon/20 bg-blush p-6 text-sm leading-relaxed text-maroon">
+                바로 개선되길 원한다면, 상단의{" "}
+                <a
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSdeczpU3kP8Wy4eIPYFP6UaOnscbsjPuI7JDRBmPq4bmDURPg/viewform"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold underline underline-offset-2"
+                >
+                  건의사항 폼
+                </a>
+                에도 함께 남겨주세요. 폼으로 남기면 센터에서 확인하고 상담사 교체 등 조치로
+                이어질 수 있어요.
+              </div>
             </div>
           </div>
         </div>
