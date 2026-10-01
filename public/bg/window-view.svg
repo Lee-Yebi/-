@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 620" width="820" height="620"
+     preserveAspectRatio="xMidYMin meet" role="presentation">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FBF2DD"/><stop offset=".5" stop-color="#F5EAD2"/>
+      <stop offset="1" stop-color="#EDE7D3"/>
+    </linearGradient>
+    <linearGradient id="rockg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#D3DAC6"/><stop offset=".5" stop-color="#B3BEA6"/>
+      <stop offset="1" stop-color="#95A288"/>
+    </linearGradient>
+    <linearGradient id="slope" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6D8A58"/><stop offset="1" stop-color="#87A272"/>
+    </linearGradient>
+    <filter id="s"><feGaussianBlur stdDeviation="8"/></filter>
+    <filter id="s2"><feGaussianBlur stdDeviation="4"/></filter>
+    <filter id="s3"><feGaussianBlur stdDeviation="1.6"/></filter>
+    <linearGradient id="rockshade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#87957E" stop-opacity="0"/>
+      <stop offset="1" stop-color="#7C8C74" stop-opacity=".55"/>
+    </linearGradient>
+    <clipPath id="rkclip"><path d="M-10,272 Q24,263 58,250 L109,219 L114,211 L119,208 L124,213 L129,221 Q146,214 158,226 L197,179 L202,171 L207,168 L212,173 L217,181 Q229,180 240,192 L267,145 L272,137 L277,134 L282,139 L287,147 Q282,142 302,152 L321,117 L326,109 L331,106 L336,111 L341,119 Q337,119 354,128 L375,103 L380,95 L385,92 L390,97 L395,105 Q404,106 410,120 L433,119 L438,111 L443,108 L448,113 L453,121 Q465,140 480,158 L513,153 L518,145 L523,142 L528,147 L533,155 Q535,162 558,180 L591,139 L596,131 L601,128 L606,133 L611,141 Q607,138 630,148 L661,109 L666,101 L671,98 L676,103 L681,111 Q699,129 718,154 Q736,166 760,172 Q792,190 830,210 L830,620 L-10,620 Z"/></clipPath>
+  </defs>
+
+  <rect width="820" height="620" fill="url(#sky)"/>
+  <ellipse cx="200" cy="48" rx="140" ry="20" fill="#FFFCF0" opacity=".5" filter="url(#s)"/>
+  <ellipse cx="620" cy="34" rx="110" ry="16" fill="#FFFCF0" opacity=".4" filter="url(#s)"/>
+
+  <!-- 뒤쪽 먼 능선 -->
+  <path d="M-10,236 Q39,228 96,212 Q142,220 196,230 L291,207 L296,199 L301,196 L306,201 L311,209 Q346,203 408,216 L507,197 L512,189 L517,186 L522,191 L527,199 Q566,199 620,212 L717,201 L722,193 L727,190 L732,195 L737,203 Q775,198 830,208 L830,620 L-10,620 Z" fill="#C2CCBA" opacity=".55"/>
+
+  <!-- 북한산 화강암 암봉 -->
+  <path d="M-10,272 Q24,263 58,250 L109,219 L114,211 L119,208 L124,213 L129,221 Q146,214 158,226 L197,179 L202,171 L207,168 L212,173 L217,181 Q229,180 240,192 L267,145 L272,137 L277,134 L282,139 L287,147 Q282,142 302,152 L321,117 L326,109 L331,106 L336,111 L341,119 Q337,119 354,128 L375,103 L380,95 L385,92 L390,97 L395,105 Q404,106 410,120 L433,119 L438,111 L443,108 L448,113 L453,121 Q465,140 480,158 L513,153 L518,145 L523,142 L528,147 L533,155 Q535,162 558,180 L591,139 L596,131 L601,128 L606,133 L611,141 Q607,138 630,148 L661,109 L666,101 L671,98 L676,103 L681,111 Q699,129 718,154 Q736,166 760,172 Q792,190 830,210 L830,620 L-10,620 Z" fill="url(#rockg)"/>
+  <g clip-path="url(#rkclip)">
+    <g filter="url(#s3)">
+      <rect x="-10" y="40" width="13" height="260" fill="#8FA089" opacity="0.11"/>
+      <rect x="11" y="40" width="12" height="260" fill="#8FA089" opacity="0.13"/>
+      <rect x="32" y="40" width="24" height="260" fill="#F0F2E7" opacity="0.08"/>
+      <rect x="59" y="40" width="11" height="260" fill="#F0F2E7" opacity="0.07"/>
+      <rect x="77" y="40" width="8" height="260" fill="#8FA089" opacity="0.07"/>
+      <rect x="89" y="40" width="23" height="260" fill="#F0F2E7" opacity="0.07"/>
+      <rect x="118" y="40" width="21" height="260" fill="#F0F2E7" opacity="0.18"/>
+      <rect x="141" y="40" width="21" height="260" fill="#8FA089" opacity="0.06"/>
+      <rect x="171" y="40" width="15" height="260" fill="#8FA089" opacity="0.06"/>
+      <rect x="188" y="40" width="11" height="260" fill="#8FA089" opacity="0.06"/>
+      <rect x="207" y="40" width="25" height="260" fill="#8FA089" opacity="0.08"/>
+      <rect x="237" y="40" width="17" height="260" fill="#8FA089" opacity="0.06"/>
+      <rect x="262" y="40" width="22" height="260" fill="#8FA089" opacity="0.06"/>
+      <rect x="294" y="40" width="10" height="260" fill="#F0F2E7" opacity="0.12"/>
+      <rect x="313" y="40" width="14" height="260" fill="#8FA089" opacity="0.11"/>
+      <rect x="331" y="40" width="14" height="260" fill="#F0F2E7" opacity="0.06"/>
+      <rect x="348" y="40" width="20" height="260" fill="#8FA089" opacity="0.06"/>
+      <rect x="371" y="40" width="26" height="260" fill="#8FA089" opacity="0.08"/>
+      <rect x="401" y="40" width="19" height="260" fill="#8FA089" opacity="0.09"/>
+      <rect x="425" y="40" width="9" height="260" fill="#8FA089" opacity="0.06"/>
+      <rect x="440" y="40" width="23" height="260" fill="#F0F2E7" opacity="0.14"/>
+      <rect x="473" y="40" width="19" height="260" fill="#8FA089" opacity="0.06"/>
+      <rect x="497" y="40" width="11" height="260" fill="#8FA089" opacity="0.07"/>
+      <rect x="514" y="40" width="26" height="260" fill="#8FA089" opacity="0.18"/>
+      <rect x="545" y="40" width="17" height="260" fill="#8FA089" opacity="0.10"/>
+      <rect x="566" y="40" width="15" height="260" fill="#F0F2E7" opacity="0.08"/>
+      <rect x="592" y="40" width="25" height="260" fill="#8FA089" opacity="0.10"/>
+      <rect x="622" y="40" width="10" height="260" fill="#F0F2E7" opacity="0.15"/>
+      <rect x="640" y="40" width="15" height="260" fill="#8FA089" opacity="0.14"/>
+      <rect x="662" y="40" width="20" height="260" fill="#8FA089" opacity="0.08"/>
+      <rect x="690" y="40" width="13" height="260" fill="#F0F2E7" opacity="0.14"/>
+      <rect x="710" y="40" width="13" height="260" fill="#8FA089" opacity="0.12"/>
+      <rect x="730" y="40" width="8" height="260" fill="#8FA089" opacity="0.06"/>
+      <rect x="746" y="40" width="16" height="260" fill="#8FA089" opacity="0.12"/>
+      <rect x="771" y="40" width="14" height="260" fill="#8FA089" opacity="0.14"/>
+      <rect x="793" y="40" width="14" height="260" fill="#8FA089" opacity="0.16"/>
+      <rect x="815" y="40" width="26" height="260" fill="#8FA089" opacity="0.10"/>
+    </g>
+    <g stroke="#7E8D78" stroke-width="1.7" fill="none" opacity=".50" stroke-linecap="round">
+        <path d="M105,222 l-2,31"/>
+        <path d="M113,222 l-1,52"/>
+        <path d="M122,222 l0,53"/>
+        <path d="M130,222 l2,35"/>
+        <path d="M193,182 l2,28"/>
+        <path d="M201,182 l2,47"/>
+        <path d="M210,182 l-2,39"/>
+        <path d="M218,182 l3,45"/>
+        <path d="M263,148 l1,44"/>
+        <path d="M271,148 l0,47"/>
+        <path d="M280,148 l1,35"/>
+        <path d="M288,148 l3,43"/>
+        <path d="M317,120 l2,53"/>
+        <path d="M325,120 l2,34"/>
+        <path d="M334,120 l-2,26"/>
+        <path d="M342,120 l1,31"/>
+        <path d="M371,106 l1,40"/>
+        <path d="M379,106 l-2,46"/>
+        <path d="M388,106 l3,33"/>
+        <path d="M396,106 l-2,47"/>
+        <path d="M429,122 l2,46"/>
+        <path d="M437,122 l0,27"/>
+        <path d="M446,122 l-2,33"/>
+        <path d="M454,122 l-2,27"/>
+        <path d="M509,156 l-1,29"/>
+        <path d="M517,156 l0,31"/>
+        <path d="M526,156 l1,32"/>
+        <path d="M534,156 l0,27"/>
+        <path d="M587,142 l-1,40"/>
+        <path d="M595,142 l2,38"/>
+        <path d="M604,142 l-3,45"/>
+        <path d="M612,142 l-2,44"/>
+        <path d="M657,112 l2,33"/>
+        <path d="M665,112 l-1,54"/>
+        <path d="M674,112 l-1,26"/>
+        <path d="M682,112 l-1,38"/>
+    </g>
+    <rect x="-10" y="120" width="840" height="200" fill="url(#rockshade)"/>
+  </g>
+
+  <!-- 바위 아래 안개 -->
+  <rect x="-10" y="214" width="840" height="20" fill="#F2EBD6" opacity=".16" filter="url(#s)"/>
+
+  <!-- 숲 비탈 -->
+  <path d="M-10,270 Q54,242 118,274 Q168,248 206,276 Q244,252 276,278 Q312,250 348,276 Q386,248 424,274 Q472,246 516,272 Q562,246 604,272 Q648,244 690,270 Q752,248 830,264 L830,620 L-10,620 Z" fill="url(#slope)"/>
+  <!-- 가을빛 (연한 분홍) -->
+  <g opacity=".85">
+    <circle cx="130" cy="303" r="13" fill="#E0A9A0"/>
+    <circle cx="139" cy="308" r="9" fill="#EFC6BE"/>
+    <circle cx="178" cy="307" r="18" fill="#E0A9A0"/>
+    <circle cx="191" cy="312" r="13" fill="#EFC6BE"/>
+    <circle cx="214" cy="316" r="12" fill="#E0A9A0"/>
+    <circle cx="222" cy="321" r="8" fill="#EFC6BE"/>
+    <circle cx="398" cy="315" r="11" fill="#E0A9A0"/>
+    <circle cx="406" cy="320" r="8" fill="#EFC6BE"/>
+    <circle cx="438" cy="311" r="15" fill="#E0A9A0"/>
+    <circle cx="448" cy="316" r="10" fill="#EFC6BE"/>
+    <circle cx="470" cy="313" r="14" fill="#E0A9A0"/>
+    <circle cx="480" cy="318" r="10" fill="#EFC6BE"/>
+    <circle cx="660" cy="302" r="18" fill="#E0A9A0"/>
+    <circle cx="673" cy="307" r="13" fill="#EFC6BE"/>
+    <circle cx="700" cy="313" r="18" fill="#E0A9A0"/>
+    <circle cx="713" cy="318" r="13" fill="#EFC6BE"/>
+    <circle cx="742" cy="308" r="13" fill="#E0A9A0"/>
+    <circle cx="751" cy="313" r="9" fill="#EFC6BE"/>
+  </g>
+
+  <!-- 아래쪽 숲 (카드 뒤) -->
+  <path d="M-10,620 L-10,336 Q120,310 250,332 Q380,304 510,328 Q650,302 830,324 L830,620 Z" fill="#BFD1A8"/>
+  <g fill="#ADC395" opacity=".95">
+    <path d="M52,620 l0,-42 q-16,-4 -16,-20 q0,-18 16,-21 q5,-15 19,-15 q14,0 19,15 q16,3 16,21 q0,16 -16,20 l0,42 z"/>
+    <path d="M138,620 l0,-31 q-13,-3 -13,-15 q0,-14 13,-17 q4,-11 14,-11 q10,0 14,11 q13,3 13,17 q0,12 -13,15 l0,31 z"/>
+    <path d="M628,620 l0,-36 q-14,-3 -14,-17 q0,-16 14,-19 q5,-13 17,-13 q12,0 17,13 q14,3 14,19 q0,14 -14,17 l0,36 z"/>
+    <path d="M704,620 l0,-27 q-11,-2 -11,-14 q0,-12 11,-15 q4,-10 13,-10 q9,0 13,10 q11,3 11,15 q0,12 -11,14 l0,27 z"/>
+    <path d="M776,620 l0,-33 q-13,-3 -13,-16 q0,-14 13,-17 q4,-12 14,-12 q10,0 14,12 q13,3 13,17 q0,13 -13,16 l0,33 z"/>
+  </g>
+</svg>

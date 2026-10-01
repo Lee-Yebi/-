@@ -1,0 +1,172 @@
+/* ═══════════════════════════════════════════════════════════
+   무궁담 — 방 배경 (벽 · 창문 · 책상)
+   배경 이미지는 /public/bg/ 의 SVG를 씁니다.
+   PC(1024px~) / 태블릿(641~1023px) / 모바일(~640px) 세 가지.
+   ═══════════════════════════════════════════════════════════ */
+
+:root{
+  --room-wall:        #FDF3E3;   /* 벽 = 사이트 배경색과 동일 */
+  --room-cream:       #FDF3E3;   /* 페이지 배경 */
+  --room-floor-end:   #F8EFDE;   /* 바닥 맨 아래 = 크림으로 넘어가는 지점 */
+
+  --room-frame-1:     #D2BB90;   /* 창틀 밝은 면 */
+  --room-frame-2:     #B89E70;
+  --room-frame-3:     #9A8054;   /* 창틀 어두운 면 */
+  --room-frame-edge:  #85703F;
+
+  --room-glass-base:  #BFD1A8;   /* 창유리 아래쪽(숲)으로 이어지는 색 */
+}
+
+/* ── 방 (벽) ──────────────────────────────────────────── */
+.room{
+  position: relative;
+  background: var(--room-wall);
+  overflow: hidden;
+  padding-top: 46px;
+  isolation: isolate;
+}
+
+/* ── 사이트 이름 (크림 벽 위 진한 녹색) ───────────────── */
+.room__logo{
+  position: relative; z-index: 2;
+  text-align: center;
+  padding: 0 24px 26px;
+}
+.room__logo-title{
+  font-size: clamp(34px, 4.2vw, 54px);
+  font-weight: 800; color: #3C5233;      /* 크림 위 7.81:1 */
+  letter-spacing: .07em; line-height: 1.15;
+}
+.room__logo-sub{
+  font-size: clamp(13px, 1.2vw, 16px);
+  color: #5E5450;                         /* 크림 위 6.68:1 */
+  margin-top: 9px;
+}
+
+/* ── 창문 ─────────────────────────────────────────────
+   .window > .window__pane > .window__inner > (내용)
+   창밖 풍경은 .window__pane 의 배경 이미지입니다.        */
+.window{
+  position: relative; z-index: 2;
+  max-width: 824px; margin: 0 auto;
+  padding: 15px; border-radius: 8px;
+  background: linear-gradient(145deg,
+              var(--room-frame-1) 0%, var(--room-frame-2) 48%, var(--room-frame-3) 100%);
+  box-shadow: 0 0 0 1px var(--room-frame-edge),
+              0 22px 44px rgba(40,54,30,.34),
+              0 7px 14px rgba(40,54,30,.20);
+}
+.window__pane{
+  position: relative; overflow: hidden; border-radius: 3px;
+  background-color: var(--room-glass-base);
+  background-image: url("/bg/window-view.svg");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% auto;     /* 가로 폭 기준 — 좁아져도 능선 전체가 보임 */
+  box-shadow: inset 0 0 0 2px rgba(90,74,42,.20),
+              inset 0 6px 16px rgba(90,74,42,.14);
+}
+
+/* 창살 — 카드 사이 틈으로 비쳐 보입니다 */
+.window__mullion{ position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+.window__mullion::before,
+.window__mullion::after{
+  content: ""; position: absolute;
+  background: linear-gradient(145deg, #D0B991, #B49A6F);
+  box-shadow: 0 1px 3px rgba(90,74,42,.30);
+}
+.window__mullion::before{ left: calc(50% - 5px); top: 0; bottom: 0; width: 10px; }  /* 세로살 */
+.window__mullion::after { left: 0; right: 0; top: 238px; height: 10px; }            /* 가로살 */
+
+.window__inner{ position: relative; z-index: 2; padding: 26px; }
+.window__viewgap{ height: 220px; }   /* 이만큼 비워야 창밖이 보입니다 */
+
+/* ── 창턱 ─────────────────────────────────────────────── */
+.sill{
+  position: relative; z-index: 2;
+  width: min(880px, calc(100% - 32px)); margin: 0 auto;
+}
+.sill::before{
+  content: ""; display: block; height: 16px; border-radius: 4px; background: #C0A67D;
+}
+.sill::after{
+  content: ""; display: block; height: 6px; border-radius: 0 0 4px 4px;
+  background: #99855A; opacity: .6;
+  width: calc(100% - 14px); margin: 0 auto;
+}
+
+/* ── 책상 ─────────────────────────────────────────────── */
+.desk{
+  position: relative; z-index: 2;
+  width: 100%;
+  aspect-ratio: 1200 / 514;
+  margin-top: 10px;
+  background-color: var(--room-wall);
+  background-image: url("/bg/desk-pc.svg");
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+}
+
+/* 바닥이 페이지 크림색으로 이어지는 구간 */
+.floor-fade{
+  height: 72px;
+  background: linear-gradient(180deg,
+              var(--room-floor-end) 0%, #FBF1E1 45%, var(--room-cream) 100%);
+}
+
+/* ═══ 태블릿 (641px ~ 1023px) ═══════════════════════════ */
+@media (max-width: 1023px){
+  .window{ margin: 0 18px; }
+  .window__viewgap{ height: 190px; }
+  .window__mullion::after{ top: 206px; }
+  .desk{
+    aspect-ratio: 1008 / 514;
+    background-image: url("/bg/desk-tablet.svg");
+  }
+}
+
+/* ═══ 모바일 (~640px) ═══════════════════════════════════ */
+@media (max-width: 640px){
+  .room{ padding-top: 30px; }
+  .room__logo{ padding-bottom: 20px; }
+  .window{ margin: 0 14px; padding: 11px; border-radius: 6px; }
+  .window__inner{ padding: 15px; }
+  .window__viewgap{ height: 158px; }
+  .window__mullion::before{ left: calc(50% - 4px); width: 8px; }
+  .window__mullion::after{ top: 170px; height: 8px; }
+  .desk{
+    aspect-ratio: 620 / 520;
+    margin-top: 8px;
+    background-image: url("/bg/desk-mobile.svg");
+  }
+  .floor-fade{ height: 48px; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   창 안에 놓이는 카드 (참고용 — 기존 카드 스타일이 있으면 그걸 쓰세요)
+   흰 카드 위 진한 글자라 배경이 어떻든 대비는 14:1로 유지됩니다.
+   ═══════════════════════════════════════════════════════ */
+.room-card{
+  display: block; text-decoration: none; color: inherit;
+  background: #fff; border: 1px solid #D9CFB8; border-radius: 14px; padding: 20px;
+  box-shadow: 0 6px 16px rgba(70,60,36,.14);
+  transition: background .15s ease, border-color .15s ease;
+}
+.room-card:hover,
+.room-card:focus-visible{ background: #FCFBF4; border-color: #6B8E4E; }
+.room-card__title{ font-size: 18px; font-weight: 700; color: #3C5233; }    /* 8.58:1 */
+.room-card__desc { font-size: 14px; color: #5E5450; margin-top: 4px; line-height: 1.6; }
+.room-card__cta  { font-size: 13.5px; color: #4F6B3E; font-weight: 600; margin-top: 11px; } /* 5.99:1 */
+.room-card--wide{
+  display: flex; align-items: center; gap: 16px;
+  margin-top: 14px; padding: 16px 20px;
+}
+.room-card--wide .room-card__desc{ margin-top: 2px; font-size: 13.5px; }
+.room-card__arrow{ margin-left: auto; color: #4F6B3E; font-size: 20px; }
+@media (max-width: 640px){ .room-card--wide{ margin-top: 10px; } }
+
+/* ═══ 접근성 ═══════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce){
+  .room *{ transition: none !important; animation: none !important; }
+}
