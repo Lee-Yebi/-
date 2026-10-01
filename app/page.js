@@ -56,10 +56,10 @@ export default function Home() {
         </div>
 
         <Window>
-          <h1 className="text-center text-[28px] leading-snug font-semibold text-text break-keep">
+          <h1 className="text-center text-[28px] leading-snug font-semibold text-[#3C5233] break-keep">
             마음의 도움이 필요할 때, 어디로 가야 할까요?
           </h1>
-          <p className="mt-2 text-center text-base text-text-sub">
+          <p className="mt-2 text-center text-base text-[#5E5450]">
             학생의 눈높이에서 교내·외 마음건강 정보를 한곳에 모았습니다.
           </p>
 

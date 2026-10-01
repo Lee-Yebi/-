@@ -58,10 +58,10 @@
 }
 .window__pane{
   position: relative; overflow: hidden; border-radius: 3px;
-  background-color: var(--room-glass-base);
+  background-color: #FBF2DD;
   background-image: url("/bg/window-view.svg");
   background-repeat: no-repeat;
-  background-position: top center;
+  background-position: bottom center;
   background-size: 100% auto;     /* 가로 폭 기준 — 좁아져도 능선 전체가 보임 */
   box-shadow: inset 0 0 0 2px rgba(90,74,42,.20),
               inset 0 6px 16px rgba(90,74,42,.14);
@@ -79,7 +79,7 @@
 .window__mullion::after { left: 0; right: 0; top: 238px; height: 10px; }            /* 가로살 */
 
 .window__inner{ position: relative; z-index: 2; padding: 26px; }
-.window__viewgap{ height: 220px; }   /* 이만큼 비워야 창밖이 보입니다 */
+.window__viewgap{ height: 0; }
 
 /* ── 창턱 ─────────────────────────────────────────────── */
 .sill{
@@ -118,7 +118,7 @@
 /* ═══ 태블릿 (641px ~ 1023px) ═══════════════════════════ */
 @media (max-width: 1023px){
   .window{ margin: 0 18px; }
-  .window__viewgap{ height: 190px; }
+  .window__viewgap{ height: 0; }
   .window__mullion::after{ top: 206px; }
   .desk{
     aspect-ratio: 1008 / 514;
@@ -132,7 +132,7 @@
   .room__logo{ padding-bottom: 20px; }
   .window{ margin: 0 14px; padding: 11px; border-radius: 6px; }
   .window__inner{ padding: 15px; }
-  .window__viewgap{ height: 158px; }
+  .window__viewgap{ height: 0; }
   .window__mullion::before{ left: calc(50% - 4px); width: 8px; }
   .window__mullion::after{ top: 170px; height: 8px; }
   .desk{
