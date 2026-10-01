@@ -63,18 +63,49 @@ export default function CounselSubNav() {
       setHasOverflow(el.scrollWidth - el.clientWidth > 1);
     }
 
-    activeRef.current?.scrollIntoView({ inline: "center", block: "nearest", behavior: "instant" });
-    updateScrollState();
+    // el has CSS scroll-behavior:smooth (for the arrow buttons), which makes
+    // scrollIntoView's behavior:"auto"/"instant" unreliable (it can defer to
+    // the CSS and animate instead of jumping, or throw on old Safari). Center
+    // the active tab by setting scrollLeft directly instead -- that's always
+    // an instant jump regardless of CSS, with no API support concerns. Do it
+    // after a paint (rAF) so the geometry we read is settled, not mid-layout.
+    const raf = requestAnimationFrame(() => {
+      const activeEl = activeRef.current;
+      if (activeEl) {
+        const containerRect = el.getBoundingClientRect();
+        const itemRect = activeEl.getBoundingClientRect();
+        const offset =
+          itemRect.left -
+          containerRect.left +
+          el.scrollLeft -
+          el.clientWidth / 2 +
+          itemRect.width / 2;
+        el.scrollLeft = Math.max(0, offset);
+      }
+      updateScrollState();
+    });
 
     el.addEventListener("scroll", updateScrollState, { passive: true });
-    const ro = new ResizeObserver(updateScrollState);
-    ro.observe(el);
+
+    let ro;
+    if (typeof ResizeObserver !== "undefined") {
+      ro = new ResizeObserver(updateScrollState);
+      ro.observe(el);
+    } else {
+      window.addEventListener("resize", updateScrollState);
+    }
+
     const mo = new MutationObserver(updateScrollState);
     mo.observe(el, { childList: true, subtree: true });
 
     return () => {
+      cancelAnimationFrame(raf);
       el.removeEventListener("scroll", updateScrollState);
-      ro.disconnect();
+      if (ro) {
+        ro.disconnect();
+      } else {
+        window.removeEventListener("resize", updateScrollState);
+      }
       mo.disconnect();
     };
   }, [pathname]);
@@ -82,7 +113,9 @@ export default function CounselSubNav() {
   function scrollByDirection(dir) {
     const el = scrollRef.current;
     if (!el) return;
-    el.scrollBy({ left: el.clientWidth * 0.7 * dir, behavior: "smooth" });
+    try {
+      el.scrollBy({ left: el.clientWidth * 0.7 * dir, behavior: "smooth" });
+    } catch {}
   }
 
   return (
