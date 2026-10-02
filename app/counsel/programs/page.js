@@ -32,16 +32,16 @@ const etcPrograms = [
 function ProgramCard({ program }) {
   return (
     <div className="rounded-2xl border border-[var(--color-border)] bg-card p-6">
-      <h3 className="text-base font-semibold text-moss">{program.title}</h3>
+      <h3 className="text-base font-bold text-moss">{program.title}</h3>
       {program.keyword && (
-        <p className="mt-1 text-xs font-medium text-text-sub">{program.keyword}</p>
+        <p className="mt-1 text-xs font-light text-text-sub">{program.keyword}</p>
       )}
       <p className="mt-2 text-sm leading-relaxed text-text-sub">{program.desc}</p>
       {program.extra && (
         <p className="mt-2 text-sm leading-relaxed text-text-sub">{program.extra}</p>
       )}
       {program.badge && (
-        <p className="mt-3 inline-block rounded-full border border-maroon/20 bg-blush px-3 py-1 text-xs font-semibold text-maroon">
+        <p className="mt-3 inline-block rounded-full border border-maroon/20 bg-blush px-3 py-1 text-xs font-bold text-maroon">
           {program.badge}
         </p>
       )}
@@ -66,7 +66,7 @@ export default function ProgramsPage() {
   return (
     <div className="brand-scope min-h-screen w-full bg-cream">
       <PageContainer>
-      <h1 className="flex items-center gap-2 text-xl font-semibold text-moss">
+      <h1 className="flex items-center gap-2 text-xl font-bold text-moss">
         <MountainIcon className="text-moss" />
         센터 운영 프로그램
       </h1>

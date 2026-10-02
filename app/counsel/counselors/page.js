@@ -101,7 +101,7 @@ const admin = {
 function CounselorCard({ title, lines }) {
   return (
     <div className="h-full rounded-2xl border border-[var(--color-border)] bg-card p-5">
-      <p className="text-[16px] font-semibold text-moss">{title}</p>
+      <p className="text-[16px] font-bold text-moss">{title}</p>
       <ul className="mt-2 space-y-0.5">
         {lines.map((line, i) => (
           <li
@@ -118,7 +118,7 @@ function CounselorCard({ title, lines }) {
 
 function SectionLabel({ children }) {
   return (
-    <span className="inline-block rounded-full bg-blush px-3 py-1 text-sm font-medium text-maroon">
+    <span className="inline-block rounded-full bg-blush px-3 py-1 text-sm font-light text-maroon">
       {children}
     </span>
   );
@@ -129,7 +129,7 @@ export default function CounselorsPage() {
     <div className="brand-scope min-h-screen w-full bg-cream">
       <PageContainer>
         <div className="relative">
-          <h1 className="flex items-center gap-2 text-xl font-semibold text-moss">
+          <h1 className="flex items-center gap-2 text-xl font-bold text-moss">
             <MountainIcon className="text-moss" />
             상담사 소개
           </h1>

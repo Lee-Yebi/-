@@ -22,7 +22,7 @@ export default function SiteHeader() {
     <header className="bg-cream pt-3 pb-2">
       <Link href="/" aria-label="무궁담 홈으로" className="mx-auto block max-w-[720px] px-[18px] sm:px-4">
         {imgError ? (
-          <span className="inline-block text-[22px] font-semibold tracking-[-0.02em] text-moss hover:text-moss-deep md:text-[30px]">
+          <span className="inline-block text-[22px] font-bold tracking-[-0.02em] text-moss hover:text-moss-deep md:text-[30px]">
             무궁담
           </span>
         ) : (

@@ -41,20 +41,20 @@ export default function CounselInfoPage() {
   return (
     <div className="brand-scope min-h-screen w-full bg-cream">
       <PageContainer>
-      <h1 className="flex items-center gap-2 text-xl font-semibold text-moss">
+      <h1 className="flex items-center gap-2 text-xl font-bold text-moss">
         <MountainIcon className="text-moss" />
         이용 안내
       </h1>
 
       <section className="mt-9">
-        <h2 className="text-base font-semibold text-text">이용 시간 및 문의처</h2>
+        <h2 className="text-base font-bold text-text">이용 시간 및 문의처</h2>
         <dl className="mt-4 divide-y divide-[var(--color-border)] rounded-2xl border border-[var(--color-border)] bg-card">
           {infoRows.map((row) => (
             <div
               key={row.label}
               className="flex flex-col items-start gap-4 px-5 py-4 sm:flex-row sm:items-baseline sm:justify-between"
             >
-              <dt className="flex-none text-left text-xs font-semibold text-text">{row.label}</dt>
+              <dt className="flex-none text-left text-xs font-bold text-text">{row.label}</dt>
               <dd className="min-w-0 flex-1 text-left text-sm leading-relaxed text-text-sub sm:text-right">
                 {row.href ? (
                   <a href={row.href} className="text-moss-deep hover:opacity-80">
@@ -79,7 +79,7 @@ export default function CounselInfoPage() {
                   </p>
                 )}
                 {row.badge && (
-                  <span className="mt-1 inline-block rounded-full border border-maroon/20 bg-blush px-3 py-1 text-xs font-semibold text-maroon">
+                  <span className="mt-1 inline-block rounded-full border border-maroon/20 bg-blush px-3 py-1 text-xs font-bold text-maroon">
                     {row.badge}
                   </span>
                 )}
@@ -90,7 +90,7 @@ export default function CounselInfoPage() {
       </section>
 
       <section className="mt-12">
-        <h2 className="flex items-center gap-2 text-base font-semibold text-text">
+        <h2 className="flex items-center gap-2 text-base font-bold text-text">
           <DecoImage src="/oreumi_hiking_left.png" className="hidden w-14 shrink-0 sm:block" />
           찾아오시는 길
         </h2>

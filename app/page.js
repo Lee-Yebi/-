@@ -42,7 +42,7 @@ export default function Home() {
         <div className="room__logo">
           <div className={`mx-auto w-full px-4 ${LOGO_MAX_WIDTH_CLASS}`}>
             {logoError ? (
-              <p className="text-center text-[28px] font-semibold text-moss">무궁담</p>
+              <p className="text-center text-[28px] font-bold text-moss">무궁담</p>
             ) : (
               // eslint-disable-next-line @next/next/no-img-element
               <img
@@ -56,7 +56,7 @@ export default function Home() {
         </div>
 
         <Window>
-          <h1 className="text-center text-[28px] leading-snug font-semibold text-[#3C5233] break-keep">
+          <h1 className="text-center text-[28px] leading-snug font-bold text-[#3C5233] break-keep">
             마음의 도움이 필요할 때, 어디로 가야 할까요?
           </h1>
           <p className="mt-2 text-center text-base text-[#5E5450]">
@@ -70,7 +70,7 @@ export default function Home() {
                 href={card.href}
                 className="group relative block rounded-2xl border border-sprout bg-card p-6 transition-colors duration-150 ease-[ease] hover:border-leaf hover:bg-blush/30 focus-visible:border-leaf focus-visible:bg-blush/30 focus-visible:outline-none active:bg-blush/30"
               >
-                <h2 className="text-lg font-semibold text-moss transition-colors duration-150 ease-[ease] group-hover:text-moss-deep group-focus-visible:text-moss-deep">
+                <h2 className="text-lg font-bold text-moss transition-colors duration-150 ease-[ease] group-hover:text-moss-deep group-focus-visible:text-moss-deep">
                   {card.title}
                 </h2>
                 <p className="mt-1.5 text-sm text-text-sub">{card.desc}</p>
@@ -100,7 +100,7 @@ export default function Home() {
               />
             )}
             <div>
-              <p className="text-[15px] font-semibold text-maroon">
+              <p className="text-[15px] font-bold text-maroon">
                 무궁담을 만든 DPSY:ON을 소개합니다
               </p>
               <p className="mt-1 text-[14px] text-maroon">

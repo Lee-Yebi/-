@@ -137,7 +137,7 @@ export default function ExternalPage() {
   return (
     <div className="brand-scope min-h-screen w-full bg-cream">
       <PageContainer>
-        <h1 className="text-xl font-semibold text-moss">교외 도움 찾기</h1>
+        <h1 className="text-xl font-bold text-moss">교외 도움 찾기</h1>
 
         {/* 24시간 상담 전화 — 맨 위, 스크롤 없이 보이도록 */}
         <section className="mt-3">
@@ -145,10 +145,10 @@ export default function ExternalPage() {
             href={tel(featuredHotline.number)}
             className="block rounded-2xl border border-maroon/20 bg-blush p-6 transition-opacity hover:opacity-90"
           >
-            <p className="text-sm font-medium text-maroon">
+            <p className="text-sm font-light text-maroon">
               {featuredHotline.name} · {featuredHotline.hours}
             </p>
-            <p className="mt-1 text-[32px] font-semibold text-maroon">
+            <p className="mt-1 text-[32px] font-bold text-maroon">
               {featuredHotline.number}
             </p>
           </a>
@@ -164,7 +164,7 @@ export default function ExternalPage() {
                   {line.name}
                   <span className="block text-xs text-text-sub">{line.hours}</span>
                 </span>
-                <span className="text-lg font-semibold text-maroon whitespace-nowrap">
+                <span className="text-lg font-bold text-maroon whitespace-nowrap">
                   {line.number}
                 </span>
               </a>
@@ -174,7 +174,7 @@ export default function ExternalPage() {
 
         {/* 이럴 때는 바로 연락하세요 */}
         <section className="mt-[60px]">
-          <h2 className="text-base font-semibold text-text">
+          <h2 className="text-base font-bold text-text">
             이럴 때는 바로 연락하세요
           </h2>
           <ul className="mt-4 space-y-2 rounded-2xl border border-[var(--color-border)] bg-card p-6">
@@ -188,11 +188,11 @@ export default function ExternalPage() {
 
         {/* 주요 연계기관 */}
         <section className="mt-[60px]">
-          <h2 className="text-base font-semibold text-text">주요 연계기관</h2>
+          <h2 className="text-base font-bold text-text">주요 연계기관</h2>
           <div className="mt-4 space-y-8">
             {partnerCategories.map((group) => (
               <div key={group.category}>
-                <span className="inline-block rounded-full bg-blush px-3 py-1 text-sm font-medium text-maroon">
+                <span className="inline-block rounded-full bg-blush px-3 py-1 text-sm font-light text-maroon">
                   {group.category}
                 </span>
                 <div className="mt-3 grid grid-cols-1 gap-3 md:grid-cols-2">
@@ -201,10 +201,10 @@ export default function ExternalPage() {
                       key={org.name}
                       className="rounded-2xl border border-[var(--color-border)] bg-card p-[18px]"
                     >
-                      <h3 className="text-base font-semibold text-moss">{org.name}</h3>
+                      <h3 className="text-base font-bold text-moss">{org.name}</h3>
                       <a
                         href={tel(org.number)}
-                        className="mt-2 flex min-h-11 items-center text-lg font-semibold text-maroon"
+                        className="mt-2 flex min-h-11 items-center text-lg font-bold text-maroon"
                       >
                         {org.number}
                       </a>

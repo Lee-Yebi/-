@@ -1,4 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import CrisisBanner from "@/components/CrisisBanner";
@@ -16,6 +17,16 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const gangwon = localFont({
+  src: [
+    { path: "./fonts/GangwonEduAll-Light.woff2", weight: "300", style: "normal" },
+    { path: "./fonts/GangwonEduAll-Bold.woff2", weight: "700", style: "normal" },
+  ],
+  variable: "--font-main",
+  display: "swap",
+  fallback: ["Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", "sans-serif"],
 });
 
 export const metadata = {
@@ -44,7 +55,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="ko"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${gangwon.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-background text-foreground">
         <SeasonalFall />

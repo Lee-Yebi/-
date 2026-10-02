@@ -66,7 +66,8 @@ html {
 body {
   background: var(--color-cream);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-main), Pretendard, "Apple SD Gothic Neo", "Malgun Gothic",
+    sans-serif;
 }
 
 .diss-body img {

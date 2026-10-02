@@ -71,7 +71,7 @@ export default function CounselPage() {
     <div className="brand-scope min-h-screen w-full bg-cream">
       <PageContainer>
         <div className="relative">
-          <h1 className="flex items-center gap-2 text-xl font-semibold text-moss">
+          <h1 className="flex items-center gap-2 text-xl font-bold text-moss">
             <MountainIcon className="text-moss" />
             상담 알아보기
           </h1>
@@ -82,7 +82,7 @@ export default function CounselPage() {
         </div>
 
         <section className="mt-9">
-          <h2 className="text-base font-semibold text-text">이럴 때 방문하세요</h2>
+          <h2 className="text-base font-bold text-text">이럴 때 방문하세요</h2>
           <p className="mt-2 text-sm text-text-sub">
             상담센터는 문제가 심각해야만 가는 곳이 아닙니다.
           </p>
@@ -93,7 +93,7 @@ export default function CounselPage() {
                 key={reason.title}
                 className="rounded-2xl border border-[var(--color-border)] bg-card p-6"
               >
-                <h3 className="text-base font-semibold text-moss">{reason.title}</h3>
+                <h3 className="text-base font-bold text-moss">{reason.title}</h3>
                 <p className="mt-2 text-[15px] leading-[1.7] text-text-sub">{reason.desc}</p>
               </div>
             ))}
@@ -116,7 +116,7 @@ export default function CounselPage() {
               key={cat.title}
               className="rounded-2xl border border-[var(--color-border)] bg-card p-6"
             >
-              <h2 className="text-base font-semibold text-moss">{cat.title}</h2>
+              <h2 className="text-base font-bold text-moss">{cat.title}</h2>
               <div className="mt-3 flex flex-wrap gap-1.5">
                 {cat.tags.map((tag) => (
                   <span
@@ -133,7 +133,7 @@ export default function CounselPage() {
                   <hr className="mt-4 border-[var(--color-border)]" />
                   <p className="mt-3 text-[13px] text-maroon">
                     지금 많이 힘드시다면, 자살예방 상담전화{" "}
-                    <a href="tel:109" className="font-semibold underline underline-offset-2">
+                    <a href="tel:109" className="font-bold underline underline-offset-2">
                       109
                     </a>
                     (24시간)에 바로 연락해 주세요.
@@ -146,7 +146,7 @@ export default function CounselPage() {
 
         <Link
           href="/counsel/apply"
-          className="mt-12 flex min-h-11 w-full items-center justify-center rounded-2xl bg-moss-deep px-5 text-center text-sm font-medium text-white transition-opacity hover:opacity-90"
+          className="mt-12 flex min-h-11 w-full items-center justify-center rounded-2xl bg-moss-deep px-5 text-center text-sm font-light text-white transition-opacity hover:opacity-90"
         >
           상담 신청부터 진행까지 보기
         </Link>

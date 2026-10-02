@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="mt-auto border-t border-border bg-background py-6">
       <div className="mx-auto w-full px-4 text-center leading-relaxed md:max-w-[720px]">
-        <p className="text-sm font-semibold text-foreground">
+        <p className="text-sm font-bold text-foreground">
           🌸 무궁담 · 마음을 마주하는 이야기
         </p>
         <p className="mt-2 text-xs text-muted">

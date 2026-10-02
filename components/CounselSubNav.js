@@ -142,7 +142,7 @@ export default function CounselSubNav() {
                   onFocus={(e) => e.currentTarget.scrollIntoView({ inline: "nearest", block: "nearest" })}
                   className={`flex min-h-11 items-center rounded-full border px-3 whitespace-nowrap transition-colors ${
                     active
-                      ? "border-maroon/20 bg-blush font-medium text-maroon"
+                      ? "border-maroon/20 bg-blush font-light text-maroon"
                       : "border-transparent text-text-sub hover:text-moss"
                   }`}
                 >

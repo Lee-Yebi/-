@@ -18,7 +18,7 @@ export default function MindCarePage() {
   return (
     <div className="brand-scope min-h-screen w-full bg-cream">
       <PageContainer>
-        <h1 className="flex items-center gap-2 text-xl font-semibold text-moss">
+        <h1 className="flex items-center gap-2 text-xl font-bold text-moss">
           <SproutIcon className="text-leaf" />
           마음 관리
         </h1>
@@ -33,7 +33,7 @@ export default function MindCarePage() {
               href={`/mind-care/${disease.slug}`}
               className="group relative flex h-full flex-col rounded-2xl border border-[var(--color-border)] bg-card p-[22px] transition-colors duration-150 hover:border-leaf"
             >
-              <h2 className="text-[20px] font-semibold tracking-[-0.01em] text-moss">
+              <h2 className="text-[20px] font-bold tracking-[-0.01em] text-moss">
                 {disease.DISS_SJ}
               </h2>
               <div className="mt-[14px] flex min-h-[54px] flex-wrap content-start gap-[6px] pr-5">

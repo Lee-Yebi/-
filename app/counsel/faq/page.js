@@ -43,7 +43,7 @@ export default function FaqPage() {
     <div className="brand-scope min-h-screen w-full bg-cream">
       <PageContainer>
       <div className="mt-6 flex items-center gap-2">
-        <h1 className="flex shrink-0 items-center gap-2 text-xl font-semibold text-moss">
+        <h1 className="flex shrink-0 items-center gap-2 text-xl font-bold text-moss">
           <MountainIcon className="text-moss" />
           FAQ
         </h1>
@@ -53,7 +53,7 @@ export default function FaqPage() {
       <div className="mt-9 divide-y divide-[var(--color-border)] rounded-2xl border border-[var(--color-border)] bg-card">
         {faqs.map((item) => (
           <details key={item.question} className="group px-4 py-3">
-            <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 text-base font-medium text-text marker:content-none">
+            <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 text-base font-light text-text marker:content-none">
               {item.question}
               <svg
                 aria-hidden

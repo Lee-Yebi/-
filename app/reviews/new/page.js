@@ -56,19 +56,19 @@ export default function NewReviewPage() {
     return (
       <div className="brand-scope min-h-screen w-full bg-cream">
         <PageContainer>
-          <h1 className="text-xl font-semibold text-moss">
+          <h1 className="text-xl font-bold text-moss">
             소중한 후기 감사합니다. 검토 후 게시됩니다.
           </h1>
 
           <div className="mt-9 rounded-2xl border border-maroon/20 bg-blush p-6 text-sm leading-relaxed text-maroon">
             혼자 감당하기 어려운 일이 있다면{" "}
-            <a href="tel:109" className="font-semibold underline underline-offset-2">
+            <a href="tel:109" className="font-bold underline underline-offset-2">
               109
             </a>
             (자살예방 상담전화·24시간)로 언제든 연락하세요.
             <br />
             교내 상담은{" "}
-            <a href="tel:029018056" className="font-semibold underline underline-offset-2">
+            <a href="tel:029018056" className="font-bold underline underline-offset-2">
               02-901-8056
             </a>
             입니다.
@@ -81,7 +81,7 @@ export default function NewReviewPage() {
   return (
     <div className="brand-scope min-h-screen w-full bg-cream">
       <PageContainer>
-      <h1 className="text-xl font-semibold text-moss">후기 작성</h1>
+      <h1 className="text-xl font-bold text-moss">후기 작성</h1>
 
       <div className="mt-9 rounded-2xl border border-maroon/20 bg-blush p-6 text-sm leading-relaxed text-maroon">
         작성한 후기는 검토 후 게시됩니다.
@@ -90,7 +90,7 @@ export default function NewReviewPage() {
       </div>
 
       <div className="mt-3 rounded-2xl border border-maroon/25 bg-blush p-[18px] text-maroon">
-        <p className="text-[14px] font-semibold text-maroon">상담센터에 직접 전하고 싶다면</p>
+        <p className="text-[14px] font-bold text-maroon">상담센터에 직접 전하고 싶다면</p>
         <div className="mt-2 space-y-2 text-[14px] leading-[1.6]">
           <p>
             상담이 불편했다면 —{" "}
@@ -119,8 +119,8 @@ export default function NewReviewPage() {
       </div>
 
       <form className="mt-9" onSubmit={handleSubmit}>
-        <span className="text-sm font-medium text-text">
-          상담 유형 <span className="text-xs font-normal text-text-sub">필수</span>
+        <span className="text-sm font-light text-text">
+          상담 유형 <span className="text-xs font-light text-text-sub">필수</span>
         </span>
         <div className="mt-2 flex flex-wrap gap-2" role="radiogroup" aria-label="상담 유형">
           {reviewTypes.map((t) => (
@@ -130,7 +130,7 @@ export default function NewReviewPage() {
               role="radio"
               aria-checked={type === t}
               onClick={() => setType(t)}
-              className={`flex min-h-11 items-center rounded-full px-4 text-sm font-medium transition-colors ${
+              className={`flex min-h-11 items-center rounded-full px-4 text-sm font-light transition-colors ${
                 type === t
                   ? "bg-moss-deep text-white"
                   : "border border-[var(--color-border)] bg-card text-text-sub"
@@ -143,7 +143,7 @@ export default function NewReviewPage() {
 
         <label
           htmlFor="review-content"
-          className="mt-9 block text-sm font-medium text-text"
+          className="mt-9 block text-sm font-light text-text"
         >
           후기 내용
         </label>
@@ -159,12 +159,12 @@ export default function NewReviewPage() {
           {trimmedLength}/{MIN_LENGTH}자 이상
         </p>
 
-        {error && <p className="mt-3 text-sm font-medium text-maroon">{error}</p>}
+        {error && <p className="mt-3 text-sm font-light text-maroon">{error}</p>}
 
         <button
           type="submit"
           disabled={!canSubmit}
-          className="mt-9 flex min-h-11 w-full items-center justify-center rounded-2xl bg-moss-deep px-5 text-sm font-medium text-white transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
+          className="mt-9 flex min-h-11 w-full items-center justify-center rounded-2xl bg-moss-deep px-5 text-sm font-light text-white transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
         >
           {submitting ? "제출 중…" : "제출하기"}
         </button>

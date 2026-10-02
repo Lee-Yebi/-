@@ -63,10 +63,10 @@ export default function ReviewsPage() {
   return (
     <div className="brand-scope min-h-screen w-full bg-cream">
       <PageContainer>
-      <h1 className="text-xl font-semibold text-moss">이용후기</h1>
+      <h1 className="text-xl font-bold text-moss">이용후기</h1>
 
       <div className="mt-9 rounded-2xl border border-maroon/25 bg-blush p-[18px] text-maroon">
-        <p className="text-[14px] font-semibold text-maroon">상담센터에 직접 전하고 싶다면</p>
+        <p className="text-[14px] font-bold text-maroon">상담센터에 직접 전하고 싶다면</p>
         <div className="mt-2 space-y-2 text-[14px] leading-[1.6]">
           <p>
             상담이 불편했다면 —{" "}
@@ -95,7 +95,7 @@ export default function ReviewsPage() {
       </div>
 
       <details className="group mt-9 rounded-2xl border border-maroon/20 bg-blush p-6">
-        <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 text-base font-semibold text-moss marker:content-none">
+        <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 text-base font-bold text-moss marker:content-none">
           이용후기 가이드 필독
           <svg
             aria-hidden
@@ -122,7 +122,7 @@ export default function ReviewsPage() {
             <li>다른 학우의 개인정보(이름, 학번 등)는 언급하지 말아주세요.</li>
             <li>
               불편했던 경험도 게시할 수 있어요. 아래 예시를 참고해 적어주시고,{" "}
-              <span className="font-semibold">
+              <span className="font-bold">
                 센터의 개선이 필요하다면 건의사항 폼에도 함께 남겨주세요.
               </span>
             </li>
@@ -134,7 +134,7 @@ export default function ReviewsPage() {
 
           <div className="mt-5 space-y-3">
             <div className="rounded-2xl border border-[var(--color-border)] bg-card p-[18px]">
-              <p className="font-semibold text-text">
+              <p className="font-bold text-text">
                 이런 후기, 다른 학우들에게 큰 도움이 돼요 👍
               </p>
 
@@ -161,7 +161,7 @@ export default function ReviewsPage() {
             </div>
 
             <div className="rounded-2xl border border-[var(--color-border)] bg-card p-[18px]">
-              <p className="font-semibold text-text">
+              <p className="font-bold text-text">
                 이런 후기는 이렇게 다듬어서 올려주세요 ✏️
               </p>
 
@@ -175,7 +175,7 @@ export default function ReviewsPage() {
 
               <hr className="my-4 border-[var(--color-border)]" />
 
-              <p className="text-sm font-semibold text-text">이렇게 바꿔볼 수 있어요</p>
+              <p className="text-sm font-bold text-text">이렇게 바꿔볼 수 있어요</p>
 
               <p className="mt-2 text-moss">
                 <span aria-hidden>✅</span> &quot;제 얘기를 충분히 들어주지 않는다는 느낌을
@@ -192,7 +192,7 @@ export default function ReviewsPage() {
                   href="https://docs.google.com/forms/d/e/1FAIpQLSdeczpU3kP8Wy4eIPYFP6UaOnscbsjPuI7JDRBmPq4bmDURPg/viewform"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-semibold underline underline-offset-2"
+                  className="font-bold underline underline-offset-2"
                 >
                   건의사항 폼
                 </a>
@@ -209,7 +209,7 @@ export default function ReviewsPage() {
       </div>
       <Link
         href="/reviews/new"
-        className="mt-1 flex h-11 w-full items-center justify-center rounded-lg bg-moss-deep text-sm font-medium text-white transition-opacity hover:opacity-90"
+        className="mt-1 flex h-11 w-full items-center justify-center rounded-lg bg-moss-deep text-sm font-light text-white transition-opacity hover:opacity-90"
       >
         후기 작성하기
       </Link>
@@ -221,7 +221,7 @@ export default function ReviewsPage() {
               key={f}
               type="button"
               onClick={() => setActiveFilter(f)}
-              className={`flex min-h-11 shrink-0 items-center rounded-full px-4 text-sm font-medium whitespace-nowrap transition-colors ${
+              className={`flex min-h-11 shrink-0 items-center rounded-full px-4 text-sm font-light whitespace-nowrap transition-colors ${
                 activeFilter === f
                   ? "bg-moss-deep text-white"
                   : "border border-[var(--color-border)] bg-card text-text-sub"
@@ -236,7 +236,7 @@ export default function ReviewsPage() {
       <div className="mt-9 space-y-3">
         {loading && <p className="text-sm text-text-sub">불러오는 중…</p>}
 
-        {!loading && error && <p className="text-sm font-medium text-maroon">{error}</p>}
+        {!loading && error && <p className="text-sm font-light text-maroon">{error}</p>}
 
         {!loading && !error && visibleReviews.length === 0 && (
           <div className="flex flex-col items-center rounded-2xl border border-[var(--color-border)] bg-card p-6 text-center">
@@ -250,7 +250,7 @@ export default function ReviewsPage() {
           visibleReviews.map((review) => (
             <div key={review.id} className="rounded-2xl border border-[var(--color-border)] bg-card p-6">
               <div className="flex items-center justify-between gap-3">
-                <span className="rounded-full bg-blush px-3 py-1 text-xs font-medium text-maroon">
+                <span className="rounded-full bg-blush px-3 py-1 text-xs font-light text-maroon">
                   {review.category}
                 </span>
                 <span className="text-xs text-[#8C8087]">{formatDate(review.created_at)}</span>

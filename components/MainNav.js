@@ -35,7 +35,7 @@ export default function MainNav() {
       <div className="mx-auto max-w-[720px] px-4 py-2">
         {/* mobile: hamburger toggle */}
         <div className="flex items-center justify-between md:hidden">
-          <span className="text-sm font-medium text-muted">메뉴</span>
+          <span className="text-sm font-light text-muted">메뉴</span>
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
@@ -71,7 +71,7 @@ export default function MainNav() {
                     aria-current={active ? "page" : undefined}
                     className={`flex min-h-11 items-center rounded-lg px-4 text-sm transition-colors ${
                       active
-                        ? "bg-highlight font-medium text-highlight-foreground"
+                        ? "bg-highlight font-light text-highlight-foreground"
                         : "text-muted hover:bg-border/30"
                     }`}
                   >
@@ -94,7 +94,7 @@ export default function MainNav() {
                   aria-current={active ? "page" : undefined}
                   className={`block rounded-full px-3 py-2 text-center text-sm whitespace-nowrap transition-colors ${
                     active
-                      ? "bg-card font-medium text-accent shadow-sm"
+                      ? "bg-card font-light text-accent shadow-sm"
                       : "text-muted hover:text-accent"
                   }`}
                 >

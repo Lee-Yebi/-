@@ -33,7 +33,7 @@ export default async function DiseasePage({ params }) {
   return (
     <div className="brand-scope min-h-screen w-full bg-cream">
       <PageContainer>
-        <h1 className="flex items-center gap-2 text-xl font-semibold text-moss">
+        <h1 className="flex items-center gap-2 text-xl font-bold text-moss">
           <SproutIcon className="text-leaf" />
           {disease.DISS_SJ}
         </h1>
@@ -43,7 +43,7 @@ export default async function DiseasePage({ params }) {
             {disease.keywords.map((kw) => (
               <span
                 key={kw}
-                className="rounded-full bg-blush px-3 py-1 text-xs font-medium text-maroon"
+                className="rounded-full bg-blush px-3 py-1 text-xs font-light text-maroon"
               >
                 {kw}
               </span>
@@ -56,7 +56,7 @@ export default async function DiseasePage({ params }) {
             <div key={topic.title}>
               <div className="flex items-center gap-[10px]">
                 <span className="h-[18px] w-[3px] shrink-0 bg-[var(--color-sprout)]" />
-                <h2 className="text-[18px] font-semibold text-moss">{topic.title}</h2>
+                <h2 className="text-[18px] font-bold text-moss">{topic.title}</h2>
               </div>
 
               <div className="mt-3 space-y-2">
@@ -72,7 +72,7 @@ export default async function DiseasePage({ params }) {
                       key={section.num}
                       className="group/minor rounded-xl border border-[var(--color-border)] bg-card p-4"
                     >
-                      <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 text-[16px] font-medium text-text marker:content-none">
+                      <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 text-[16px] font-light text-text marker:content-none">
                         {section.title}
                         <Chevron className="h-4 w-4 shrink-0 text-text-sub transition-transform group-open/minor:rotate-180" />
                       </summary>
@@ -109,17 +109,17 @@ export default async function DiseasePage({ params }) {
 
         <div className="mt-9 rounded-2xl border border-maroon/20 bg-blush p-5 text-sm leading-relaxed text-maroon">
           혼자 감당하기 어렵다면 교내 상담을 신청해보세요.{" "}
-          <a href="tel:029018056" className="font-semibold underline underline-offset-2">
+          <a href="tel:029018056" className="font-bold underline underline-offset-2">
             02-901-8056
           </a>
           <br />
           지금 많이 힘드시다면{" "}
-          <a href="tel:109" className="font-semibold underline underline-offset-2">
+          <a href="tel:109" className="font-bold underline underline-offset-2">
             109
           </a>
           (자살예방 상담전화·24시간)로 바로 연락하셔도 됩니다.
           <br />
-          <Link href="/external" className="font-semibold underline underline-offset-2">
+          <Link href="/external" className="font-bold underline underline-offset-2">
             교외 도움 찾기 보기
           </Link>
         </div>
