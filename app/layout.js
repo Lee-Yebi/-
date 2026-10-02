@@ -6,6 +6,7 @@ import SiteHeader from "@/components/SiteHeader";
 import MainNav from "@/components/MainNav";
 import Footer from "@/components/Footer";
 import Mascot from "@/components/Mascot";
+import SeasonalFall from "@/components/SeasonalFall";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -46,6 +47,7 @@ export default function RootLayout({ children }) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-background text-foreground">
+        <SeasonalFall />
         <CrisisBanner />
         <SiteHeader />
         <MainNav />

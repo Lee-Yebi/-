@@ -1,0 +1,70 @@
+/* ═══════════════════════════════════════════════════════
+   계절별 흩날림 효과 — 봄 꽃잎 / 여름 잎 / 가을 낙엽 / 겨울 눈
+   색은 전부 사이트 팔레트 안에서만 씁니다.
+   ═══════════════════════════════════════════════════════ */
+
+.season{
+  position: fixed; inset: 0;
+  overflow: hidden;
+  pointer-events: none;      /* 클릭을 절대 막지 않음 */
+  z-index: 1;
+}
+
+.season__item{
+  position: absolute;
+  top: -10%;
+  left: var(--x);
+  animation: seasonFall var(--dur) linear var(--delay) infinite;
+}
+.season__item i{
+  display: block;
+  width:  calc(var(--size) * 1px);
+  height: calc(var(--size) * 1px);
+  opacity: var(--op);
+  animation: seasonSway calc(var(--dur) / 3) ease-in-out var(--delay) infinite;
+}
+
+@keyframes seasonFall { to { transform: translateY(115vh); } }
+@keyframes seasonSway {
+  0%   { transform: translateX(-14px) rotate(0deg); }
+  50%  { transform: translateX( 14px) rotate(180deg); }
+  100% { transform: translateX(-14px) rotate(360deg); }
+}
+
+/* ── 봄 (3~5월) · 벚꽃잎 ── */
+.season--spring .season__item i{
+  background: #F3BDB7;
+  border-radius: 50% 50% 50% 0;
+}
+.season--spring .season__item:nth-child(3n) i{ background: #E9A49E; }
+.season--spring .season__item:nth-child(4n) i{ background: #FBD6D2; }
+
+/* ── 여름 (6~8월) · 초록 잎 ── */
+.season--summer .season__item i{
+  background: #7CA35B;
+  border-radius: 0 60% 0 60%;
+}
+.season--summer .season__item:nth-child(3n) i{ background: #A8C97C; }
+.season--summer .season__item:nth-child(4n) i{ background: #6B8E4E; }
+
+/* ── 가을 (9~11월) · 낙엽 ── */
+.season--autumn .season__item i{
+  background: #C9A06A;
+  border-radius: 0 60% 0 60%;
+}
+.season--autumn .season__item:nth-child(3n) i{ background: #D4A95E; }
+.season--autumn .season__item:nth-child(4n) i{ background: #B07A52; }
+.season--autumn .season__item:nth-child(5n) i{ background: #7A2E3B; }
+
+/* ── 겨울 (12~2월) · 눈 ── */
+.season--winter .season__item i{
+  background: #FFFDF5;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(255,253,245,.9);
+}
+.season--winter .season__item:nth-child(3n) i{ background: #F4EEDE; }
+
+/* ── 움직임을 줄이도록 설정한 사람에게는 애니메이션을 끔 ── */
+@media (prefers-reduced-motion: reduce){
+  .season{ display: none; }
+}
