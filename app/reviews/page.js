@@ -5,8 +5,9 @@ import Link from "next/link";
 import PageContainer from "@/components/PageContainer";
 import DecoImage from "@/components/Deco";
 import { supabase } from "@/lib/supabaseClient";
+import { REVIEW_CATEGORIES } from "@/lib/reviewCategories";
 
-const filters = ["전체", "심리", "집단", "심리검사"];
+const filters = ["전체", ...REVIEW_CATEGORIES];
 
 function formatDate(value) {
   if (!value) return "";
@@ -128,7 +129,7 @@ export default function ReviewsPage() {
             </li>
             <li>
               학습과 진로·취업 관련 상담은 학생상담센터 관할이 아니어서 이용후기 대상에서
-              제외했습니다. 심리상담, 집단상담, 심리검사 경험을 나눠주세요.
+              제외했습니다. 개인상담, 해석상담, 집단상담, 센터 프로그램 경험을 나눠주세요.
             </li>
           </ol>
 
@@ -140,7 +141,7 @@ export default function ReviewsPage() {
 
               <div className="mt-3 space-y-2">
                 {[
-                  "심리상담을 받았는데, 제 자신을 더 잘 이해할 수 있는 시간이었어요.",
+                  "개인상담을 받았는데, 제 자신을 더 잘 이해할 수 있는 시간이었어요.",
                   "학업 스트레스로 신청했는데, 생각보다 대기가 길어서 아쉬웠어요.",
                   "집단상담에 참여했는데, 비슷한 고민을 가진 사람들과 얘기하니 위로가 됐어요.",
                 ].map((quote) => (
@@ -214,23 +215,21 @@ export default function ReviewsPage() {
         후기 작성하기
       </Link>
 
-      <div className="mt-9 overflow-x-auto">
-        <div className="flex gap-2">
-          {filters.map((f) => (
-            <button
-              key={f}
-              type="button"
-              onClick={() => setActiveFilter(f)}
-              className={`flex min-h-11 shrink-0 items-center rounded-full px-4 text-sm font-normal whitespace-nowrap transition-colors ${
-                activeFilter === f
-                  ? "bg-moss-deep text-white"
-                  : "border border-[var(--color-border)] bg-card text-text-sub"
-              }`}
-            >
-              {f}
-            </button>
-          ))}
-        </div>
+      <div className="mt-9 flex flex-wrap gap-2">
+        {filters.map((f) => (
+          <button
+            key={f}
+            type="button"
+            onClick={() => setActiveFilter(f)}
+            className={`flex min-h-11 shrink-0 items-center rounded-full px-4 text-sm font-normal whitespace-nowrap transition-colors ${
+              activeFilter === f
+                ? "bg-moss-deep text-white"
+                : "border border-[var(--color-border)] bg-card text-text-sub"
+            }`}
+          >
+            {f}
+          </button>
+        ))}
       </div>
 
       <div className="mt-9 space-y-3">

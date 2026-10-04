@@ -8,6 +8,15 @@ import { TEAM } from "@/data/team";
 
 const LEFT_COL = "w-24 shrink-0 md:w-28";
 
+function SectionTitle({ src, children }) {
+  return (
+    <h2 className="flex items-center gap-2 text-base font-bold text-text">
+      <DecoImage src={src} className="h-14! w-14! shrink-0 object-contain" />
+      {children}
+    </h2>
+  );
+}
+
 export default function AboutPage() {
   const [mascotImgError, setMascotImgError] = useState(false);
 
@@ -51,7 +60,7 @@ export default function AboutPage() {
       {/* 이름에 담은 뜻 */}
       {(TEAM.nameMeaning?.lines?.length > 0 || TEAM.siteNameMeaning) && (
         <section className="mt-[60px]">
-          <h2 className="text-base font-bold text-text">이름에 담은 뜻</h2>
+          <SectionTitle src="/mascot-default.png">이름에 담은 뜻</SectionTitle>
           <div className="mt-4 space-y-3">
             {TEAM.nameMeaning?.lines?.length > 0 && (
               <div className="rounded-2xl border border-[var(--color-border)] bg-card p-[18px]">
@@ -89,7 +98,7 @@ export default function AboutPage() {
       {/* 팀 목표 */}
       {TEAM.goals.length > 0 && (
         <section className="mt-[60px]">
-          <h2 className="text-base font-bold text-text">팀 목표</h2>
+          <SectionTitle src="/oreumi_cheer.png">팀 목표</SectionTitle>
           <div className="mt-4 space-y-[10px]">
             {TEAM.goals.map((goal) => (
               <div
@@ -114,7 +123,7 @@ export default function AboutPage() {
       {/* 팀원 소개 */}
       {TEAM.members.length > 0 && (
         <section className="mt-[60px]">
-          <h2 className="text-base font-bold text-text">팀원 소개</h2>
+          <SectionTitle src="/oreumi_hiking_wink.png">팀원 소개</SectionTitle>
           <div className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2">
             {TEAM.members.map((member, i) => (
               <div
@@ -148,7 +157,7 @@ export default function AboutPage() {
 
       {/* 마스코트 */}
       <section className="mt-[60px]">
-        <h2 className="text-base font-bold text-text">마스코트 {TEAM.mascot.name}</h2>
+        <SectionTitle src="/mascot-default.png">마스코트 {TEAM.mascot.name}</SectionTitle>
         <div className="mt-4 flex flex-col items-center gap-4 rounded-2xl border border-[var(--color-border)] bg-card p-6 text-center md:flex-row md:items-start md:text-left">
           {!mascotImgError && (
             <Image
@@ -172,7 +181,7 @@ export default function AboutPage() {
       {/* 활동 연혁 */}
       {TEAM.history.length > 0 && (
         <section className="mt-[60px]">
-          <h2 className="text-base font-bold text-text">활동 연혁</h2>
+          <SectionTitle src="/oreumi_hiking_right.png">활동 연혁</SectionTitle>
           <div className="mt-4 rounded-2xl border border-[var(--color-border)] bg-card p-[18px]">
             <ol className="relative space-y-6 border-l-2 border-[var(--color-border)] py-1 pl-5">
               {TEAM.history.map((item) => (
@@ -196,7 +205,7 @@ export default function AboutPage() {
 
       {/* 함께한 곳 */}
       <section className="mt-[60px]">
-        <h2 className="text-base font-bold text-text">함께한 곳</h2>
+        <SectionTitle src="/mascot-default.png">함께한 곳</SectionTitle>
         <div className="mt-4 space-y-3">
           <div className="rounded-2xl border border-[var(--color-border)] bg-card p-[18px]">
             <span className="inline-block rounded-[20px] bg-blush px-3 py-1 text-[13px] font-normal text-maroon">

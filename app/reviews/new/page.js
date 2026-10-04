@@ -3,8 +3,9 @@
 import { useState } from "react";
 import PageContainer from "@/components/PageContainer";
 import { supabase } from "@/lib/supabaseClient";
+import { REVIEW_CATEGORIES } from "@/lib/reviewCategories";
 
-const reviewTypes = ["심리", "집단", "심리검사"];
+const reviewTypes = REVIEW_CATEGORIES;
 const MIN_LENGTH = 20;
 
 export default function NewReviewPage() {
