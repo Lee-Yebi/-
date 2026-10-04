@@ -45,7 +45,7 @@ function ScrollButton({ direction, onClick, disabled, hasOverflow }) {
   );
 }
 
-export default function CounselSubNav() {
+export default function CounselSubNav({ links: navLinks = links }) {
   const pathname = usePathname();
   const activeRef = useRef(null);
   const scrollRef = useRef(null);
@@ -131,7 +131,7 @@ export default function CounselSubNav() {
           ref={scrollRef}
           className="no-scrollbar -my-1.5 flex min-w-0 flex-1 flex-nowrap gap-1.5 overflow-x-auto py-4 pr-7 text-sm sm:pr-0 [-webkit-overflow-scrolling:touch] [scroll-behavior:smooth] [scroll-padding-inline:16px] overscroll-x-contain"
         >
-          {links.map((link) => {
+          {navLinks.map((link) => {
             const active = pathname === link.href;
 
             return (
