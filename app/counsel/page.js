@@ -146,7 +146,7 @@ export default function CounselPage() {
 
         <Link
           href="/counsel/apply"
-          className="mt-12 flex min-h-11 w-full items-center justify-center rounded-2xl bg-moss-deep px-5 text-center text-sm font-light text-white transition-opacity hover:opacity-90"
+          className="mt-12 flex min-h-11 w-full items-center justify-center rounded-2xl bg-moss-deep px-5 text-center text-sm font-normal text-white transition-opacity hover:opacity-90"
         >
           상담 신청부터 진행까지 보기
         </Link>

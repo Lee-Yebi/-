@@ -119,8 +119,8 @@ export default function NewReviewPage() {
       </div>
 
       <form className="mt-9" onSubmit={handleSubmit}>
-        <span className="text-sm font-light text-text">
-          상담 유형 <span className="text-xs font-light text-text-sub">필수</span>
+        <span className="text-sm font-normal text-text">
+          상담 유형 <span className="text-xs font-normal text-text-sub">필수</span>
         </span>
         <div className="mt-2 flex flex-wrap gap-2" role="radiogroup" aria-label="상담 유형">
           {reviewTypes.map((t) => (
@@ -130,7 +130,7 @@ export default function NewReviewPage() {
               role="radio"
               aria-checked={type === t}
               onClick={() => setType(t)}
-              className={`flex min-h-11 items-center rounded-full px-4 text-sm font-light transition-colors ${
+              className={`flex min-h-11 items-center rounded-full px-4 text-sm font-normal transition-colors ${
                 type === t
                   ? "bg-moss-deep text-white"
                   : "border border-[var(--color-border)] bg-card text-text-sub"
@@ -143,7 +143,7 @@ export default function NewReviewPage() {
 
         <label
           htmlFor="review-content"
-          className="mt-9 block text-sm font-light text-text"
+          className="mt-9 block text-sm font-normal text-text"
         >
           후기 내용
         </label>
@@ -159,12 +159,12 @@ export default function NewReviewPage() {
           {trimmedLength}/{MIN_LENGTH}자 이상
         </p>
 
-        {error && <p className="mt-3 text-sm font-light text-maroon">{error}</p>}
+        {error && <p className="mt-3 text-sm font-normal text-maroon">{error}</p>}
 
         <button
           type="submit"
           disabled={!canSubmit}
-          className="mt-9 flex min-h-11 w-full items-center justify-center rounded-2xl bg-moss-deep px-5 text-sm font-light text-white transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
+          className="mt-9 flex min-h-11 w-full items-center justify-center rounded-2xl bg-moss-deep px-5 text-sm font-normal text-white transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
         >
           {submitting ? "제출 중…" : "제출하기"}
         </button>

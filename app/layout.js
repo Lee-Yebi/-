@@ -1,5 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import localFont from "next/font/local";
+// import localFont from "next/font/local"; // 강원교육모두 비활성화 (비교용으로 남김)
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import CrisisBanner from "@/components/CrisisBanner";
@@ -19,15 +19,18 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const gangwon = localFont({
-  src: [
-    { path: "./fonts/GangwonEduAll-Light.woff2", weight: "300", style: "normal" },
-    { path: "./fonts/GangwonEduAll-Bold.woff2", weight: "700", style: "normal" },
-  ],
-  variable: "--font-main",
-  display: "swap",
-  fallback: ["Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", "sans-serif"],
-});
+// 강원교육모두 비활성화 (국민연금체로 교체, 비교/복원용으로 남김)
+// 복원: 이 블록과 위 import 주석을 풀고, html className에 ${gangwon.variable} 추가,
+//       globals.css body font-family 맨 앞에 var(--font-main) 추가
+// const gangwon = localFont({
+//   src: [
+//     { path: "./fonts/GangwonEduAll-Light.woff2", weight: "300", style: "normal" },
+//     { path: "./fonts/GangwonEduAll-Bold.woff2", weight: "700", style: "normal" },
+//   ],
+//   variable: "--font-main",
+//   display: "swap",
+//   fallback: ["Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", "sans-serif"],
+// });
 
 export const metadata = {
   title: "무궁담",
@@ -55,7 +58,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="ko"
-      className={`${geistSans.variable} ${geistMono.variable} ${gangwon.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`} /* ${gangwon.variable} 비활성화 */
     >
       <body className="flex min-h-full flex-col bg-background text-foreground">
         <SeasonalFall />

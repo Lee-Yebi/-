@@ -1,5 +1,28 @@
 @import "tailwindcss";
 
+/* 국민연금체 (눈누 웹폰트). @import는 다른 규칙보다 앞에 있어야 해서 그 바로 다음에 둠 */
+@font-face {
+  font-family: "NationalPension";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/NPSfontRegular.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "NationalPension";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/NPSfontBold.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "NationalPension";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/NPSfontExtraBold.woff2")
+    format("woff2");
+  font-weight: 800;
+  font-display: swap;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #33292c;
@@ -55,7 +78,8 @@
   --color-text: var(--color-text);
   --color-text-sub: var(--color-text-sub);
 
-  --font-sans: var(--font-geist-sans);
+  --font-sans: "NationalPension", "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic",
+    sans-serif;
   --font-mono: var(--font-geist-mono);
 }
 
@@ -66,7 +90,7 @@ html {
 body {
   background: var(--color-cream);
   color: var(--foreground);
-  font-family: var(--font-main), Pretendard, "Apple SD Gothic Neo", "Malgun Gothic",
+  font-family: "NationalPension", Pretendard, "Apple SD Gothic Neo", "Malgun Gothic",
     sans-serif;
 }
 

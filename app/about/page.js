@@ -35,7 +35,7 @@ export default function AboutPage() {
           href={TEAM.instagram}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-[20px] inline-flex min-h-11 items-center justify-center rounded-2xl bg-moss-deep px-5 text-sm font-light text-white transition-opacity hover:opacity-90"
+          className="mt-[20px] inline-flex min-h-11 items-center justify-center rounded-2xl bg-moss-deep px-5 text-sm font-normal text-white transition-opacity hover:opacity-90"
         >
           인스타그램 보러 가기
         </a>
@@ -102,7 +102,7 @@ export default function AboutPage() {
                 className="flex items-start rounded-2xl border border-[var(--color-border)] bg-card p-[18px]"
               >
                 <div className={`${LEFT_COL} flex justify-center pr-4`}>
-                  <span className="rounded-[20px] bg-blush px-3 py-1 text-center text-[13px] font-light text-maroon">
+                  <span className="rounded-[20px] bg-blush px-3 py-1 text-center text-[13px] font-normal text-maroon">
                     {goal.en}
                   </span>
                 </div>
@@ -143,7 +143,7 @@ export default function AboutPage() {
                     </p>
                   )}
                   {member.role && (
-                    <span className="mt-2 inline-block rounded-[20px] bg-blush px-3 py-1 text-[13px] font-light text-maroon">
+                    <span className="mt-2 inline-block rounded-[20px] bg-blush px-3 py-1 text-[13px] font-normal text-maroon">
                       {member.role}
                     </span>
                   )}
@@ -208,7 +208,7 @@ export default function AboutPage() {
         <h2 className="text-base font-bold text-text">함께한 곳</h2>
         <div className="mt-4 space-y-3">
           <div className="rounded-2xl border border-[var(--color-border)] bg-card p-[18px]">
-            <span className="inline-block rounded-[20px] bg-blush px-3 py-1 text-[13px] font-light text-maroon">
+            <span className="inline-block rounded-[20px] bg-blush px-3 py-1 text-[13px] font-normal text-maroon">
               정보 제공 협력
             </span>
             <p className="mt-2 text-[16px] font-bold text-text">덕성여자대학교 학생상담센터</p>
@@ -218,7 +218,7 @@ export default function AboutPage() {
             </p>
           </div>
           <div className="rounded-2xl border border-[var(--color-border)] bg-card p-[18px]">
-            <span className="inline-block rounded-[20px] bg-blush px-3 py-1 text-[13px] font-light text-maroon">
+            <span className="inline-block rounded-[20px] bg-blush px-3 py-1 text-[13px] font-normal text-maroon">
               주관
             </span>
             <p className="mt-2 text-[16px] font-bold text-text">

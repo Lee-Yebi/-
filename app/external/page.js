@@ -145,7 +145,7 @@ export default function ExternalPage() {
             href={tel(featuredHotline.number)}
             className="block rounded-2xl border border-maroon/20 bg-blush p-6 transition-opacity hover:opacity-90"
           >
-            <p className="text-sm font-light text-maroon">
+            <p className="text-sm font-normal text-maroon">
               {featuredHotline.name} · {featuredHotline.hours}
             </p>
             <p className="mt-1 text-[32px] font-bold text-maroon">
@@ -192,7 +192,7 @@ export default function ExternalPage() {
           <div className="mt-4 space-y-8">
             {partnerCategories.map((group) => (
               <div key={group.category}>
-                <span className="inline-block rounded-full bg-blush px-3 py-1 text-sm font-light text-maroon">
+                <span className="inline-block rounded-full bg-blush px-3 py-1 text-sm font-normal text-maroon">
                   {group.category}
                 </span>
                 <div className="mt-3 grid grid-cols-1 gap-3 md:grid-cols-2">

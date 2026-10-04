@@ -34,7 +34,7 @@ function ProgramCard({ program }) {
     <div className="rounded-2xl border border-[var(--color-border)] bg-card p-6">
       <h3 className="text-base font-bold text-moss">{program.title}</h3>
       {program.keyword && (
-        <p className="mt-1 text-xs font-light text-text-sub">{program.keyword}</p>
+        <p className="mt-1 text-xs font-normal text-text-sub">{program.keyword}</p>
       )}
       <p className="mt-2 text-sm leading-relaxed text-text-sub">{program.desc}</p>
       {program.extra && (

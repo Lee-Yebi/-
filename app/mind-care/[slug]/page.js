@@ -43,7 +43,7 @@ export default async function DiseasePage({ params }) {
             {disease.keywords.map((kw) => (
               <span
                 key={kw}
-                className="rounded-full bg-blush px-3 py-1 text-xs font-light text-maroon"
+                className="rounded-full bg-blush px-3 py-1 text-xs font-normal text-maroon"
               >
                 {kw}
               </span>
@@ -72,7 +72,7 @@ export default async function DiseasePage({ params }) {
                       key={section.num}
                       className="group/minor rounded-xl border border-[var(--color-border)] bg-card p-4"
                     >
-                      <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 text-[16px] font-light text-text marker:content-none">
+                      <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 text-[16px] font-normal text-text marker:content-none">
                         {section.title}
                         <Chevron className="h-4 w-4 shrink-0 text-text-sub transition-transform group-open/minor:rotate-180" />
                       </summary>

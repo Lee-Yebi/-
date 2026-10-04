@@ -209,7 +209,7 @@ export default function ReviewsPage() {
       </div>
       <Link
         href="/reviews/new"
-        className="mt-1 flex h-11 w-full items-center justify-center rounded-lg bg-moss-deep text-sm font-light text-white transition-opacity hover:opacity-90"
+        className="mt-1 flex h-11 w-full items-center justify-center rounded-lg bg-moss-deep text-sm font-normal text-white transition-opacity hover:opacity-90"
       >
         후기 작성하기
       </Link>
@@ -221,7 +221,7 @@ export default function ReviewsPage() {
               key={f}
               type="button"
               onClick={() => setActiveFilter(f)}
-              className={`flex min-h-11 shrink-0 items-center rounded-full px-4 text-sm font-light whitespace-nowrap transition-colors ${
+              className={`flex min-h-11 shrink-0 items-center rounded-full px-4 text-sm font-normal whitespace-nowrap transition-colors ${
                 activeFilter === f
                   ? "bg-moss-deep text-white"
                   : "border border-[var(--color-border)] bg-card text-text-sub"
@@ -236,7 +236,7 @@ export default function ReviewsPage() {
       <div className="mt-9 space-y-3">
         {loading && <p className="text-sm text-text-sub">불러오는 중…</p>}
 
-        {!loading && error && <p className="text-sm font-light text-maroon">{error}</p>}
+        {!loading && error && <p className="text-sm font-normal text-maroon">{error}</p>}
 
         {!loading && !error && visibleReviews.length === 0 && (
           <div className="flex flex-col items-center rounded-2xl border border-[var(--color-border)] bg-card p-6 text-center">
@@ -250,7 +250,7 @@ export default function ReviewsPage() {
           visibleReviews.map((review) => (
             <div key={review.id} className="rounded-2xl border border-[var(--color-border)] bg-card p-6">
               <div className="flex items-center justify-between gap-3">
-                <span className="rounded-full bg-blush px-3 py-1 text-xs font-light text-maroon">
+                <span className="rounded-full bg-blush px-3 py-1 text-xs font-normal text-maroon">
                   {review.category}
                 </span>
                 <span className="text-xs text-[#8C8087]">{formatDate(review.created_at)}</span>

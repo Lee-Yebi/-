@@ -29,7 +29,7 @@ export default function PrivacyPage() {
       <div className="mt-4 space-y-3 md:hidden">
         {collection.map((row) => (
           <div key={row.item} className="rounded-2xl border border-[var(--color-border)] bg-card p-4">
-            <p className="text-sm font-light text-text">{row.item}</p>
+            <p className="text-sm font-normal text-text">{row.item}</p>
             <dl className="mt-2 space-y-1 text-sm text-text-sub">
               <div className="flex justify-between gap-4">
                 <dt>수집 목적</dt>
@@ -49,9 +49,9 @@ export default function PrivacyPage() {
         <table className="w-full text-left text-sm">
           <thead>
             <tr className="border-b border-[var(--color-border)] bg-[var(--color-border)]/20 text-text">
-              <th className="px-4 py-3 font-light">수집 항목</th>
-              <th className="px-4 py-3 font-light">수집 목적</th>
-              <th className="px-4 py-3 font-light">보유 기간</th>
+              <th className="px-4 py-3 font-normal">수집 항목</th>
+              <th className="px-4 py-3 font-normal">수집 목적</th>
+              <th className="px-4 py-3 font-normal">보유 기간</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-[var(--color-border)] bg-card">

@@ -145,7 +145,7 @@ export default function AdminPage() {
         <h1 className="text-xl font-bold text-moss">관리자 로그인</h1>
 
         <form className="mt-9 max-w-sm" onSubmit={handleLogin}>
-          <label htmlFor="admin-email" className="block text-sm font-light text-text">
+          <label htmlFor="admin-email" className="block text-sm font-normal text-text">
             이메일
           </label>
           <input
@@ -160,7 +160,7 @@ export default function AdminPage() {
 
           <label
             htmlFor="admin-password"
-            className="mt-4 block text-sm font-light text-text"
+            className="mt-4 block text-sm font-normal text-text"
           >
             비밀번호
           </label>
@@ -174,12 +174,12 @@ export default function AdminPage() {
             className="mt-2 w-full rounded-2xl border border-[var(--color-border)] bg-card p-3 text-sm text-text focus:border-moss focus:outline-none"
           />
 
-          {loginError && <p className="mt-3 text-sm font-light text-maroon">{loginError}</p>}
+          {loginError && <p className="mt-3 text-sm font-normal text-maroon">{loginError}</p>}
 
           <button
             type="submit"
             disabled={loggingIn}
-            className="mt-9 flex min-h-11 w-full items-center justify-center rounded-2xl bg-moss-deep px-5 text-sm font-light text-white transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
+            className="mt-9 flex min-h-11 w-full items-center justify-center rounded-2xl bg-moss-deep px-5 text-sm font-normal text-white transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
           >
             {loggingIn ? "로그인 중…" : "로그인"}
           </button>
@@ -198,14 +198,14 @@ export default function AdminPage() {
         <button
           type="button"
           onClick={handleLogout}
-          className="flex min-h-11 items-center rounded-full border border-[var(--color-border)] bg-card px-4 text-sm font-light text-text-sub"
+          className="flex min-h-11 items-center rounded-full border border-[var(--color-border)] bg-card px-4 text-sm font-normal text-text-sub"
         >
           로그아웃
         </button>
       </div>
 
       <details className="group mt-9 rounded-2xl border border-[var(--color-border)] bg-card">
-        <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-sm font-light text-text marker:content-none">
+        <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-sm font-normal text-text marker:content-none">
           승인 기준
           <svg
             aria-hidden
@@ -221,7 +221,7 @@ export default function AdminPage() {
           </svg>
         </summary>
         <div className="border-t border-[var(--color-border)] px-5 py-4 text-sm leading-relaxed text-text-sub">
-          <p className="font-light text-text">다음은 승인하지 않습니다.</p>
+          <p className="font-normal text-text">다음은 승인하지 않습니다.</p>
           <ul className="mt-2 space-y-1">
             <li>· 특정 상담사나 학생을 알아볼 수 있는 내용</li>
             <li>· 욕설, 비방, 명예훼손</li>
@@ -238,7 +238,7 @@ export default function AdminPage() {
               key={tab.key}
               type="button"
               onClick={() => setActiveTab(tab.key)}
-              className={`flex shrink-0 items-center gap-1.5 border-b-2 px-1 py-3 text-sm font-light whitespace-nowrap transition-colors ${
+              className={`flex shrink-0 items-center gap-1.5 border-b-2 px-1 py-3 text-sm font-normal whitespace-nowrap transition-colors ${
                 activeTab === tab.key
                   ? "border-moss text-moss"
                   : "border-transparent text-text-sub"
@@ -259,7 +259,7 @@ export default function AdminPage() {
         {loadingReviews && <p className="text-sm text-text-sub">불러오는 중…</p>}
 
         {!loadingReviews && listError && (
-          <p className="text-sm font-light text-maroon">{listError}</p>
+          <p className="text-sm font-normal text-maroon">{listError}</p>
         )}
 
         {!loadingReviews && !listError && reviews.length === 0 && (
@@ -273,7 +273,7 @@ export default function AdminPage() {
           reviews.map((review) => (
             <div key={review.id} className="rounded-2xl border border-[var(--color-border)] bg-card p-6">
               <div className="flex items-center justify-between gap-3">
-                <span className="rounded-full bg-blush px-3 py-1 text-xs font-light text-maroon">
+                <span className="rounded-full bg-blush px-3 py-1 text-xs font-normal text-maroon">
                   {review.category}
                 </span>
                 <span className="text-xs text-[#8C8087]">
@@ -292,7 +292,7 @@ export default function AdminPage() {
                       type="button"
                       disabled={actioningId === review.id}
                       onClick={() => updateStatus(review.id, "approved", "이 후기를 승인할까요?")}
-                      className="flex min-h-11 flex-1 items-center justify-center rounded-2xl bg-moss-deep px-4 text-sm font-light text-white transition-opacity hover:opacity-90 disabled:opacity-40"
+                      className="flex min-h-11 flex-1 items-center justify-center rounded-2xl bg-moss-deep px-4 text-sm font-normal text-white transition-opacity hover:opacity-90 disabled:opacity-40"
                     >
                       승인
                     </button>
@@ -300,7 +300,7 @@ export default function AdminPage() {
                       type="button"
                       disabled={actioningId === review.id}
                       onClick={() => updateStatus(review.id, "rejected", "이 후기를 거절할까요?")}
-                      className="flex min-h-11 flex-1 items-center justify-center rounded-2xl border border-[var(--color-border)] bg-card px-4 text-sm font-light text-text-sub transition-colors disabled:opacity-40"
+                      className="flex min-h-11 flex-1 items-center justify-center rounded-2xl border border-[var(--color-border)] bg-card px-4 text-sm font-normal text-text-sub transition-colors disabled:opacity-40"
                     >
                       거절
                     </button>
@@ -314,7 +314,7 @@ export default function AdminPage() {
                     onClick={() =>
                       updateStatus(review.id, "pending", "승인을 취소하고 대기 중으로 되돌릴까요?")
                     }
-                    className="flex min-h-11 w-full items-center justify-center rounded-2xl border border-[var(--color-border)] bg-card px-4 text-sm font-light text-text-sub transition-colors disabled:opacity-40"
+                    className="flex min-h-11 w-full items-center justify-center rounded-2xl border border-[var(--color-border)] bg-card px-4 text-sm font-normal text-text-sub transition-colors disabled:opacity-40"
                   >
                     승인 취소
                   </button>

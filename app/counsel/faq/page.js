@@ -53,7 +53,7 @@ export default function FaqPage() {
       <div className="mt-9 divide-y divide-[var(--color-border)] rounded-2xl border border-[var(--color-border)] bg-card">
         {faqs.map((item) => (
           <details key={item.question} className="group px-4 py-3">
-            <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 text-base font-light text-text marker:content-none">
+            <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 text-base font-normal text-text marker:content-none">
               {item.question}
               <svg
                 aria-hidden

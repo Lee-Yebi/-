@@ -118,7 +118,7 @@ function CounselorCard({ title, lines }) {
 
 function SectionLabel({ children }) {
   return (
-    <span className="inline-block rounded-full bg-blush px-3 py-1 text-sm font-light text-maroon">
+    <span className="inline-block rounded-full bg-blush px-3 py-1 text-sm font-normal text-maroon">
       {children}
     </span>
   );

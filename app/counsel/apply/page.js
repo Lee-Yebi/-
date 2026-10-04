@@ -181,7 +181,7 @@ function InfoTable({ rows, labelHeader = "구분", valueHeader = "내용" }) {
       <div className="mt-4 space-y-3 md:hidden">
         {rows.map((row) => (
           <div key={row.label} className="rounded-2xl border border-[var(--color-border)] bg-card p-4">
-            <p className="text-sm font-light text-text">{row.label}</p>
+            <p className="text-sm font-normal text-text">{row.label}</p>
             <p className="mt-1 text-sm leading-relaxed text-text-sub">{row.value}</p>
           </div>
         ))}
@@ -190,14 +190,14 @@ function InfoTable({ rows, labelHeader = "구분", valueHeader = "내용" }) {
         <table className="w-full text-left text-sm">
           <thead>
             <tr className="border-b border-[var(--color-border)] bg-[var(--color-border)]/20 text-text">
-              <th className="px-4 py-3 font-light">{labelHeader}</th>
-              <th className="px-4 py-3 font-light">{valueHeader}</th>
+              <th className="px-4 py-3 font-normal">{labelHeader}</th>
+              <th className="px-4 py-3 font-normal">{valueHeader}</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-[var(--color-border)] bg-card">
             {rows.map((row) => (
               <tr key={row.label}>
-                <td className="px-4 py-3 font-light text-text">{row.label}</td>
+                <td className="px-4 py-3 font-normal text-text">{row.label}</td>
                 <td className="px-4 py-3 text-text-sub">{row.value}</td>
               </tr>
             ))}
@@ -228,7 +228,7 @@ export default function ApplyPage() {
               key={tab.key}
               type="button"
               onClick={() => setActiveTab(tab.key)}
-              className={`shrink-0 border-b-2 px-1 py-3 text-sm font-light whitespace-nowrap transition-colors ${
+              className={`shrink-0 border-b-2 px-1 py-3 text-sm font-normal whitespace-nowrap transition-colors ${
                 activeTab === tab.key
                   ? "border-moss text-moss"
                   : "border-transparent text-text-sub"
@@ -260,7 +260,7 @@ export default function ApplyPage() {
             )}
           </h2>
           {active.meta && (
-            <p className="mt-1 text-sm font-light text-moss">{active.meta}</p>
+            <p className="mt-1 text-sm font-normal text-moss">{active.meta}</p>
           )}
           <ol className="mt-4 space-y-3">
             {active.steps.map((step, i) => (
@@ -358,7 +358,7 @@ export default function ApplyPage() {
       {activeTab === "individual" && (
         <div className="mt-12">
           <p className="text-sm leading-relaxed text-text-sub">
-            <span className="font-light text-text">개인상담이란?</span> 대학생활이나
+            <span className="font-normal text-text">개인상담이란?</span> 대학생활이나
             일상에서 혼자 풀기 어려운 주제를, 상담 전문 선생님과 1:1로 만나 깊이 있게
             다루는 상담 서비스입니다. 문제의 해결책을 찾는 것뿐 아니라, 그 과정에서
             자신을 이해하고 내적으로 성숙해지는 것을 목표로 합니다.
@@ -405,7 +405,7 @@ export default function ApplyPage() {
                 <h3 className="text-base font-bold text-moss">{item.name}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-text-sub">{item.desc}</p>
                 {item.time && (
-                  <p className="mt-2 text-xs font-light text-text-sub">소요 시간: {item.time}</p>
+                  <p className="mt-2 text-xs font-normal text-text-sub">소요 시간: {item.time}</p>
                 )}
               </div>
             ))}
@@ -419,7 +419,7 @@ export default function ApplyPage() {
       {activeTab === "group" && (
         <div className="mt-12">
           <p className="text-sm leading-relaxed text-text-sub">
-            <span className="font-light text-text">집단상담이란?</span> 상담 전문가
+            <span className="font-normal text-text">집단상담이란?</span> 상담 전문가
             선생님과 비슷한 관심사를 가진 학생들과 함께 모여 여러 활동이나 대화를
             통해서 자신의 경험을 나누고 공감함으로써 자신과 타인을 보다 잘 이해하게
             되어 내적인 성장을 돕는 프로그램입니다. 집단상담의 종류로는 긍정적
