@@ -140,7 +140,7 @@ export default function AdminPage() {
   // 로그인 안 됨 — 로그인 폼만
   if (!session) {
     return (
-      <div className="brand-scope min-h-screen w-full bg-cream">
+      <div className="brand-scope min-h-screen w-full">
       <PageContainer>
         <h1 className="text-xl font-bold text-moss">관리자 로그인</h1>
 
@@ -191,7 +191,7 @@ export default function AdminPage() {
 
   // 로그인됨 — 승인 화면
   return (
-    <div className="brand-scope min-h-screen w-full bg-cream">
+    <div className="brand-scope min-h-screen w-full">
     <PageContainer>
       <div className="flex items-center justify-between gap-4">
         <h1 className="text-xl font-bold text-moss">관리자</h1>

@@ -37,7 +37,7 @@ export default function Home() {
   const [teamMascotError, setTeamMascotError] = useState(false);
 
   return (
-    <div className="brand-scope min-h-screen w-full bg-cream">
+    <div className="brand-scope min-h-screen w-full">
       <RoomBackground>
         <div className="room__logo">
           <div className={`mx-auto w-full px-4 ${LOGO_MAX_WIDTH_CLASS}`}>

@@ -54,7 +54,7 @@ export default function NewReviewPage() {
 
   if (submitted) {
     return (
-      <div className="brand-scope min-h-screen w-full bg-cream">
+      <div className="brand-scope min-h-screen w-full">
         <PageContainer>
           <h1 className="text-xl font-bold text-moss">
             소중한 후기 감사합니다. 검토 후 게시됩니다.
@@ -79,7 +79,7 @@ export default function NewReviewPage() {
   }
 
   return (
-    <div className="brand-scope min-h-screen w-full bg-cream">
+    <div className="brand-scope min-h-screen w-full">
       <PageContainer>
       <h1 className="text-xl font-bold text-moss">후기 작성</h1>
 

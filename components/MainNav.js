@@ -31,7 +31,7 @@ export default function MainNav() {
   }
 
   return (
-    <nav className="w-full bg-cream">
+    <nav className="w-full">
       <div className="mx-auto max-w-[720px] px-4 py-2">
         {/* mobile: hamburger toggle */}
         <div className="flex items-center justify-between md:hidden">

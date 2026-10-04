@@ -64,7 +64,7 @@ function ProgramCard({ program }) {
 
 export default function ProgramsPage() {
   return (
-    <div className="brand-scope min-h-screen w-full bg-cream">
+    <div className="brand-scope min-h-screen w-full">
       <PageContainer>
       <h1 className="flex items-center gap-2 text-xl font-bold text-moss">
         <MountainIcon className="text-moss" />

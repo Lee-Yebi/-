@@ -62,11 +62,13 @@ export default function RootLayout({ children }) {
     >
       <body className="flex min-h-full flex-col bg-background text-foreground">
         <SeasonalFall />
-        <CrisisBanner />
-        <SiteHeader />
-        <MainNav />
-        <main className="w-full flex-1">{children}</main>
-        <Footer />
+        <div className="relative z-[1] flex flex-1 flex-col">
+          <CrisisBanner />
+          <SiteHeader />
+          <MainNav />
+          <main className="w-full flex-1">{children}</main>
+          <Footer />
+        </div>
         <Mascot />
         <Analytics />
       </body>

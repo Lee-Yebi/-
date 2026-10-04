@@ -2,7 +2,7 @@ import PageContainer from "@/components/PageContainer";
 
 export default function BugReportPage() {
   return (
-    <div className="brand-scope min-h-screen w-full bg-cream">
+    <div className="brand-scope min-h-screen w-full">
       <PageContainer>
         <h1 className="text-xl font-bold text-moss">버그 제보</h1>
 

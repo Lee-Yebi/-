@@ -61,7 +61,7 @@ export default function ReviewsPage() {
       : reviews.filter((review) => review.category === activeFilter);
 
   return (
-    <div className="brand-scope min-h-screen w-full bg-cream">
+    <div className="brand-scope min-h-screen w-full">
       <PageContainer>
       <h1 className="text-xl font-bold text-moss">이용후기</h1>
 

@@ -20,7 +20,7 @@
 /* ── 방 (벽) ──────────────────────────────────────────── */
 .room{
   position: relative;
-  background: var(--room-wall);
+  background: transparent;   /* 벽 색(크림)은 body 배경에서 옴 — 낙엽이 벽 위에 보이도록 */
   overflow: hidden;
   padding-top: 46px;
   isolation: isolate;

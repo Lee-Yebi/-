@@ -40,7 +40,7 @@ const faqs = [
 
 export default function FaqPage() {
   return (
-    <div className="brand-scope min-h-screen w-full bg-cream">
+    <div className="brand-scope min-h-screen w-full">
       <PageContainer>
       <div className="mt-6 flex items-center gap-2">
         <h1 className="flex shrink-0 items-center gap-2 text-xl font-bold text-moss">

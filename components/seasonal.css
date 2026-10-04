@@ -7,21 +7,23 @@
   position: fixed; inset: 0;
   overflow: hidden;
   pointer-events: none;      /* 클릭을 절대 막지 않음 */
-  z-index: 1;
+  z-index: 0;                /* 본문 래퍼(z-index:1)보다 뒤 — 카드·글자 뒤로 지나감 */
+  --fall-scale: 1.6;         /* 떨어지는 시간 배율 (조각별 편차 비율은 그대로) */
+  --sway-scale: 1.4;         /* 좌우 흔들림 시간 배율 */
 }
 
 .season__item{
   position: absolute;
   top: -10%;
   left: var(--x);
-  animation: seasonFall var(--dur) linear var(--delay) infinite;
+  animation: seasonFall calc(var(--dur) * var(--fall-scale)) linear var(--delay) infinite;
 }
 .season__item i{
   display: block;
   width:  calc(var(--size) * 1px);
   height: calc(var(--size) * 1px);
   opacity: var(--op);
-  animation: seasonSway calc(var(--dur) / 3) ease-in-out var(--delay) infinite;
+  animation: seasonSway calc(var(--dur) / 3 * var(--sway-scale)) ease-in-out var(--delay) infinite;
 }
 
 @keyframes seasonFall { to { transform: translateY(115vh); } }

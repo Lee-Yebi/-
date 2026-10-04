@@ -135,7 +135,7 @@ const partnerCategories = [
 
 export default function ExternalPage() {
   return (
-    <div className="brand-scope min-h-screen w-full bg-cream">
+    <div className="brand-scope min-h-screen w-full">
       <PageContainer>
         <h1 className="text-xl font-bold text-moss">교외 도움 찾기</h1>
 
