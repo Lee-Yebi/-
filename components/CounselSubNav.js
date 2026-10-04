@@ -127,10 +127,13 @@ export default function CounselSubNav({ links: navLinks = links }) {
           disabled={atStart}
           hasOverflow={hasOverflow}
         />
-        <ul
+        <div
           ref={scrollRef}
-          className="no-scrollbar -my-1.5 flex min-w-0 flex-1 flex-nowrap gap-1.5 overflow-x-auto py-4 pr-7 text-sm sm:pr-0 [-webkit-overflow-scrolling:touch] [scroll-behavior:smooth] [scroll-padding-inline:16px] overscroll-x-contain"
+          className={`no-scrollbar -my-1.5 min-w-0 flex-1 overflow-x-auto py-4 text-sm [-webkit-overflow-scrolling:touch] [scroll-behavior:smooth] [scroll-padding-inline:16px] overscroll-x-contain ${
+            hasOverflow ? "pr-7 sm:pr-0" : ""
+          }`}
         >
+        <ul className="mx-auto flex w-max flex-nowrap gap-1.5">
           {navLinks.map((link) => {
             const active = pathname === link.href;
 
@@ -152,6 +155,7 @@ export default function CounselSubNav({ links: navLinks = links }) {
             );
           })}
         </ul>
+        </div>
         <ScrollButton
           direction="next"
           onClick={() => scrollByDirection(1)}
