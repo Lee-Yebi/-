@@ -29,11 +29,6 @@ export default function BugReportPage() {
         >
           오픈채팅으로 제보하기
         </a>
-
-        <p className="mt-3 text-[13px] leading-relaxed text-text-sub">
-          상담 문의와 신청은 학생상담센터(02-901-8056)로 해주세요. 이 채팅방은 사이트 오류 제보만
-          받습니다.
-        </p>
       </PageContainer>
     </div>
   );
