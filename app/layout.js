@@ -40,14 +40,21 @@ export const metadata = {
   openGraph: {
     title: "무궁담",
     description: "덕성여자대학교 학생상담센터 안내",
-    images: ["/logo-circle.png"],
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "무궁담 - 마음을 마주하는 이야기",
+      },
+    ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "무궁담",
     description: "덕성여자대학교 학생상담센터 안내",
-    images: ["/logo-circle.png"],
+    images: ["/og-image.jpg"],
   },
 };
 
