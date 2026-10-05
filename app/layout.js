@@ -33,6 +33,7 @@ const geistMono = Geist_Mono({
 // });
 
 export const metadata = {
+  metadataBase: new URL("https://azure-kappa-89.vercel.app"),
   title: "무궁담",
   description: "무궁담 · 덕성여자대학교 학생상담센터 안내 사이트",
   manifest: "/manifest.json",

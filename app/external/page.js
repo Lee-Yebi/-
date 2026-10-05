@@ -1,5 +1,9 @@
 import PageContainer from "@/components/PageContainer";
 
+// 운영시간이 아직 확인되지 않은 기관은 데이터에 이 문구를 두고 화면에서는 운영시간 줄을 숨긴다.
+// 확인되면 hours를 실제 운영시간으로 바꾸면 다시 나타난다.
+const HOURS_UNCONFIRMED = "운영시간 확인 중";
+
 function tel(number) {
   return `tel:${number.replace(/-/g, "")}`;
 }
@@ -216,7 +220,9 @@ export default function ExternalPage() {
                           {org.extraLabel} {org.extraNumber}
                         </a>
                       )}
-                      <p className="mt-1 text-sm text-text-sub">{org.hours}</p>
+                      {org.hours !== HOURS_UNCONFIRMED && (
+                        <p className="mt-1 text-sm text-text-sub">{org.hours}</p>
+                      )}
                       {org.url && (
                         <a
                           href={org.url}
