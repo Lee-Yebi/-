@@ -54,10 +54,17 @@ export default async function DiseasePage({ params }) {
         <div className="mt-9 space-y-8">
           {disease.topics.map((topic) => (
             <div key={topic.title}>
-              <div className="flex items-center gap-[10px]">
-                <span className="h-[18px] w-[3px] shrink-0 bg-[var(--color-sprout)]" />
-                <h2 className="text-[18px] font-bold text-moss">{topic.title}</h2>
-              </div>
+              {topic.hideTitle ? (
+                <div aria-hidden="true" className="flex items-center gap-[10px]">
+                  <span className="h-[18px] w-[3px] shrink-0" />
+                  <span className="text-[18px]">&nbsp;</span>
+                </div>
+              ) : (
+                <div className="flex items-center gap-[10px]">
+                  <span className="h-[18px] w-[3px] shrink-0 bg-[var(--color-sprout)]" />
+                  <h2 className="text-[18px] font-bold text-moss">{topic.title}</h2>
+                </div>
+              )}
 
               <div className="mt-3 space-y-2">
                 {topic.sections.map((section) =>
